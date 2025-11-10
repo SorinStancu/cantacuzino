@@ -4,52 +4,111 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cantacuzino</title>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-<nav class="navbar">
-   <div class="navbar-logo">
-      <img src="images/logo.png" alt="Institutul Cantacuzino">
-   </div>
+<body class="relative min-h-screen bg-cover bg-no-repeat bg-fixed" style="background-image: url('images/fundal 1.png'); background-position: top center;">
+<div class="fixed inset-0 bg-[#00000052] z-0"></div>
+<nav class="absolute w-[1559px] h-[105px] left-1/2 -translate-x-1/2 top-[34px] font-['Poppins',sans-serif] z-10">
+   <div class="absolute w-[1559px] h-[105px] left-0 top-0 bg-white/6 border border-white/29 backdrop-blur-[6.6px] rounded-[66px] box-border"></div>
    
-   <ul class="navbar-menu">
-      <li class="active"><a href="#">Prima pagină</a></li>
-      <li><a href="#">Cum cumpăr</a></li>
-      <li><a href="#">Catalog de produse</a></li>
-      <li><a href="#">Nutreț / Alimente animale</a></li>
+   <div class="absolute w-[76.82px] h-[82px] left-[24px] top-[9px] bg-cover bg-center bg-no-repeat" 
+   style="background-image: url('images/Logo-Institutul-Cantacuzino-BNT-RO-CMYK 1.png');" role="img" 
+   aria-label="Institutul Cantacuzino"></div>
+   
+   <ul class="absolute flex flex-row items-center p-0 gap-[36px] w-[721px] h-[52px] left-[140px] top-[24px] rounded-[25px] list-none m-0">
+      <li class="flex-none order-0 flex-grow-0">
+         <a href="#" class="w-[96px] h-[21px] text-sm font-medium leading-[21px] text-[#D0FF00] no-underline">
+            Prima pagină
+         </a>
+      </li>
+      <li class="flex-none order-1 flex-grow-0">
+         <a href="#" class="w-[94px] h-[21px] text-sm font-normal leading-[21px] text-white no-underline">
+            Cum cumpăr
+         </a>
+      </li>
+      <li class="flex-none order-2 flex-grow-0">
+         <a href="#" class="w-[141px] h-[21px] text-sm font-normal leading-[21px] text-white no-underline">
+            Catalog de produse
+         </a>
+      </li>
+      <li class="flex-none order-3 flex-grow-0">
+         <a href="#" class="w-[181px] h-[21px] text-sm font-normal leading-[21px] text-white no-underline">
+            Nutreț / Alimente animale
+         </a>
+      </li>
    </ul>
    
-   <div class="navbar-icons">
-      <a href="#" class="icon-cart">
-         <!-- SVG-ul tău -->
-         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-shopping-cart">
+   <div class="absolute flex flex-row justify-center items-center p-0 gap-6 w-[109.65px] h-[32px] left-[1246px] top-[34px]">
+      <div class="w-8 h-8 flex-none order-0 flex-grow-0 relative">
+         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="32" height="32" viewBox="0 0 24 24" stroke-width="2" stroke="#FFFFFF" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-            <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-            <path d="M17 17h-11v-14h-2" />
-            <path d="M6 5l14 1l-1 7h-13" />
+            <circle cx="6" cy="19" r="2"/>
+            <circle cx="17" cy="19" r="2"/>
+            <path d="M17 17h-11v-14h-2"/>
+            <path d="M6 5l14 1l-1 7h-13"/>
          </svg>
-      </a>
-      <a href="#" class="icon-search">
-         <!-- Poți adăuga aici SVG-ul pentru căutare -->
-      </a>
+      </div>
+      <div class="w-8 h-8 flex-none order-1 flex-grow-0 relative">
+         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="32" height="32" viewBox="0 0 24 24" stroke-width="2" stroke="#FFFFFF" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <circle cx="10" cy="10" r="7"/>
+            <path d="m21 21-6-6"/>
+         </svg>
+      </div>
    </div>
    
-   <a href="#" class="btn-login">Autentificare</a>
+   <a href="#" class="absolute flex flex-row justify-center items-center p-[15px_20px] gap-2.5 w-[133px] h-[52px] left-[1383.07px] top-[24px] bg-[#D0FF00] rounded-[43px] no-underline">
+      <span class="w-[93px] h-[21px] text-sm font-semibold leading-[21px] text-black">Autentificare</span>
+   </a>
 </nav>
 
+<div class="absolute left-1/2 -translate-x-1/2 top-[149px] flex flex-col items-end">
+   <div class="w-[1056px] h-[273px] font-['Manrope',sans-serif] font-light text-[200px] leading-[273px] text-white" style="text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.64);">
+      Orostim-HV
+   </div>
+   <div class="w-[27px] h-[137px] mt-[-80px] font-['Manrope',sans-serif] font-bold text-[100px] leading-[137px] text-[#D0FF00]" style="text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.64);">
+      125
+   </div>
+</div>
 
+<svg class="absolute w-[1559px] h-[50px] left-1/2 -translate-x-1/2 top-[455.24px]" viewBox="0 0 1559 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <mask id="mask0_33_23" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1510" y="1" width="49" height="49">
+      <rect x="1534.14" y="1.04968" width="34.1443" height="34.1443" transform="rotate(45 1534.14 1.04968)" fill="#D9D9D9"/>
+   </mask>
+   <g mask="url(#mask0_33_23)">
+      <path d="M1522.47 25.3933L1522.47 22.5777L1541.79 22.5777L1533.14 13.9299L1535.15 11.9187L1547.22 23.9855L1535.15 36.0523L1533.14 34.0411L1541.79 25.3933L1522.47 25.3933Z" fill="white"/>
+   </g>
+   <mask id="mask1_33_23" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="49" height="49">
+      <rect x="24.1436" y="48.2874" width="34.1443" height="34.1443" transform="rotate(-135 24.1436 48.2874)" fill="#D9D9D9"/>
+   </mask>
+   <g mask="url(#mask1_33_23)">
+      <path d="M35.813 23.5395L35.813 26.355L16.4981 26.355L25.1495 35.0029L23.1376 37.014L11.0657 24.9472L23.1376 12.8805L25.1495 14.8916L16.4981 23.5395L35.813 23.5395Z" fill="white"/>
+   </g>
+</svg>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>30 DE CAPSULE</h1>
-      <p>3–7 ANI • PENTRU COPII</p>
-      <div class="buttons">
-        <a href="#" class="btn btn-primary">Adaugă în coș</a>
-        <a href="#" class="btn btn-secondary">Vezi detalii</a>
-      </div>
-    </div>
-  </section>
+<div class="absolute w-[580px] h-[453px] left-[calc(50%-779.5px)] top-[564px] box-border bg-white/6 backdrop-blur-[6.6px] bg-cover bg-center bg-no-repeat relative" style="background-image: url('images/Subtract.png');">
+   <div class="absolute w-[72px] h-[72px] left-[508px] top-[-5px] bg-cover bg-center bg-no-repeat" style="background-image: url('images/Arrow.png');"></div>
+   <div class="absolute w-[387px] h-[90px] left-[160px] top-[67px] font-['Manrope',sans-serif] font-medium text-[33px] leading-[45px] text-white">
+      Pentru buna funcționare a sistemului imunitar
+   </div>
+   <div class="absolute w-[424px] h-[120px] left-[75.5px] top-[175px] font-['Manrope',sans-serif] font-medium text-base leading-[190%] text-white/80">
+      OROSTIM-HV 125 supliment alimentar este o combinație între pulberea de extract de orz verde și un lizat bacterian original, cu formulă proprie, pentru utilizare orală.
+   </div>
+   <div class="absolute flex flex-row justify-center items-center p-[10px] gap-[15px] w-[185px] h-[52px] left-[349px] top-[363px] bg-black rounded-[100px]">
+      <span class="w-[92px] h-[25px] font-['Manrope',sans-serif] font-medium text-[18px] leading-[25px] uppercase text-[#D0FF00] flex-none order-0 flex-grow-0">PROSPECT</span>
+      <svg class="w-6 h-6 flex-none order-1 flex-grow-0" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+         <mask id="mask0_49_8" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+            <rect width="24" height="24" fill="#D9D9D9"/>
+         </mask>
+         <g mask="url(#mask0_49_8)">
+            <path d="M6.4 18L5 16.6L14.6 7H6V5L18 5V17H16V8.4L6.4 18Z" fill="#D0FF00"/>
+         </g>
+      </svg>
+   </div>
+</div>
+
 </body>
 </html>
