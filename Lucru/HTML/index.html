@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Animație scroll – cutie</title>
+  <style>
+    :root {
+      /* poți regla cât de mult scroll consumă animația: px per secundă video */
+      --px-per-sec: 900;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #f4f4f4 url('fundal.png') center center / cover no-repeat;
+      color: #1b1b1b;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      overflow: hidden; /* Blochează scroll-ul convențional */
+      position: relative;
+    }
+
+    /* Chenar alb de 40px de jur împrejurul ecranului */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 40px solid white;
+      pointer-events: none;
+      z-index: 1000;
+      box-sizing: border-box;
+    }
+
+    /* Secțiune introductivă doar ca să ai spațiu înainte de animație */
+    .intro {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      min-height: 80vh;
+      display: grid;
+      place-items: center;
+      padding: 48px 16px;
+      pointer-events: none; /* Nu permite interacțiunea */
+      z-index: 2;
+    }
+
+    /* Zona care "consumă" scroll-ul pentru a parcurge video-ul */
+    .drive {
+      /* înălțimea se setează din JS după ce știm durata video-ului */
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      z-index: 1;
+    }
+    
+    /* Spacer pentru a crea înălțimea de scroll */
+    .drive-spacer {
+      height: 100vh; /* Înălțimea se va seta dinamic din JS */
+    }
+
+    /* Video-ul în sine: fix, 100px de sus, centrat, transparent */
+    .cutie-wrap {
+      position: fixed;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none; /* nu capturează scrollul/clickul */
+      z-index: 100; /* Deasupra chenarului dar sub chenarul alb */
+      /* ~30% din ecran. Poți schimba în 30vw/28vw după preferință */
+      width: min(30vw, 480px);
+      /* menține proporțiile fără să întindă */
+      aspect-ratio: 1 / 1; /* 1080x1080 => pătrat */
+    }
+    video.cutie {
+      width: 100%;
+      height: 100%;
+      display: block;
+      background: transparent; /* nu pune fundal */
+    }
+
+    /* Conținutul de după animație */
+    .content {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      min-height: 150vh;
+      padding: 64px 16px;
+      display: grid;
+      gap: 24px;
+      pointer-events: none; /* Nu permite interacțiunea */
+      z-index: 2;
+    }
+
+    .hint {
+      text-align: center;
+      opacity: .7;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="intro">
+    <div>
+      <h1>Scroll pentru a “roti” cutia</h1>
+      <p class="hint">(Animația pornește din primul frame și se parcurge doar prin scroll)</p>
+    </div>
+  </section>
+
+  <!-- zona de scroll-driven; înălțimea se calculează dinamic -->
+  <section id="drive" class="drive" aria-label="Animație cu scroll">
+    <div class="drive-spacer"></div>
+  </section>
+
+  <!-- video fix, centrat; rămâne pe loc în timp ce derulezi -->
+  <div class="cutie-wrap" aria-hidden="true">
+    <video
+      id="cutie"
+      class="cutie"
+      playsinline
+      muted
+      preload="auto"
+      controlslist="nodownload noplaybackrate noremoteplayback"
+      disablepictureinpicture
+      disableremoteplayback
+    >
+      <!-- MP4 HEVC + alpha pentru Safari/iOS -->
+      <source src="cutie_alpha.mp4" type='video/mp4; codecs="hvc1"' />
+      <!-- Fallback WebM VP9 + alpha pentru Chrome/Firefox -->
+      <source src="cutie.webm" type="video/webm" />
+    </video>
+  </div>
+
+  <section class="content">
+    <h2>Conținut după animație</h2>
+    <p>
+      După ce ai parcurs animația complet (prin scroll), pagina continuă să deruleze normal.
+      Poți adăuga aici text, imagini, CTA-uri etc.
+    </p>
+  </section>
+
+  <script>
+    (function () {
+      const video = document.getElementById('cutie');
+      const drive = document.getElementById('drive');
+
+      let duration = 0;
+      let startY = 0;
+      let endY = 0;
+      let driveHeight = 0;
+      let ticking = false;
+
+      function clamp01(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+
+      function layout() {
+        // calculează înălțimea necesară pentru a parcurge întreaga durată
+        // px-per-sec * durata (secunde) + un mic buffer
+        driveHeight = Math.max(
+          window.innerHeight * 0.8,
+          (parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--px-per-sec')) || 900) * duration
+        );
+        
+        // Setăm înălțimea spacer-ului pentru a crea scroll-ul necesar
+        const spacer = drive.querySelector('.drive-spacer');
+        if (spacer) {
+          spacer.style.height = `${driveHeight}px`;
+        }
+
+        // Pentru scroll intern, folosim poziții relative la drive
+        startY = 0;
+        // Vom considera finalul când ai derulat prin toată secțiunea
+        endY = driveHeight - window.innerHeight;
+      }
+
+      function onScroll() {
+        if (!duration) return;
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            // Folosim scrollTop din secțiunea drive în loc de window
+            const scrollTop = drive.scrollTop;
+
+            if (scrollTop <= startY) {
+              // înainte de zona de rulare
+              if (!video.paused) video.pause();
+              if (video.currentTime !== 0) video.currentTime = 0;
+            } else if (scrollTop >= endY) {
+              // după zona de rulare – blochează pe ultimul frame
+              if (!video.paused) video.pause();
+              if (video.currentTime !== duration) video.currentTime = duration;
+            } else {
+              // în zona de rulare
+              const progress = clamp01((scrollTop - startY) / (endY - startY));
+              const t = progress * duration;
+              // menținem video “înghețat” și doar căutăm în timp
+              if (!video.paused) video.pause();
+              // doar dacă diferă suficient pentru a evita seek-uri excesive
+              if (Math.abs(video.currentTime - t) > 1 / 240) {
+                video.currentTime = t;
+              }
+            }
+
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }
+
+      function init() {
+        // Prevenim autoplay-ul real (vrem control pe scroll)
+        try { video.pause(); } catch (e) {}
+
+        duration = video.duration || 0;
+        if (!duration || !isFinite(duration)) {
+          // Unele browsere raportează durata după un mic delay
+          setTimeout(init, 50);
+          return;
+        }
+
+        layout();
+        onScroll();
+      }
+
+      // Recalculează când știm metadata (durata) și la resize
+      video.addEventListener('loadedmetadata', init, { once: true });
+      window.addEventListener('resize', layout, { passive: true });
+      // Ascultăm scroll-ul pe secțiunea drive în loc de window
+      drive.addEventListener('scroll', onScroll, { passive: true });
+
+      // Asigură încărcarea rapidă a primului frame
+      video.addEventListener('canplay', () => {
+        video.pause();
+        video.currentTime = 0;
+      }, { once: true });
+    })();
+  </script>
+</body>
+</html>

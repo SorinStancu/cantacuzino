@@ -1,0 +1,31 @@
+# OS files
+.DS_Store
+__MACOSX/
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Large media files
+*.mp4
+*.webm
+*.mkv
+*.exr
+*.blend
+*.blend1
+*.psd
+*.ai
+*.cdr
+*.eps
+
+# PDF files (optional - uncomment if you don't want to track PDFs)
+# *.pdf
+
+# Temporary files
+*.tmp
+*.log
+
