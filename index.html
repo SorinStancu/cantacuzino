@@ -16,21 +16,93 @@
       }
       
       /* Reset robust pentru box-sizing */
-      html { box-sizing: border-box; }
-      *, *::before, *::after { box-sizing: inherit !important; }
+      html {
+         box-sizing: border-box;
+      }
       
-      .font-poppins { font-family: 'Poppins', sans-serif; }
-      .font-manrope { font-family: 'Manrope', sans-serif; }
-      .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 10px 20px; border-radius: 100px; text-transform: uppercase; font-weight: 500; line-height: 25px; font-size: 18px; text-decoration: none; }
-      .btn-primary { background: #D0FF00; color: #000; }
-      .btn-secondary { background: #000; color: #D0FF00; }
-      .badge { display: inline-flex; align-items: center; justify-content: center; padding: 5px 9px; background: #000; color: #FEFEFE; border-radius: 13px; font-size: 16px; line-height: 22px; }
-      .price { display: flex; align-items: baseline; gap: 8px; color: #000; }
-      .price .amount { font-size: 59px; line-height: 81px; font-weight: 400; }
-      .price .currency { font-size: 22px; line-height: 31px; }
+      *, *::before, *::after {
+         box-sizing: inherit !important;
+      }
       
-      .card-product { position: relative; width: 552px; height: 456px; background: url('images/bg.png') center/cover no-repeat; border-radius: 12px; overflow: hidden; }
-      .card-product-two { position: relative; width: 552px; height: 456px; background: url('images/bg_dr.png') center/cover no-repeat; border-radius: 12px; overflow: hidden; }
+      .font-poppins {
+         font-family: 'Poppins', sans-serif;
+      }
+      
+      .font-manrope {
+         font-family: 'Manrope', sans-serif;
+      }
+      
+      .btn {
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         gap: 10px;
+         padding: 10px 20px;
+         border-radius: 100px;
+         text-transform: uppercase;
+         font-weight: 500;
+         line-height: 25px;
+         font-size: 18px;
+         text-decoration: none;
+      }
+      
+      .btn-primary {
+         background: #D0FF00;
+         color: #000;
+      }
+      
+      .btn-secondary {
+         background: #000;
+         color: #D0FF00;
+      }
+      
+      .badge {
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         padding: 5px 9px;
+         background: #000;
+         color: #FEFEFE;
+         border-radius: 13px;
+         font-size: 16px;
+         line-height: 22px;
+      }
+      
+      .price {
+         display: flex;
+         align-items: baseline;
+         gap: 8px;
+         color: #000;
+      }
+      
+      .price .amount {
+         font-size: 59px;
+         line-height: 81px;
+         font-weight: 400;
+      }
+      
+      .price .currency {
+         font-size: 22px;
+         line-height: 31px;
+      }
+      
+      .card-product {
+         position: relative;
+         width: 552px;
+         height: 456px;
+         background: url('images/bg.png') center/cover no-repeat;
+         border-radius: 12px;
+         overflow: hidden;
+      }
+      
+      .card-product-two {
+         position: relative;
+         width: 552px;
+         height: 456px;
+         background: url('images/bg_dr.png') center/cover no-repeat;
+         border-radius: 12px;
+         overflow: hidden;
+      }
       
       .card-product .content,
       .card-product-two .content {
@@ -40,9 +112,19 @@
          box-sizing: border-box;
       }
       
-      .shadow-glow { text-shadow: 0 0 20px rgba(255,255,255,0.64); }
-      .glass { background: rgba(255,255,255,0.06); backdrop-filter: blur(6.6px); }
-      .container-xl { max-width: 1600px; margin: 0 auto; }
+      .shadow-glow {
+         text-shadow: 0 0 20px rgba(255, 255, 255, 0.64);
+      }
+      
+      .glass {
+         background: rgba(255, 255, 255, 0.06);
+         backdrop-filter: blur(6.6px);
+      }
+      
+      .container-xl {
+         max-width: 1600px;
+         margin: 0 auto;
+      }
       
       .banner-cantacuzino {
          position: relative;
@@ -72,12 +154,18 @@
          <div class="ml-auto flex items-center gap-6">
             <button aria-label="Coș" class="w-8 h-8 text-white">
                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="6" cy="19" r="2"/><circle cx="17" cy="19" r="2"/><path d="M17 17h-11v-14h-2"/><path d="M6 5l14 1l-1 7h-13"/>
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <circle cx="6" cy="19" r="2"/>
+                  <circle cx="17" cy="19" r="2"/>
+                  <path d="M17 17h-11v-14h-2"/>
+                  <path d="M6 5l14 1l-1 7h-13"/>
                </svg>
             </button>
             <button aria-label="Căutare" class="w-8 h-8 text-white">
                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="10" cy="10" r="7"/><path d="m21 21-6-6"/>
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <circle cx="10" cy="10" r="7"/>
+                  <path d="m21 21-6-6"/>
                </svg>
             </button>
             <a href="#" class="btn btn-primary rounded-[43px] h-[52px]">Autentificare</a>
@@ -96,11 +184,15 @@
       <mask id="mask0_33_23" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1510" y="1" width="49" height="49">
          <rect x="1534.14" y="1.04968" width="34.1443" height="34.1443" transform="rotate(45 1534.14 1.04968)" fill="#D9D9D9"/>
       </mask>
-      <g mask="url(#mask0_33_23)"><path d="M1522.47 25.3933L1522.47 22.5777L1541.79 22.5777L1533.14 13.9299L1535.15 11.9187L1547.22 23.9855L1535.15 36.0523L1533.14 34.0411L1541.79 25.3933L1522.47 25.3933Z" fill="white"/></g>
+      <g mask="url(#mask0_33_23)">
+         <path d="M1522.47 25.3933L1522.47 22.5777L1541.79 22.5777L1533.14 13.9299L1535.15 11.9187L1547.22 23.9855L1535.15 36.0523L1533.14 34.0411L1541.79 25.3933L1522.47 25.3933Z" fill="white"/>
+      </g>
       <mask id="mask1_33_23" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="49" height="49">
          <rect x="24.1436" y="48.2874" width="34.1443" height="34.1443" transform="rotate(-135 24.1436 48.2874)" fill="#D9D9D9"/>
       </mask>
-      <g mask="url(#mask1_33_23)"><path d="M35.813 23.5395L35.813 26.355L16.4981 26.355L25.1495 35.0029L23.1376 37.014L11.0657 24.9472L23.1376 12.8805L25.1495 14.8916L16.4981 23.5395L35.813 23.5395Z" fill="white"/></g>
+      <g mask="url(#mask1_33_23)">
+         <path d="M35.813 23.5395L35.813 26.355L16.4981 26.355L25.1495 35.0029L23.1376 37.014L11.0657 24.9472L23.1376 12.8805L25.1495 14.8916L16.4981 23.5395L35.813 23.5395Z" fill="white"/>
+      </g>
    </svg>
    <div class="absolute left-1/2 -translate-x-1/2 top-[564px] flex flex-col lg:flex-row gap-10 items-stretch px-6">
       <div class="relative glass bg-cover bg-center bg-no-repeat w-[580px] h-[453px] rounded-2xl" style="background-image: url('images/Subtract.png');">
@@ -114,8 +206,12 @@
          <a href="#" class="btn btn-secondary absolute left-[349px] top-[363px] w-[185px] h-[52px]">
             <span>PROSPECT</span>
             <svg class="w-6 h-6" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-               <mask id="mask0_49_8" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><rect width="24" height="24" fill="#D9D9D9"/></mask>
-               <g mask="url(#mask0_49_8)"><path d="M6.4 18L5 16.6L14.6 7H6V5L18 5V17H16V8.4L6.4 18Z" fill="#D0FF00"/></g>
+               <mask id="mask0_49_8" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                  <rect width="24" height="24" fill="#D9D9D9"/>
+               </mask>
+               <g mask="url(#mask0_49_8)">
+                  <path d="M6.4 18L5 16.6L14.6 7H6V5L18 5V17H16V8.4L6.4 18Z" fill="#D0FF00"/>
+               </g>
             </svg>
          </a>
       </div>
@@ -257,18 +353,18 @@
          </div>
          <h2 class="font-manrope font-medium text-[47px] leading-[64px] text-white mb-4">Atenționări</h2>
          <div class="space-y-4">
-           <p class="font-manrope font-medium text-[16px] leading-[190%] text-white/80 max-w-[349px]">
-             1. Conform dispozițiilor art. 16 lit. d) și e) din OUG 34/2014, sunt exceptate de la returnare produsele susceptibile a se deteriora, din motive de protecție a sănătății. Produsul SOD NATURAL face parte din această categorie, întrucât necesită condiții speciale de depozitare și păstrare! Prin urmare, orice comandă de SOD NATURAL, care a fost livrată din depozitul Institutului „Cantacuzino", NU POATE FI RETURNATĂ de către client.
-           </p>
-           <p class="font-manrope font-medium text-[16px] leading-[190%] text-white/80 max-w-[349px]">
-             2. Costul transportului va fi achitat de client la destinație.
-           </p>
-           <p class="font-manrope font-medium text-[16px] leading-[190%] text-white/80 max-w-[349px]">
-             3. Modalitatea de plată acceptată deocamdată pentru achiziționarea produselor prin intermediul acestui magazin online este transferul bancar (ordin de plată).
-           </p>
-           <p class="font-manrope font-medium text-[16px] leading-[190%] text-white/80 max-w-[349px]">
-             4. Înainte de plasarea unei comenzi, vă rugăm să citiți cu atenție „Termenii și condițiile" de utilizare a acestui site. Dacă nu sunteți de acord cu acestea, vă rugăm să nu folosiți site-ul nostru. Prin acceptarea termenilor și condițiilor de utilizare, sunteți de acord să respectați „Termenii și condițiile" de utilizare în versiunea publicată pe site la momentul vizitei dvs.
-           </p>
+            <p class="font-manrope font-medium text-[16px] leading-[190%] text-white/80 max-w-[349px]">
+               1. Conform dispozițiilor art. 16 lit. d) și e) din OUG 34/2014, sunt exceptate de la returnare produsele susceptibile a se deteriora, din motive de protecție a sănătății. Produsul SOD NATURAL face parte din această categorie, întrucât necesită condiții speciale de depozitare și păstrare! Prin urmare, orice comandă de SOD NATURAL, care a fost livrată din depozitul Institutului „Cantacuzino", NU POATE FI RETURNATĂ de către client.
+            </p>
+            <p class="font-manrope font-medium text-[16px] leading-[190%] text-white/80 max-w-[349px]">
+               2. Costul transportului va fi achitat de client la destinație.
+            </p>
+            <p class="font-manrope font-medium text-[16px] leading-[190%] text-white/80 max-w-[349px]">
+               3. Modalitatea de plată acceptată deocamdată pentru achiziționarea produselor prin intermediul acestui magazin online este transferul bancar (ordin de plată).
+            </p>
+            <p class="font-manrope font-medium text-[16px] leading-[190%] text-white/80 max-w-[349px]">
+               4. Înainte de plasarea unei comenzi, vă rugăm să citiți cu atenție „Termenii și condițiile" de utilizare a acestui site. Dacă nu sunteți de acord cu acestea, vă rugăm să nu folosiți site-ul nostru. Prin acceptarea termenilor și condițiilor de utilizare, sunteți de acord să respectați „Termenii și condițiile" de utilizare în versiunea publicată pe site la momentul vizitei dvs.
+            </p>
          </div>
          <div class="absolute right-6 -bottom-12 md:-bottom-16">
             <div class="w-26 h-26 rounded-full bg-[#D0FF00] relative flex items-center justify-center" style="width:104px;height:104px;">
@@ -281,57 +377,127 @@
    </div>
 </section>
 <section class="banner-cantacuzino relative">
-   <div class="container-xl px-6 py-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-      <div class="space-y-4">
-         <p class="text-[#D0FF00] font-manrope text-[22px] lg:text-[30px] leading-[1.3]">Institutul Național de Cercetare-Dezvoltare Medico-Militară</p>
-         <h2 class="text-white font-manrope font-normal text-[48px] lg:text-[70px] leading-[1.2]">Cantacuzino</h2>
-         <p class="text-white/80 font-manrope text-[16px] leading-[1.9] max-w-[520px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-         <div class="flex items-center gap-4 bg-[#D0FF00] rounded-full w-max px-5 py-3">
-            <span class="w-8 h-8 rounded-full bg-black/10"></span>
+   <div class="container-xl px-6 py-12 lg:py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-8 lg:gap-12 min-h-[300px]">
+         
+         <!-- Coloana stângă -->
+         <div class="flex flex-col">
+            <!-- Titlu sus -->
             <div>
-               <div class="text-black font-semibold text-sm leading-none">123</div>
-               <div class="text-black text-xs leading-none">Client</div>
+               <p class="text-[#D0FF00] font-manrope font-light text-[24px] lg:text-[30px] leading-[1.4] m-0 mb-4">
+                  Institutul Național<br>de Cercetare-Dezvoltare<br>Medico-Militară
+               </p>
+               <h2 class="text-white font-manrope font-normal text-[48px] lg:text-[70px] leading-[1.4] m-0">Cantacuzino</h2>
+            </div>
+            
+            <!-- Badge și Lorem jos -->
+            <div>
+               <div class="inline-flex items-center gap-3 bg-[#D0FF00] rounded-full px-6 py-3 mb-6">
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                     <circle cx="16" cy="16" r="16" fill="#4285F4"/>
+                     <path d="M23 13h-6.5L16 8l-.5 5H9l5 4-2 6 4-3 4 3-2-6z" fill="#FBBC04"/>
+                     <path d="M16 8l.5 5H23l-5 4 2 6-4-3z" fill="#EA4335"/>
+                  </svg>
+                  <div class="text-left">
+                     <div class="text-black font-semibold text-base leading-tight">1000K+</div>
+                     <div class="text-black text-sm leading-tight">Reviewuri pozitive</div>
+                  </div>
+               </div>
+               
+               <p class="text-white/80 font-manrope font-light text-[16px] leading-[1.4] m-0">Lorem ipsum dolor...</p>
             </div>
          </div>
-         <div class="grid grid-cols-2 gap-6 pt-4">
-            <div>
-               <div class="w-26 h-26 rounded-full bg-[#D0FF00] flex items-center justify-center" style="width:104px;height:104px;"></div>
-               <div class="mt-3 text-white uppercase font-manrope text-[18px] lg:text-[20px]">0775128957 021-306 9250</div>
+         
+         <!-- Coloana centrală: Adresă, Program, Icoane (stivuite vertical) -->
+         
+         <div class="flex gap-[60px] lg:gap-[90px] text-center min-w-[300px] w-full max-h-[300px] overflow-auto pl-[62.5px]">
+            
+            <!-- Adresă și Program -->
+            <div class="text-white font-manrope">
+               <div class="mb-8">
+                  <p class="text-[18px] lg:text-[20px] leading-[1.35] font-medium m-0">
+                     Splaiul<br>Independenței,<br>nr. 103, București
+                  </p>
+               </div>
+               <div>
+                  <p class="text-[18px] lg:text-[20px] leading-[1.35] font-medium m-0 mb-1">Program zilnic</p>
+                  <p class="text-white/80 text-[18px] lg:text-[20px] leading-[1.35] m-0">08:00 - 14:00</p>
+               </div>
             </div>
-            <div>
-               <div class="w-26 h-26 rounded-full bg-[#D0FF00] flex items-center justify-center" style="width:104px;height:104px;"></div>
-               <div class="mt-3 text-white font-manrope text-[18px] lg:text-[20px] lowercase">comenzi.cantacuzino@mapn.ro comenzi@cantacuzino.ro</div>
+            
+            <!-- Icoane Telefon și Email -->
+            <div class="flex items-start gap-[125px]">
+               <!-- Telefon -->
+               <div class="flex flex-col items-center">
+                  <div class="w-[90px] h-[90px] lg:w-[104px] lg:h-[104px] rounded-full bg-[#D0FF00] flex items-center justify-center mb-4">
+                     <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                     </svg>
+                  </div>
+                  <div class="text-white font-manrope text-[18px] lg:text-[20px] leading-[1.35] text-left">
+                     0775128957<br>021-306 9250
+                  </div>
+               </div>
+               
+               <!-- Email -->
+               <div class="flex flex-col  items-left">
+                  <div class="w-[90px] h-[90px] lg:w-[104px] lg:h-[104px] rounded-full bg-[#D0FF00] flex items-center justify-center mb-4">
+                     <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                     </svg>
+                  </div>
+                  <div class="text-white font-manrope text-[18px] lg:text-[20px] leading-[1.35] text-left lowercase">
+                     comenzi.cantacuzino@mapn.ro<br>comenzi@cantacuzino.ro
+                  </div>
+               </div>
             </div>
          </div>
-         <div class="text-white font-poppins text-[16px]">Splaiul Independenței, nr. 103, București</div>
-         <div class="text-white/80 font-poppins text-[16px]">Program zilnic<br>08:00 - 14:00</div>
+      
       </div>
-      <div class="glass border border-white/30 rounded-[40px] p-8">
-         <div class="text-white font-manrope text-[48px] leading-[1.2]">48K+</div>
-         <div class="text-white font-manrope text-[22px] leading-[1.3] mb-4">Produse vândute în 2025</div>
-         <p class="text-white/80 font-manrope text-[16px] leading-[1.9] max-w-[420px]">
-            util ca supliment alimentar, fiind un tonic general al organismului, care protejează celulele corpului de degradare oxidativă și are rol benefic asupra capacității naturale de apărare a organismului
-         </p>
-         <div class="mt-4 inline-flex items-center justify-center px-3 py-1.5 rounded-[13px] bg-[#D0FF00] text-black font-manrope text-[16px]">OROSTIM-HV 250</div>
+      <!-- Coloana dreapta: Card 48K+ -->
+      <div class="flex items-center justify-center">
+         <div class="w-full max-w-[650px]">
+            <div class="glass border border-white/30 rounded-[30px] lg:rounded-[40px] p-8 lg:p-10 relative">
+               <div class="grid grid-cols-1 lg:grid-cols-[0.4fr_0.6fr] gap-6 items-start">
+                  <!-- Stânga 40%: text -->
+                  <div>
+                     <div class="text-white font-manrope font-normal text-[48px] lg:text-[70px] leading-[1.4] mb-2 mt-12 lg:mt-0">48K+</div>
+                     <div class="text-white font-manrope font-medium text-[24px] lg:text-[30px] leading-[1.4] mb-4 lg:mb-6">Produse vândute<br>în 2025</div>
+                  </div>
+                  
+                  <!-- Dreapta 60%: badge -->
+                  <div >
+                     <div class="inline-flex items-center justify-center px-4 py-2 rounded-[100px] bg-[#D0FF00] text-black font-manrope font-medium text-[14px] lg:text-[18px] uppercase">
+                        OROSTIM-HV 250
+                     </div>
+                     <p class="text-white/80 font-manrope font-light text-[15px] lg:text-[16px] leading-[1.9]">
+                        util ca supliment alimentar, fiind un tonic general al organismului, care protejează celulele corpului de degradare oxidativă și are rol benefic asupra capacităților naturale de apărare a organismului
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
+      
    </div>
 </section>
-
+<!-- ... existing code ... -->
 
 <section class="relative bg-white py-16">
    <div class="container-xl px-6 grid grid-cols-1 lg:grid-cols-[1fr_300px] items-start gap-10">
       <div class="mt-10">
          <div class="relative w-full overflow-hidden rounded-2xl border border-black/20">
-            <img src="images/brands.png" alt="Parteneri și farmacii" class="w-full h-auto object-cover" />
+            <img src="images/brands.png" alt="Parteneri și farmacii" class="w-full h-auto object-cover"/>
          </div>
       </div>
-      <aside class="mt-10">
+      <aside class="mt-[200px]">
          <h3 class="font-manrope font-medium text-[22px] leading-[39px] text-black">INFO</h3>
          <div class="mt-4">
-            <div class="font-manrope text-[18px] leading-[30px] text-black/80">
-               <div class="font-medium mb-2">Head office</div>
+            <div class="font-manrope text-[18px] leading-[30px] text-black/80 ">
                <p class="m-0">
-                  Website deținut de Institutul Național de Cercetare Dezvoltare Medico Militară Cantacuzino<br/>
+                  Website deținut de<br> Institutul Național de<br> Cercetare Dezvoltare<br> Medico Militară<br> Cantacuzino<br/><br>
                   CIF: 15203810
                </p>
             </div>
@@ -342,7 +508,7 @@
 <!-- ... existing code ... -->
 <footer class="bg-white" id="contact">
    <div class="container-xl mx-auto px-6 py-12 border-t border-black/25">
-      <div class="grid grid-cols-1 lg:grid-cols-[172px_180px_1fr] gap-10">
+      <div class="grid grid-cols-1 lg:grid-cols-[172px_180px_1fr_220px] gap-10">
          <!-- Col 1: Menu -->
          <nav aria-label="Meniu footer" class="font-manrope">
             <h4 class="text-black font-medium text-[23px] leading-[39px] mb-[38px]">Menu</h4>
@@ -362,36 +528,38 @@
             </ul>
          </div>
          <!-- Col 3: Newsletter -->
-         <div class="font-manrope max-w-[450px] lg:ml-auto">
+         <div class="font-manrope max-w-[450px] lg:ml-0">
             <h4 class="text-black font-medium text-[22px] leading-[39px] mb-6">Newsletter</h4>
             <form class="space-y-6" onsubmit="event.preventDefault();">
-               <div class="flex items-center justify-between border-b border-black/80/25 pb-2">
+               <div class="flex items-center justify-between border-b border-black/25 pb-2">
                   <label for="footer-email" class="sr-only">Email</label>
                   <input id="footer-email" type="email" required
                          class="w-full outline-none placeholder:text-black/80 text-[18px] leading-[30px]"
-                         placeholder="Scrie adresa ta de email" />
+                         placeholder="Scrie adresa ta de email"/>
                   <svg aria-hidden="true" class="shrink-0" width="32" height="24" viewBox="0 0 32 24" fill="none">
-                     <path d="M2 4.5L16 14L30 4.5" stroke="#D0FF00" stroke-width="1.5" />
-                     <path d="M2 19.5H30V4.5" stroke="#D0FF00" stroke-width="1.5" />
+                     <path d="M2 4.5L16 14L30 4.5" stroke="#D0FF00" stroke-width="1.5"/>
+                     <path d="M2 19.5H30V4.5" stroke="#D0FF00" stroke-width="1.5"/>
                   </svg>
                </div>
                <div class="h-px w-full bg-black/25"></div>
             </form>
          </div>
+         <!-- Col 4: Imagini una sub alta -->
+         <div class="flex flex-col items-start gap-4">
+            <img src="images/anpc.png" alt="ANPC" class="h-[66px] w-auto object-contain"/>
+            <img src="images/anpc2.png" alt="ANPC 2" class="h-[65px] w-auto object-contain"/>
+         </div>
       </div>
       
-      <!-- Social + plăți -->
+      <!-- Social -->
       <div class="mt-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-         <!-- Social icons -->
          <div class="flex items-center gap-4">
-            <!-- Facebook -->
             <a href="#" aria-label="Facebook"
                class="w-[49.58px] h-[49.58px] rounded-full border border-black/25 grid place-items-center">
                <svg width="19" height="20" viewBox="0 0 19 20" fill="none" aria-hidden="true">
                   <path d="M12 6.5h-2V5c0-.6.4-1 1-1h1V1.5h-2c-2.2 0-3.5 1.5-3.5 3.5v1.5H5v3h1.5V18h3V9.5H12l.5-3z" fill="#000"/>
                </svg>
             </a>
-            <!-- Linkedin -->
             <a href="#" aria-label="LinkedIn"
                class="w-[49.58px] h-[49.58px] rounded-full border border-[#D0FF00] grid place-items-center">
                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
@@ -401,7 +569,6 @@
                   <path d="M9 14V9.5c0-1.1.9-2 2-2s2 .9 2 2V14h-2v-4c0-.4-.3-.7-.7-.7S9 9.6 9 10v4H9z" fill="#D0FF00"/>
                </svg>
             </a>
-            <!-- Twitter/X -->
             <a href="#" aria-label="Twitter"
                class="w-[49.58px] h-[49.58px] rounded-full border border-black/25 grid place-items-center">
                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -409,16 +576,10 @@
                </svg>
             </a>
          </div>
-         
-         <!-- Logos plăți (placeholder imagini proiect) -->
-         <div class="flex items-center gap-4">
-            <img src="images/Rectangle 17.png" alt="Metodă plată 1" class="h-[66px] w-auto object-contain" />
-            <img src="images/Group 2.png" alt="Metodă plată 2" class="h-[65px] w-auto object-contain" />
-         </div>
+         <!-- eliminat blocul de imagini duplicat -->
       </div>
    </div>
 </footer>
-</body>
-</html>
+
 </body>
 </html>
