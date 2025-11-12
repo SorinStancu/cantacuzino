@@ -9,7 +9,7 @@
    <script src="https://cdn.tailwindcss.com"></script>
    <link rel="stylesheet" href="css/style.css">
    <style>
-      /* Extract: stiluri reutilizabile */
+      
       .font-poppins { font-family: 'Poppins', sans-serif; }
       .font-manrope { font-family: 'Manrope', sans-serif; }
       .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 10px 20px; border-radius: 100px; text-transform: uppercase; font-weight: 500; line-height: 25px; font-size: 18px; text-decoration: none; }
@@ -26,21 +26,21 @@
       .glass { background: rgba(255,255,255,0.06); backdrop-filter: blur(6.6px); }
       .container-xl { max-width: 1600px; margin: 0 auto; }
       
-      /* Banner Cantacuzino */
+     
       .banner-cantacuzino {
          position: relative;
          width: 100%;
          max-width: 1728px;
-         min-height: 820px; /* permite creșterea pe verticală */
+         min-height: 820px;
          margin: 0 auto;
          background: linear-gradient(0deg, #1D439C, #1D439C), #C4C4C4;
          overflow: hidden;
       }
-      /* vom folosi layout pe grid, fără coordonate fixe */
+      
    </style>
 </head>
 <body class="bg-white">
-<header class="relative min-h-screen bg-cover bg-no-repeat" style="background-image: url('images/fundal 1.png'); background-position: top center;">
+<header class="relative bg-cover bg-no-repeat" style="background-image: url('images/fundal 1.png'); background-position: top center; min-height: 1200px; padding-bottom: calc(6vw + 180px);">
    <div class="absolute inset-0 bg-black/30 z-0"></div>
    <nav class="absolute left-1/2 -translate-x-1/2 top-8 z-10 w-full container-xl px-6">
       <div class="glass rounded-[66px] h-[105px] flex items-center px-6 font-poppins">
