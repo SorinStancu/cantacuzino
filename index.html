@@ -31,238 +31,12 @@
          position: relative;
          width: 100%;
          max-width: 1728px;
-         height: 957.6px;
+         min-height: 820px; /* permite creșterea pe verticală */
          margin: 0 auto;
          background: linear-gradient(0deg, #1D439C, #1D439C), #C4C4C4;
          overflow: hidden;
       }
-      .banner-cantacuzino .title {
-         position: absolute;
-         width: 622.8px;
-         height: 96px;
-         left: calc(50% - 622.8px/2 - 331.2px);
-         top: 305px; /* ajustat relativ în container */
-         font-family: 'Manrope', sans-serif;
-         font-style: normal;
-         font-weight: 400;
-         font-size: 70px;
-         line-height: 96px;
-         color: #FFFFFF;
-      }
-      .banner-cantacuzino .subtitle {
-         position: absolute;
-         width: 623px;
-         height: 130px;
-         left: calc(50% - 623px/2 - 331.5px);
-         top: 139px; /* relativ în container */
-         font-family: 'Manrope', sans-serif;
-         font-style: normal;
-         font-weight: 400;
-         font-size: 30px;
-         line-height: 41px;
-         color: #D0FF00;
-      }
-      .banner-cantacuzino .desc {
-         position: absolute;
-         width: 476.1px;
-         height: 54px;
-         left: calc(50% - 476.1px/2 - 404.55px);
-         top: 702px;
-         font-family: 'Manrope', sans-serif;
-         font-style: normal;
-         font-weight: 500;
-         font-size: 16px;
-         line-height: 190%;
-         color: rgba(255, 255, 255, 0.8);
-      }
-      .banner-cantacuzino .client-pill {
-         position: absolute;
-         width: 235.8px;
-         height: 54.9px;
-         left: 217.8px;
-         top: 553.5px;
-         background: #D0FF00;
-         border-radius: 62px;
-      }
-      .banner-cantacuzino .client-pill .icon {
-         position: absolute;
-         left: 25px;
-         top: 11px;
-         width: 33px;
-         height: 33px;
-         background: url('images/image.png') center/cover no-repeat;
-      }
-      .banner-cantacuzino .client-pill .value {
-         position: absolute;
-         left: 90px;
-         top: 10px;
-         width: 54px;
-         height: 17.1px;
-         font-family: 'Manrope', sans-serif;
-         font-style: normal;
-         font-weight: 600;
-         font-size: 14px;
-         line-height: 19px;
-         color: #000000;
-      }
-      .banner-cantacuzino .client-pill .label {
-         position: absolute;
-         left: 90px;
-         top: 27px;
-         width: 98px;
-         height: 13px;
-         font-family: 'Manrope', sans-serif;
-         font-style: normal;
-         font-weight: 400;
-         font-size: 10px;
-         line-height: 14px;
-         color: #000000;
-      }
-      .banner-cantacuzino .contact-phone,
-      .banner-cantacuzino .contact-mail {
-         position: absolute;
-         width: 104px;
-         height: 104px;
-         background: #D0FF00;
-         border-radius: 50%;
-         top: 129px;
-      }
-      .banner-cantacuzino .contact-phone { left: 961px; }
-      .banner-cantacuzino .contact-mail { left: 1194px; }
-      .banner-cantacuzino .icon-phone {
-         left: 991px;
-         top: 3145px; /* poziționare relativă anterioară raportată la pagină; în container rămâne pe același loc vizual */
-         width: 43px;
-         height: 43px;
-      }
-      .banner-cantacuzino .icon-phone,
-      .banner-cantacuzino .icon-mail {
-         position: absolute;
-      }
-      .banner-cantacuzino .icon-mail {
-         left: 1227px;
-         top: 3147px;
-         width: 41px;
-         height: 32px;
-      }
-      .banner-cantacuzino .info-phones {
-         position: absolute;
-         width: 178px;
-         height: 48px;
-         left: 961px;
-         top: 268px;
-         font-family: 'Manrope', sans-serif;
-         font-weight: 400;
-         font-size: 20px;
-         line-height: 27px;
-         text-transform: uppercase;
-         color: #FFFFFF;
-      }
-      .banner-cantacuzino .info-mails {
-         position: absolute;
-         width: 352px;
-         height: 48px;
-         left: 1194px;
-         top: 268px;
-         font-family: 'Manrope', sans-serif;
-         font-weight: 400;
-         font-size: 20px;
-         line-height: 27px;
-         text-transform: lowercase;
-         color: #FFFFFF;
-      }
-      .banner-cantacuzino .address {
-         position: absolute;
-         width: 159.3px;
-         height: 48.6px;
-         left: 728px;
-         top: 176.3px;
-         font-family: 'Poppins', sans-serif;
-         font-style: normal;
-         font-weight: 500;
-         font-size: 18px;
-         line-height: 27px;
-         color: #FEFFFF;
-      }
-      .banner-cantacuzino .program {
-         position: absolute;
-         width: 162.9px;
-         height: 54px;
-         left: calc(50% - 162.9px/2 - 54.55px);
-         top: 281px;
-         font-family: 'Poppins', sans-serif;
-         font-style: normal;
-         font-weight: 400;
-         font-size: 16px;
-         line-height: 190%;
-         color: rgba(255, 255, 255, 0.8);
-      }
-      .banner-cantacuzino .stats-card {
-         box-sizing: border-box;
-         position: absolute;
-         width: 725.4px;
-         height: 305.1px;
-         left: 809.1px;
-         top: 468.8px;
-         background: rgba(255, 255, 255, 0.06);
-         border: 1px solid rgba(255, 255, 255, 0.29);
-         backdrop-filter: blur(6.6px);
-         border-radius: 40px;
-      }
-      .banner-cantacuzino .stats-value {
-         position: absolute;
-         left: 882.9px;
-         top: 541.7px;
-         width: 139.5px;
-         height: 72.9px;
-         font-family: 'Manrope', sans-serif;
-         font-weight: 400;
-         font-size: 59px;
-         line-height: 81px;
-         color: #FFFFFF;
-      }
-      .banner-cantacuzino .stats-label {
-         position: absolute;
-         left: 882.9px;
-         top: 633.5px;
-         width: 190.8px;
-         height: 55.8px;
-         font-family: 'Manrope', sans-serif;
-         font-weight: 400;
-         font-size: 22.38px;
-         line-height: 31px;
-         color: #FFFFFF;
-      }
-      .banner-cantacuzino .stats-desc {
-         position: absolute;
-         width: 355px;
-         height: 143px;
-         left: calc(50% - 355px/2 + 472.5px);
-         top: 603px;
-         font-family: 'Manrope', sans-serif;
-         font-weight: 500;
-         font-size: 16px;
-         line-height: 190%;
-         color: rgba(255, 255, 255, 0.8);
-      }
-      .banner-cantacuzino .badge-product {
-         position: absolute;
-         left: 1159.2px;
-         top: 539.9px;
-         width: 147px;
-         height: 32px;
-         background: #D0FF00;
-         border-radius: 13px;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         padding: 5px 9px;
-         gap: 10px;
-         color: #000000;
-         font-family: 'Manrope', sans-serif;
-         font-size: 16px;
-         line-height: 22px;
-      }
+      /* vom folosi layout pe grid, fără coordonate fixe */
    </style>
 </head>
 <body class="bg-white">
@@ -308,7 +82,7 @@
       </mask>
       <g mask="url(#mask1_33_23)"><path d="M35.813 23.5395L35.813 26.355L16.4981 26.355L25.1495 35.0029L23.1376 37.014L11.0657 24.9472L23.1376 12.8805L25.1495 14.8916L16.4981 23.5395L35.813 23.5395Z" fill="white"/></g>
    </svg>
-   <div class="absolute left-1/2 -translate-x-1/2 top-[564px] flex gap-10 items-stretch">
+   <div class="absolute left-1/2 -translate-x-1/2 top-[564px] flex flex-col lg:flex-row gap-10 items-stretch px-6">
       <div class="relative glass bg-cover bg-center bg-no-repeat w-[580px] h-[453px] rounded-2xl" style="background-image: url('images/Subtract.png');">
          <div class="absolute w-[72px] h-[72px] right-0 -top-1 bg-cover bg-center bg-no-repeat" style="background-image: url('images/Arrow.png');" aria-hidden="true"></div>
          <div class="absolute left-[76px] top-[67px] w-[424px] font-manrope text-white">
@@ -360,7 +134,8 @@
          </div>
       </div>
    </div>
-   <div class="absolute bottom-[-10%] left-1/2 -translate-x-1/2 z-20 flex gap-7">
+   <div class="absolute left-1/2 -translate-x-1/2 z-20 flex flex-col md:flex-row gap-7 px-6"
+        style="bottom: -6vw;">
       <div class="relative w-[456px] h-[155px] bg-black rounded-[23px] flex items-center p-5">
          <div class="relative w-[102.33px] h-[128px] mr-5 shrink-0">
             <img src="images/Cutie-OROSTIM-HV.png" alt="Orostim-HV 250" class="w-full h-full object-contain">
@@ -385,7 +160,7 @@
    </div>
 </header>
 <section class="relative bg-white pt-20 pb-24">
-   <div class="container-xl flex flex-row  justify-center gap-24 mt-[70px]">
+   <div class="container-xl grid grid-cols-1 xl:grid-cols-[1fr_495px] gap-12 xl:gap-24 mt-[70px] px-6">
       <!-- Stânga: Top vânzări -->
       <div class="flex-2 relative">
          <h2 class="font-manrope text-[70px] leading-[96px] text-center mb-12">Top vânzări</h2>
@@ -445,7 +220,8 @@
          </article>
       </div>
       <!-- Dreapta: Atenționări -->
-      <aside class="shrink-0 w-[495px] rounded-xl relative p-6" style="background-image: url('images/bg-atentionare.png'); background-repeat: no-repeat;">
+      <aside class="shrink-0 w-full xl:w-[495px] rounded-xl relative p-6"
+             style="background-image: url('images/bg-atentionare.png'); background-repeat: no-repeat; background-size: cover;">
          <div class="flex flex-col gap-4 mb-6">
             <a href="#" class="btn btn-primary w-[259px] h-[52px]">
                <span>termeni și condiții</span>
@@ -475,7 +251,7 @@
              4. Înainte de plasarea unei comenzi, vă rugăm să citiți cu atenție „Termenii și condițiile" de utilizare a acestui site. Dacă nu sunteți de acord cu acestea, vă rugăm să nu folosiți site-ul nostru. Prin acceptarea termenilor și condițiilor de utilizare, sunteți de acord să respectați „Termenii și condițiile" de utilizare în versiunea publicată pe site la momentul vizitei dvs.
            </p>
          </div>
-         <div class="absolute right-6 -bottom-12">
+         <div class="absolute right-6 -bottom-12 md:-bottom-16">
             <div class="w-26 h-26 rounded-full bg-[#D0FF00] relative flex items-center justify-center" style="width:104px;height:104px;">
                <svg width="57" height="52" viewBox="0 0 57 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path d="M28.5 0L35.5 20H57L39.5 32.5L46.5 52.5L28.5 40L10.5 52.5L17.5 32.5L0 20H21.5L28.5 0Z" fill="#000000"/>
@@ -486,42 +262,40 @@
    </div>
 </section>
 <section class="banner-cantacuzino relative">
-   <h2 class="title">Cantacuzino</h2>
-   <p class="subtitle">Institutul Național de Cercetare-Dezvoltare Medico-Militară</p>
-   <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-   
-   <div class="client-pill" aria-label="Client">
-      <span class="icon" aria-hidden="true"></span>
-      <span class="value">123</span>
-      <span class="label">Client</span>
+   <div class="container-xl px-6 py-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+      <div class="space-y-4">
+         <p class="text-[#D0FF00] font-manrope text-[22px] lg:text-[30px] leading-[1.3]">Institutul Național de Cercetare-Dezvoltare Medico-Militară</p>
+         <h2 class="text-white font-manrope font-normal text-[48px] lg:text-[70px] leading-[1.2]">Cantacuzino</h2>
+         <p class="text-white/80 font-manrope text-[16px] leading-[1.9] max-w-[520px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+         <div class="flex items-center gap-4 bg-[#D0FF00] rounded-full w-max px-5 py-3">
+            <span class="w-8 h-8 rounded-full bg-black/10"></span>
+            <div>
+               <div class="text-black font-semibold text-sm leading-none">123</div>
+               <div class="text-black text-xs leading-none">Client</div>
+            </div>
+         </div>
+         <div class="grid grid-cols-2 gap-6 pt-4">
+            <div>
+               <div class="w-26 h-26 rounded-full bg-[#D0FF00] flex items-center justify-center" style="width:104px;height:104px;"></div>
+               <div class="mt-3 text-white uppercase font-manrope text-[18px] lg:text-[20px]">0775128957 021-306 9250</div>
+            </div>
+            <div>
+               <div class="w-26 h-26 rounded-full bg-[#D0FF00] flex items-center justify-center" style="width:104px;height:104px;"></div>
+               <div class="mt-3 text-white font-manrope text-[18px] lg:text-[20px] lowercase">comenzi.cantacuzino@mapn.ro comenzi@cantacuzino.ro</div>
+            </div>
+         </div>
+         <div class="text-white font-poppins text-[16px]">Splaiul Independenței, nr. 103, București</div>
+         <div class="text-white/80 font-poppins text-[16px]">Program zilnic<br>08:00 - 14:00</div>
+      </div>
+      <div class="glass border border-white/30 rounded-[40px] p-8">
+         <div class="text-white font-manrope text-[48px] leading-[1.2]">48K+</div>
+         <div class="text-white font-manrope text-[22px] leading-[1.3] mb-4">Produse vândute în 2025</div>
+         <p class="text-white/80 font-manrope text-[16px] leading-[1.9] max-w-[420px]">
+            util ca supliment alimentar, fiind un tonic general al organismului, care protejează celulele corpului de degradare oxidativă și are rol benefic asupra capacității naturale de apărare a organismului
+         </p>
+         <div class="mt-4 inline-flex items-center justify-center px-3 py-1.5 rounded-[13px] bg-[#D0FF00] text-black font-manrope text-[16px]">OROSTIM-HV 250</div>
+      </div>
    </div>
-   
-   <div class="contact-phone" aria-hidden="true"></div>
-   <div class="contact-mail" aria-hidden="true"></div>
-   <div class="icon-phone" aria-hidden="true">
-      <svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
-         <path d="M28.1667 10.3889C29.3454 10.3889 30.4759 10.8571 31.3094 11.6906C32.1429 12.5241 32.6111 13.6546 32.6111 14.8333M28.1667 1.5C31.7029 1.5 35.0943 2.90476 37.5948 5.40524C40.0952 7.90573 41.5 11.2971 41.5 14.8333M5.94444 3.72222H14.8333L19.2778 14.8333L13.7222 18.1667C16.1021 22.9923 20.0077 26.8979 24.8333 29.2778L28.1667 23.7222L39.2778 28.1667V37.0556C39.2778 38.2343 38.8095 39.3648 37.976 40.1983C37.1425 41.0317 36.0121 41.5 34.8333 41.5C26.165 40.9732 17.9892 37.2922 11.8485 31.1515C5.70779 25.0108 2.02678 16.835 1.5 8.16667C1.5 6.98793 1.96825 5.85746 2.80175 5.02397C3.63524 4.19047 4.7657 3.72222 5.94444 3.72222Z" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-   </div>
-   <div class="icon-mail" aria-hidden="true">
-      <svg width="41" height="32" viewBox="0 0 41 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-         <path d="M1.5 5.64286C1.5 4.5441 1.94484 3.49035 2.73666 2.71341C3.52848 1.93648 4.60242 1.5 5.72222 1.5H35.2778C36.3976 1.5 37.4715 1.93648 38.2633 2.71341C39.0552 3.49035 39.5 4.5441 39.5 5.64286M1.5 5.64286V26.3571C1.5 27.4559 1.94484 28.5096 2.73666 29.2866C3.52848 30.0635 4.60242 30.5 5.72222 30.5H35.2778C36.3976 30.5 37.4715 30.0635 38.2633 29.2866C39.0552 28.5096 39.5 27.4559 39.5 26.3571V5.64286M1.5 5.64286L20.5 18.0714L39.5 5.64286" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-   </div>
-   
-   <div class="info-phones">0775128957 021-306 9250</div>
-   <div class="info-mails">comenzi.cantacuzino@mapn.ro comenzi@cantacuzino.ro</div>
-   
-   <div class="address">Splaiul Independenței, nr. 103, București</div>
-   <div class="program">Program zilnic<br>08:00 - 14:00</div>
-   
-   <div class="stats-card" aria-hidden="true"></div>
-   <div class="stats-value">48K+</div>
-   <div class="stats-label">Produse vândute în 2025</div>
-   <p class="stats-desc">
-      util ca supliment alimentar, fiind un tonic general al organismului, care protejează celulele corpului de degradare oxidativă și are rol benefic asupra capacității naturale de apărare a organismului
-   </p>
-   <div class="badge-product">OROSTIM-HV 250</div>
 </section>
 <section class="bg-[#1A1A2E] h-[500px]"></section>
 <section class="bg-white h-[500px]"></section>
