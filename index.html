@@ -9,122 +9,94 @@
    <script src="https://cdn.tailwindcss.com"></script>
    <link rel="stylesheet" href="css/style.css">
    <style>
+      /* Design tokens */
       :root {
+         --color-primary: #D0FF00;
+         --color-black: #000000;
+         --color-white: #FFFFFF;
+         --radius-lg: 12px;
+         --radius-pill: 100px;
+         
          --card-padding-top: 60px;
          --card-padding-x: 24px;
          --card-padding-bottom: 24px;
+         
+         --glass-bg: rgba(255, 255, 255, 0.06);
+         --glass-blur: 6.6px;
       }
       
-      html {
-         box-sizing: border-box;
-      }
+      html { box-sizing: border-box; }
+      *, *::before, *::after { box-sizing: inherit !important; }
       
-      *, *::before, *::after {
-         box-sizing: inherit !important;
-      }
+      /* Fonts */
+      .font-poppins { font-family: 'Poppins', sans-serif; }
+      .font-manrope { font-family: 'Manrope', sans-serif; }
       
-      .font-poppins {
-         font-family: 'Poppins', sans-serif;
-      }
+      /* Utilities */
+      .bg-img { background-position: center; background-repeat: no-repeat; background-size: cover; }
+      .bg-contain { background-position: center; background-repeat: no-repeat; background-size: contain; }
+      .icon-rotate-45 { transform: rotate(45deg); }
       
-      .font-manrope {
-         font-family: 'Manrope', sans-serif;
-      }
-      
+      /* Buttons */
       .btn {
          display: inline-flex;
          align-items: center;
          justify-content: center;
          gap: 10px;
          padding: 10px 20px;
-         border-radius: 100px;
+         border-radius: var(--radius-pill);
          text-transform: uppercase;
          font-weight: 500;
          line-height: 25px;
          font-size: 18px;
          text-decoration: none;
       }
+      .btn-primary { background: var(--color-primary); color: var(--color-black); }
+      .btn-secondary { background: var(--color-black); color: var(--color-primary); }
       
-      .btn-primary {
-         background: #D0FF00;
-         color: #000;
-      }
-      
-      .btn-secondary {
-         background: #000;
-         color: #D0FF00;
-      }
-      
+      /* Badge */
       .badge {
          display: inline-flex;
          align-items: center;
          justify-content: center;
          padding: 5px 9px;
-         background: #000;
-         color: #FEFEFE;
+         background: var(--color-black);
+         color: var(--color-white);
          border-radius: 13px;
          font-size: 16px;
          line-height: 22px;
       }
       
-      .price {
-         display: flex;
-         align-items: baseline;
-         gap: 8px;
-         color: #000;
-      }
+      /* Price */
+      .price { display: flex; align-items: baseline; gap: 8px; color: var(--color-black); }
+      .price .amount { font-size: 59px; line-height: 81px; font-weight: 400; }
+      .price .currency { font-size: 22px; line-height: 31px; }
       
-      .price .amount {
-         font-size: 59px;
-         line-height: 81px;
-         font-weight: 400;
-      }
-      
-      .price .currency {
-         font-size: 22px;
-         line-height: 31px;
-      }
-      
+      /* Card product (merged variants) */
       .card-product {
          position: relative;
          width: 552px;
          height: 456px;
-         background: url('images/bg.png') center/cover no-repeat;
-         border-radius: 12px;
+         border-radius: var(--radius-lg);
          overflow: hidden;
       }
-      
-      .card-product-two {
-         position: relative;
-         width: 552px;
-         height: 456px;
-         background: url('images/bg_dr.png') center/cover no-repeat;
-         border-radius: 12px;
-         overflow: hidden;
-      }
-      
-      .card-product .content,
-      .card-product-two .content {
+      .card-product .content {
          position: relative;
          inset: 0;
          padding: var(--card-padding-top) var(--card-padding-x) var(--card-padding-bottom);
          box-sizing: border-box;
       }
+      .card-product--primary { background: url('images/bg.png') center/cover no-repeat; }
+      .card-product--secondary { background: url('images/bg_dr.png') center/cover no-repeat; }
       
-      .shadow-glow {
-         text-shadow: 0 0 20px rgba(255, 255, 255, 0.64);
-      }
+      /* Effects */
+      .shadow-glow { text-shadow: 0 0 20px rgba(255, 255, 255, 0.64); }
+      .glass { background: var(--glass-bg); backdrop-filter: blur(var(--glass-blur)); }
       
-      .glass {
-         background: rgba(255, 255, 255, 0.06);
-         backdrop-filter: blur(6.6px);
-      }
+      /* Layout */
+      .container-xl { max-width: 1600px; margin: 0 auto; }
       
-      .container-xl {
-         max-width: 1600px;
-         margin: 0 auto;
-      }
-      
+      /* Sections */
       .banner-cantacuzino {
          position: relative;
          width: 100%;
@@ -134,6 +106,10 @@
          background: linear-gradient(0deg, #1D439C, #1D439C), #C4C4C4;
          overflow: hidden;
       }
+      .nav-links { --link-color: var(--color-primary); }
+      .nav-link { color: var(--link-color); text-decoration: none; }
+      .nav-link--muted { color: inherit; text-decoration: none; }
+      .nav-link--muted:hover { color: var(--color-primary); }
    </style>
 </head>
 <body class="bg-white">
@@ -144,11 +120,19 @@
          <a href="#" class="mr-6 shrink-0" aria-label="Institutul Cantacuzino">
             <img src="images/Logo-Institutul-Cantacuzino-BNT-RO-CMYK 1.png" alt="Institutul Cantacuzino" class="h-[82px] w-[76.82px] object-contain">
          </a>
-         <ul class="flex items-center gap-9 text-white">
-            <li><a href="#" class="text-sm font-medium text-[#D0FF00] no-underline">Prima pagină</a></li>
-            <li><a href="#" class="text-sm font-normal no-underline">Cum cumpăr</a></li>
-            <li><a href="#" class="text-sm font-normal no-underline">Catalog de produse</a></li>
-            <li><a href="#" class="text-sm font-normal no-underline">Nutreț / Alimente animale</a></li>
+         <ul class="flex items-center gap-9 text-white nav-links">
+            <li>
+               <a href="#" class="text-sm font-medium nav-link">Prima pagină</a>
+            </li>
+            <li>
+               <a href="#" class="text-sm font-normal nav-link--muted">Cum cumpăr</a>
+            </li>
+            <li>
+               <a href="#" class="text-sm font-normal nav-link--muted">Catalog de produse</a>
+            </li>
+            <li>
+               <a href="#" class="text-sm font-normal nav-link--muted">Nutreț / Alimente animale</a>
+            </li>
          </ul>
          <div class="ml-auto flex items-center gap-6">
             <button aria-label="Coș" class="w-8 h-8 text-white">
@@ -174,9 +158,8 @@
    <div class="absolute left-1/2 -translate-x-1/2 top-[149px] flex flex-col items-start font-manrope">
       <div class="text-white shadow-glow font-light text-[200px] leading-[1] whitespace-nowrap">Orostim-HV</div>
       <div class="relative leading-[0] -mt-[30px] -ml-[24px]">
-            <span class="inline-block align-bottom text-transparent select-none pointer-events-none"
-                  style="font-weight:300;font-size:200px;line-height:1;">Orostim-HV</span>
-         <span class="align-top text-[#D0FF00] shadow-glow font-bold text-[100px] leading-[1]">125</span>
+         <span class="inline-block align-bottom text-transparent select-none pointer-events-none" style="font-weight:300;font-size:200px;line-height:1;">Orostim-HV</span>
+         <span class="align-top text-[var(--color-primary)] shadow-glow font-bold text-[100px] leading-[1]">125</span>
       </div>
    </div>
    <svg class="absolute left-1/2 -translate-x-1/2 top-[455px] w-[1559px] h-[50px]" viewBox="0 0 1559 50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -194,8 +177,8 @@
       </g>
    </svg>
    <div class="absolute left-1/2 -translate-x-1/2 top-[564px] flex flex-col lg:flex-row gap-10 items-stretch px-6">
-      <div class="relative bg-cover bg-center bg-no-repeat w-[580px] h-[453px] rounded-2xl" style="background-image: url('images/Subtract.png'); background-color: transparent;">
-         <div class="absolute w-[72px] h-[72px] right-0 -top-1 bg-cover bg-center bg-no-repeat" style="background-image: url('images/Arrow.png');" aria-hidden="true"></div>
+      <div class="relative bg-img w-[580px] h-[453px] rounded-2xl" style="background-image: url('images/Subtract.png'); background-color: transparent;">
+         <div class="absolute w-[72px] h-[72px] right-0 -top-1 bg-img" style="background-image: url('images/Arrow.png');" aria-hidden="true"></div>
          <div class="absolute left-[76px] top-[67px] w-[424px] font-manrope text-white">
             <h2 class="font-medium text-[33px] leading-[45px] mb-4">Pentru buna funcționare a sistemului imunitar</h2>
             <p class="text-base font-medium leading-[190%] text-white/80">
@@ -209,7 +192,7 @@
                   <rect width="24" height="24" fill="#D9D9D9"/>
                </mask>
                <g mask="url(#mask0_49_8)">
-                  <path d="M6.4 18L5 16.6L14.6 7H6V5L18 5V17H16V8.4L6.4 18Z" fill="#D0FF00"/>
+                  <path d="M6.4 18L5 16.6L14.6 7H6V5L18 5V17H16V8.4L6.4 18Z" fill="var(--color-primary)"/>
                </g>
             </svg>
          </a>
@@ -229,16 +212,16 @@
                </div>
             </div>
             <div class="flex items-center gap-[19px]">
-               <a href="#" class="flex justify-center items-center gap-[15px] w-[222px] h-[52px] bg-[#D0FF00] rounded-[100px] px-4">
+               <a href="#" class="flex justify-center items-center gap-[15px] w-[222px] h-[52px] bg-[var(--color-primary)] rounded-[100px] px-4">
                   <span class="font-medium text-[18px] leading-[25px] uppercase text-black">Adaugă în coș</span>
-                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="transform: rotate(45deg);">
+                  <svg class="w-6 h-6 icon-rotate-45" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                      <rect width="24" height="24"></rect>
                      <path d="M6.4 18L5 16.6L14.6 7H6V5L18 5V17H16V8.4L6.4 18Z" fill="#000000"/>
                   </svg>
                </a>
                <a href="#" class="flex justify-center items-center gap-[15px] w-[222px] h-[52px] bg-white rounded-[100px] px-4">
                   <span class="font-medium text-[18px] leading-[25px] uppercase text-black">vezi detalii</span>
-                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="transform: rotate(45deg);">
+                  <svg class="w-6 h-6 icon-rotate-45" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                      <rect width="24" height="24"></rect>
                      <path d="M6.4 18L5 16.6L14.6 7H6V5L18 5V17H16V8.4L6.4 18Z" fill="#000000"/>
                   </svg>
@@ -254,10 +237,10 @@
          </div>
          <div class="flex-1 flex flex-col gap-2">
             <div class="flex items-baseline gap-2">
-               <h3 class="font-manrope font-medium text-[32px] leading-[44px] text-[#D0FF00] m-0 -translate-y-3.5">Orostim-HV</h3>
-               <span class="font-manrope font-medium text-[18px] leading-[25px] text-[#D0FF00]">250</span>
+               <h3 class="font-manrope font-medium text-[32px] leading-[44px] text-[var(--color-primary)] m-0 -translate-y-3.5">Orostim-HV</h3>
+               <span class="font-manrope font-medium text-[18px] leading-[25px] text-[var(--color-primary)]">250</span>
             </div>
-            <p class="font-manrope font-medium text-[18px] leading-[25px] text-[#D0FF00] m-0 max-w-[286px]">Supliment alimentar pentru buna funcționare a sistemului imunitar</p>
+            <p class="font-manrope font-medium text-[18px] leading-[25px] text-[var(--color-primary)] m-0 max-w-[286px]">Supliment alimentar pentru buna funcționare a sistemului imunitar</p>
          </div>
       </div>
       <div class="relative w-[456px] h-[155px] bg-black rounded-[23px] flex items-center p-5">
@@ -265,17 +248,19 @@
             <img src="images/SOD-NATURAL.png" alt="SOD Natural" class="w-full h-full object-contain">
          </div>
          <div class="flex-1 flex flex-col gap-2">
-            <h3 class="font-manrope font-medium text-[32px] leading-[44px] text-[#D0FF00] m-0 -translate-y-3.5">SOD Natural</h3>
-            <p class="font-manrope font-medium text-[18px] leading-[25px] text-[#D0FF00] m-0 max-w-[245px]">Supliment alimentar antioxidant. Soluție buvabilă</p>
+            <h3 class="font-manrope font-medium text-[32px] leading-[44px] text-[var(--color-primary)] m-0 -translate-y-3.5">SOD Natural</h3>
+            <p class="font-manrope font-medium text-[18px] leading-[25px] text-[var(--color-primary)] m-0 max-w-[245px]">Supliment alimentar antioxidant. Soluție buvabilă</p>
          </div>
       </div>
    </div>
 </header>
+
 <section class="relative bg-white pt-20 pb-20" style="margin-top: 3vw;">
    <div class="container-xl grid grid-cols-1 xl:grid-cols-[1fr_495px] gap-12 xl:gap-24 px-6">
       <div class="flex-2 relative flex flex-col items-end pr-[130px]">
          <h2 class="font-manrope text-[70px] leading-[96px] text-center mb-12">Top vânzări</h2>
-         <article class="card-product mb-12" aria-labelledby="prod-sod-title">
+         
+         <article class="card-product card-product--primary mb-12" aria-labelledby="prod-sod-title">
             <div class="content">
                <div class="absolute right-6 top-14"><span class="badge">Stoc epuizat</span></div>
                <h3 id="prod-sod-title" class="font-manrope font-medium text-[27px] leading-[190%] text-right text-black/80 absolute right-6 top-28">
@@ -289,11 +274,11 @@
                <p class="font-manrope text-[17.38px] leading-[24px] text-black absolute left-[72px] top-[318px] max-w-[228px]">
                   Supliment alimentar antioxidant<br>Soluție buvabilă
                </p>
-               <div class="absolute right-[49px] top-[214px] w-[195px] h-[196px] bg-center bg-no-repeat bg-contain" style="background-image:url('images/SOD-NATURAL.png');" aria-hidden="true"></div>
+               <div class="absolute right-[49px] top-[214px] w-[195px] h-[196px] bg-contain" style="background-image:url('images/SOD-NATURAL.png');" aria-hidden="true"></div>
             </div>
          </article>
          
-         <article class="card-product-two mb-12" aria-labelledby="prod-orostim-250">
+         <article class="card-product card-product--secondary mb-12" aria-labelledby="prod-orostim-250">
             <div class="content">
                <div class="absolute left-[70px] top-14"><span class="badge">Stoc epuizat</span></div>
                <h3 id="prod-orostim-250" class="font-manrope font-medium text-[27px] leading-[190%] text-right text-black/80 absolute right-6 top-28">
@@ -307,11 +292,11 @@
                <p class="font-manrope text-[17.38px] leading-[24px] text-black absolute left-[72px] top-[318px] max-w-[228px]">
                   Supliment alimentar pentru buna funcționare a sistemului imunitar
                </p>
-               <div class="absolute right-[85px] top-[214px] w-[156px] h-[213px] bg-center bg-no-repeat bg-contain" style="background-image:url('images/image 16.png');" aria-hidden="true"></div>
+               <div class="absolute right-[85px] top-[214px] w-[156px] h-[213px] bg-contain" style="background-image:url('images/image 16.png');" aria-hidden="true"></div>
             </div>
          </article>
          
-         <article class="card-product" aria-labelledby="prod-orostim-125">
+         <article class="card-product card-product--primary" aria-labelledby="prod-orostim-125">
             <div class="content">
                <div class="absolute right-6 top-14"><span class="badge">Stoc epuizat</span></div>
                <h3 id="prod-orostim-125" class="font-manrope font-medium text-[27px] leading-[190%] text-right text-black/80 absolute right-6 top-28">
@@ -325,24 +310,25 @@
                <p class="font-manrope text-[17.38px] leading-[24px] text-black absolute left-[72px] top-[318px] max-w-[228px]">
                   Supliment alimentar pentru buna funcționare a sistemului imunitar
                </p>
-               <div class="absolute right-[85px] top-[214px] w-[156px] h-[213px] bg-center bg-no-repeat bg-contain" style="background-image:url('images/image 16.png');" aria-hidden="true"></div>
+               <div class="absolute right-[85px] top-[214px] w-[156px] h-[213px] bg-contain" style="background-image:url('images/image 16.png');" aria-hidden="true"></div>
             </div>
          </article>
       </div>
+      
       <div class="flex-2 relative flex flex-col items-first">
          <div class="shrink-0 w-full xl:w-[350px] rounded-xl relative p-6 -ml-[150px]"
               style="background-image: url('images/bg-atentionare.png'); background-repeat: no-repeat; background-size: contain; background-position: center;">
             <div class="flex flex-col gap-4 mb-6">
                <a href="#" class="btn btn-primary w-[259px] h-[52px]">
                   <span>termeni și condiții</span>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="transform: rotate(45deg);">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="icon-rotate-45">
                      <path d="M6.4 18L5 16.6L14.6 7H6V5L18 5V17H16V8.4L6.4 18Z" fill="#000000"/>
                   </svg>
                </a>
                <a href="#contact" class="btn btn-secondary w-[166px] h-[52px]">
                   <span>contact</span>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="transform: rotate(45deg);">
-                     <path d="M6.4 18L5 16.6L14.6 7H6V5L18 5V17H16V8.4L6.4 18Z" fill="#D0FF00"/>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="icon-rotate-45">
+                     <path d="M6.4 18L5 16.6L14.6 7H6V5L18 5V17H16V8.4L6.4 18Z" fill="var(--color-primary)"/>
                   </svg>
                </a>
             </div>
@@ -360,11 +346,9 @@
                <p class="font-manrope font-medium text-[16px] leading-[190%] text-white/80 max-w-[349px]">
                   4. Înainte de plasarea unei comenzi, vă rugăm să citiți cu atenție „Termenii și condițiile" de utilizare a acestui site. Dacă nu sunteți de acord cu acestea, vă rugăm să nu folosiți site-ul nostru. Prin acceptarea termenilor și condițiilor de utilizare, sunteți de acord să respectați „Termenii și condițiile" de utilizare în versiunea publicată pe site la momentul vizitei dvs.
                </p>
-               <p class="font-manrope font-medium text-[16px] leading-[190%] text-white/80 max-w-[349px]"></p>
-               <p class="font-manrope font-medium text-[16px] leading-[190%] text-white/80 max-w-[349px]"></p>
             </div>
             <div class="absolute -right-10 -bottom-12 md:-bottom-16">
-               <div class="w-26 h-26 rounded-full bg-[#D0FF00] relative flex items-center justify-center" style="width:104px;height:104px;">
+               <div class="w-26 h-26 rounded-full bg-[var(--color-primary)] relative flex items-center justify-center" style="width:104px;height:104px;">
                   <svg width="57" height="52" viewBox="0 0 57 52" fill="none" xmlns="http://www.w3.org/2000/svg">
                      <path d="M28.4997 0C30.9742 0 33.2802 1.25655 34.6924 3.35527L34.9644 3.78578L55.9883 40.2391C56.6273 41.3882 56.9749 42.6869 56.9987 44.0136C57.0225 45.3403 56.7216 46.6515 56.1243 47.8246C55.527 48.9976 54.6528 49.994 53.5836 50.7205C52.5143 51.447 51.285 51.8799 50.0108 51.9785L49.5055 52H7.46541C6.18984 51.9851 4.9387 51.6348 3.82877 50.9819C2.71885 50.3289 1.78632 49.3946 1.11825 48.2661C0.450173 47.1376 0.0683264 45.8517 0.0083507 44.5285C-0.051625 43.2053 0.212226 41.8878 0.775275 40.6992L1.03179 40.2014L22.0454 3.77502C22.7182 2.6229 23.6655 1.67028 24.7961 1.00905C25.9266 0.347823 27.2022 0.000296424 28.4997 0ZM28.5256 35.8667L28.1966 35.8855C27.5668 35.9633 26.9864 36.2783 26.5652 36.7707C26.1441 37.2631 25.9115 37.8988 25.9115 38.5574C25.9115 39.216 26.1441 39.8517 26.5652 40.3441C26.9864 40.8365 27.5668 41.1514 28.1966 41.2292L28.4997 41.2481L28.8288 41.2292C29.4585 41.1514 30.0389 40.8365 30.4601 40.3441C30.8812 39.8517 31.1138 39.216 31.1138 38.5574C31.1138 37.8988 30.8812 37.2631 30.4601 36.7707C30.0389 36.2783 29.4585 35.9633 28.8288 35.8855L28.5256 35.8667ZM28.4997 17.032C27.8651 17.0321 27.2525 17.274 26.7783 17.712C26.304 18.1499 26.001 18.7533 25.9268 19.4078L25.9086 19.7227V30.4854L25.9268 30.8002C26.0017 31.4541 26.305 32.0569 26.7791 32.4942C27.2533 32.9315 27.8655 33.173 28.4997 33.173C29.1339 33.173 29.7461 32.9315 30.2203 32.4942C30.6945 32.0569 30.9977 31.4541 31.0726 30.8002L31.0908 30.4854V19.7227L31.0726 19.4078C30.9984 18.7533 30.6954 18.1499 30.2211 17.712C29.7469 17.274 29.1343 17.0321 28.4997 17.032Z" fill="black"/>
                   </svg>
@@ -374,13 +358,13 @@
       </div>
    </div>
 </section>
+
 <section class="banner-cantacuzino relative">
    <div class="container-xl px-6 py-12 lg:py-20">
       <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-8 lg:gap-12 min-h-[300px]">
-         
          <div class="flex flex-col">
             <div>
-               <p class="text-[#D0FF00] font-manrope font-light text-[24px] lg:text-[30px] leading-[1.4] m-0 mb-4">
+               <p class="text-[var(--color-primary)] font-manrope font-light text-[24px] lg:text-[30px] leading-[1.4] m-0 mb-4">
                   Institutul Național<br>de Cercetare-Dezvoltare<br>Medico-Militară
                </p>
                <h2 class="text-white font-manrope font-normal text-[48px] lg:text-[70px] leading-[1.4] m-0">Cantacuzino</h2>
@@ -388,7 +372,6 @@
          </div>
          
          <div class="flex gap-[60px] lg:gap-[90px] text-center min-w-[300px] w-full max-h-[300px] overflow-auto pl-[62.5px]">
-            
             <div class="text-white font-manrope">
                <div class="mb-8">
                   <p class="text-[18px] lg:text-[20px] leading-[1.35] font-medium m-0">
@@ -403,10 +386,9 @@
             
             <div class="flex items-start gap-[125px]">
                <div class="flex flex-col items-center">
-                  <div class="w-[90px] h-[90px] lg:w-[104px] lg:h-[104px] rounded-full bg-[#D0FF00] flex items-center justify-center mb-4">
+                  <div class="w-[90px] h-[90px] lg:w-[104px] lg:h-[104px] rounded-full bg-[var(--color-primary)] flex items-center justify-center mb-4">
                      <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path
-                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                      </svg>
                   </div>
                   <div class="text-white font-manrope text-[18px] lg:text-[20px] leading-[1.35] text-left">
@@ -414,8 +396,8 @@
                   </div>
                </div>
                
-               <div class="flex flex-col  items-left">
-                  <div class="w-[90px] h-[90px] lg:w-[104px] lg:h-[104px] rounded-full bg-[#D0FF00] flex items-center justify-center mb-4">
+               <div class="flex flex-col items-left">
+                  <div class="w-[90px] h-[90px] lg:w-[104px] lg:h-[104px] rounded-full bg-[var(--color-primary)] flex items-center justify-center mb-4">
                      <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                         <polyline points="22,6 12,13 2,6"></polyline>
@@ -431,7 +413,7 @@
       </div>
       <div class="grid grid-cols-1 lg:grid-cols-[auto_minmax(0,712px)] gap-8 items-start">
          <div class="max-w-[420px]">
-            <div class="inline-flex items-center gap-3 bg-[#D0FF00] rounded-full px-6 py-3 mb-6">
+            <div class="inline-flex items-center gap-3 bg-[var(--color-primary)] rounded-full px-6 py-3 mb-6">
                <img src="images/google.png" alt="" width="32" height="32" aria-hidden="true">
                <div class="text-left">
                   <div class="text-black font-semibold text-base leading-tight">1000K+</div>
@@ -448,7 +430,7 @@
                      <div class="text-white font-manrope font-medium text-[24px] lg:text-[30px] leading-[1.4] mb-4 lg:mb-6">Produse vândute<br>în 2025</div>
                   </div>
                   <div>
-                     <div class="inline-flex items-center justify-center px-4 py-2 rounded-[100px] bg-[#D0FF00] text-black font-manrope font-medium text-[14px] lg:text-[18px] uppercase">
+                     <div class="inline-flex items-center justify-center px-4 py-2 rounded-[100px] bg-[var(--color-primary)] text-black font-manrope font-medium text-[14px] lg:text-[18px] uppercase">
                         OROSTIM-HV 250
                      </div>
                      <p class="text-white/80 font-manrope font-light text-[15px] lg:text-[16px] leading-[1.9] pt-10">
@@ -521,8 +503,8 @@
                   </div>
                   <button type="submit" class="shrink-0 pb-1" aria-label="Trimite">
                      <svg aria-hidden="true" width="32" height="24" viewBox="0 0 32 24" fill="none">
-                        <path d="M2 4.5L16 14L30 4.5" stroke="#D0FF00" stroke-width="1.5"/>
-                        <path d="M2 19.5H30V4.5" stroke="#D0FF00" stroke-width="1.5"/>
+                        <path d="M2 4.5L16 14L30 4.5" stroke="var(--color-primary)" stroke-width="1.5"/>
+                        <path d="M2 19.5H30V4.5" stroke="var(--color-primary)" stroke-width="1.5"/>
                      </svg>
                   </button>
                </div>
@@ -561,6 +543,5 @@
       </div>
    </div>
 </footer>
-
 </body>
 </html>
