@@ -52,6 +52,9 @@ body {
     font-family: 'Manrope', sans-serif;
 }
 
+#show-desktop-only {
+    display: inline-flex;
+}
 /* Background images classes */
 
 /* Header background */
@@ -67,6 +70,7 @@ body {
 .header-bottom-offset {
     bottom: -3vw;
 }
+
 /* Product info card background */
 .bg-product-info {
     background-image: url('../images/Subtract.png');
@@ -248,15 +252,13 @@ body {
 /* ========================================
    COMPONENTS - Navigation
    ======================================== */
+
 .navbar {
     position: relative;
-    width: 1559px;
-    height: 105px;
-    margin: 34px auto;
-    padding: 0 var(--navbar-padding-x);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    width: 100%;
+    max-width: 1559px;
+    margin: 0 auto;
+    padding: 0 24px;
     background: var(--glass-bg);
     border: 1px solid rgba(255, 255, 255, 0.29);
     backdrop-filter: blur(var(--glass-blur));
@@ -264,42 +266,162 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+.navbar::before {
+    content: "";
+    position: absolute;
+    top: -34px; /* spațiu vizual de 34px deasupra fără a folosi margin */
+    left: 0;
+    right: 0;
+    height: 34px;
+    pointer-events: none;
+}
+
+.navbar-inner {
+    display: flex;
+    align-items: center;
+    height: 105px; /* desktop height */
+}
+
+/* LOGO */
 .navbar-logo img {
     width: 76.8px;
     height: 82px;
+    object-fit: contain;
 }
 
+/* MENU */
 .navbar-menu {
     display: flex;
     gap: 36px;
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 0 0 0 50px;
 }
 
 .navbar-menu li a {
-    display: block;
-    padding: 15px 20px;
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
     text-decoration: none;
     color: var(--color-white);
-    background: var(--color-white);
-    border-radius: 25px;
+    transition: color 0.3s ease;
 }
 
-.navbar-menu li.active a {
-    background: var(--color-primary);
-    color: var(--color-black);
+.navbar-menu li a:hover {
+    color: var(--color-primary);
+}
+
+.navbar-menu li .active {
     font-weight: 500;
+    color: var(--color-primary);
 }
 
+/* ICONS */
 .navbar-icons {
     display: flex;
-    gap: 24px;
+    gap: 20px;
     align-items: center;
+    margin-left: auto;
 }
+
+.icon-cart svg,
+.icon-search svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--color-white);
+}
+
+/* BUTTONS */
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 43px;
+    height: 52px;
+    padding: 0 20px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: var(--color-black);
+}
+
+/* TOGGLE (hamburger menu) */
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-right: auto;
+}
+
+.navbar-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+}
+
+/* =========================
+   RESPONSIVE TABLET & MOBILE
+   ========================= */
+
+@media (max-width: 1024px) {
+    #show-desktop-only {
+        display: none;
+    }
+    .navbar {
+        max-width: 85%;
+    }
+
+    .navbar::before {
+        top: -20px;
+        height: 20px;
+    }
+
+    .navbar-inner {
+        height: 85px;
+    }
+
+    .navbar-menu {
+       padding-left: 20px;
+    }
+
+    .btn-primary {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-menu {
+        display: none;
+    }
+
+    .navbar-toggle {
+        display: flex;
+    }
+
+    .navbar-inner {
+        justify-content: space-between;
+        height: 70px;
+    }
+
+    .navbar-logo {
+        margin: 0 auto;
+    }
+
+    .navbar-icons {
+        margin-left: 0;
+    }
+}
+
 
 /* Stil pentru butonul de căutare */
 .icon-search {
@@ -466,6 +588,7 @@ body {
     font-size: 200px;
     line-height: 1;
 }
+
 /* ========================================
    UTILITIES
    ======================================== */
@@ -609,6 +732,7 @@ header .promo-products-bar {
     margin-right: 1.25rem; /* mr-5 */
     flex-shrink: 0;
 }
+
 .promo-product-media--sod {
     width: 120px;
     height: 121px;
@@ -631,6 +755,7 @@ header .promo-products-bar {
     margin: 0;
     transform: translateY(-0.875rem); /* -translate-y-3.5 */
 }
+
 .promo-product-variant {
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
@@ -638,6 +763,7 @@ header .promo-products-bar {
     line-height: 25px;
     color: var(--color-primary);
 }
+
 .promo-product-subtitle {
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
@@ -646,9 +772,11 @@ header .promo-products-bar {
     color: var(--color-primary);
     margin: 0;
 }
+
 .promo-product-subtitle--max {
     max-width: 286px;
 }
+
 .promo-product-subtitle--max-sod {
     max-width: 245px;
 }
@@ -659,6 +787,7 @@ header .promo-products-bar {
         flex-direction: row;
     }
 }
+
 /* ========================================
    EFFECTS
    ======================================== */
@@ -685,4 +814,7 @@ header .promo-products-bar {
 .size-104 {
     width: 104px;
     height: 104px;
+}
+.spacer-34 {
+    height: 34px;
 }
