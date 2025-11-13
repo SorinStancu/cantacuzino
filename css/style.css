@@ -301,9 +301,6 @@ body {
     align-items: center;
 }
 
-
-
-
 /* Stil pentru butonul de căutare */
 .icon-search {
     display: inline-flex;
@@ -566,6 +563,102 @@ body {
     fill: var(--color-black);
 }
 
+/* ========================================
+   PROMO
+   ======================================== */
+
+header .promo-products-bar {
+    display: none !important;
+}
+
+@media (min-width: 768px) {
+    header .promo-products-bar {
+        display: flex !important;
+    }
+}
+
+/* Containerul celor două carduri */
+.promo-products-bar {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column; /* pe mobil e ascuns */
+    gap: 1.75rem; /* 7 * 0.25rem */
+    padding-left: 1.5rem; /* px-6 */
+    padding-right: 1.5rem;
+}
+
+/* Card generic */
+.promo-product-card {
+    position: relative;
+    width: 456px;
+    height: 155px;
+    background: #000;
+    border-radius: 23px;
+    display: flex;
+    align-items: center;
+    padding: 1.25rem; /* p-5 */
+}
+
+/* Media + content */
+.promo-product-media {
+    position: relative;
+    width: 102.33px;
+    height: 128px;
+    margin-right: 1.25rem; /* mr-5 */
+    flex-shrink: 0;
+}
+.promo-product-media--sod {
+    width: 120px;
+    height: 121px;
+}
+
+.promo-product-content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* gap-2 */
+}
+
+/* Titluri și texte */
+.promo-product-title {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 44px;
+    color: var(--color-primary);
+    margin: 0;
+    transform: translateY(-0.875rem); /* -translate-y-3.5 */
+}
+.promo-product-variant {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    color: var(--color-primary);
+}
+.promo-product-subtitle {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    color: var(--color-primary);
+    margin: 0;
+}
+.promo-product-subtitle--max {
+    max-width: 286px;
+}
+.promo-product-subtitle--max-sod {
+    max-width: 245px;
+}
+
+/* Aliniere pe md: pe orizontală */
+@media (min-width: 768px) {
+    .promo-products-bar {
+        flex-direction: row;
+    }
+}
 /* ========================================
    EFFECTS
    ======================================== */
