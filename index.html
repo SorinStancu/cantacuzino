@@ -52,14 +52,14 @@
       </div>
    </nav>
    
-   
-   <div class="absolute left-1/2 -translate-x-1/2 top-[149px] flex flex-col items-start ">
-      <h1 class="font-manrope text-white shadow-glow font-light text-[200px] leading-[1] whitespace-nowrap">Orostim-HV</h1>
-      <div class="relative leading-[0] -mt-[30px] -ml-[24px]">
-         <span class="inline-block align-bottom text-transparent select-none pointer-events-none hero-ghost">Orostim-HV</span>
-         <span class="font-manrope align-top text-[var(--color-primary)] shadow-glow font-bold text-[100px] leading-[1]">125</span>
+   <div class="hero-title">
+      <h1 class="hero-title__brand">Orostim-HV</h1>
+      <div class="hero-title__unit">
+         <span class="hero-title__ghost">Orostim-HV</span>
+         <span class="hero-title__value">125</span>
       </div>
    </div>
+   
    <svg class="absolute left-1/2 -translate-x-1/2 top-[455px] w-[1559px] h-[50px]" viewBox="0 0 1559 50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="false" role="img">
       <mask id="mask0_33_23" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1510" y="1" width="49" height="49">
          <rect x="1534.14" y="1.04968" width="34.1443" height="34.1443" transform="rotate(45 1534.14 1.04968)" fill="#D9D9D9"/>
@@ -79,8 +79,9 @@
          </g>
       </a>
    </svg>
-   <div class="absolute left-1/2 -translate-x-1/2 top-[564px] flex flex-col lg:flex-row gap-10 items-stretch px-6">
-      <div class="relative bg-product-info w-[580px] h-[453px] rounded-2xl">
+   
+   <div class="absolute left-1/2 -translate-x-1/2 top-[564px] flex flex-col lg:flex-row gap-10 items-stretch px-6 hero-row">
+      <div class="relative bg-product-info w-[580px] h-[453px] rounded-2xl hero-col hero-info">
          <div class="absolute w-[72px] h-[72px] right-0 -top-1 bg-arrow" aria-hidden="true"></div>
          <div class="absolute left-[76px] top-[67px] w-[424px] font-manrope text-white">
             <h2 class="font-medium text-[33px] leading-[45px] mb-4">Pentru buna funcționare a sistemului imunitar</h2>
@@ -100,8 +101,32 @@
             </svg>
          </a>
       </div>
-      <img src="images/front.png" alt="Orostim-HV ambalaj frontal" class="w-[341px] h-[453px] object-contain self-end">
-      <div class="flex flex-col justify-between text-white font-manrope w-[463px] h-[453px] py-6">
+      
+      <div class="relative inline-flex items-center justify-center hero-image-wrap">
+         <button class="hero-arrow hero-arrow--left" aria-label="Anterior">
+            <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <mask id="mask0_67_356" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="-1" y="0" width="50" height="49">
+                  <rect x="24.1437" y="48.2874" width="34.1443" height="34.1443" transform="rotate(-135 24.1437 48.2874)" fill="#D9D9D9"/>
+               </mask>
+               <g mask="url(#mask0_67_356)">
+                  <path d="M35.8131 23.5395L35.8131 26.355L16.4982 26.355L25.1497 35.0029L23.1377 37.014L11.0659 24.9473L23.1377 12.8805L25.1497 14.8916L16.4982 23.5395L35.8131 23.5395Z" fill="white"/>
+               </g>
+            </svg>
+         </button>
+         <img src="images/front.png" alt="Orostim-HV ambalaj frontal" class="w-[341px] h-[453px] object-contain self-end hero-col hero-image"/>
+         <button class="hero-arrow hero-arrow--right" aria-label="Următor">
+            <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <mask id="mask0_67_352" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="49" height="49">
+                  <rect x="24.1437" width="34.1443" height="34.1443" transform="rotate(45 24.1437 0)" fill="#D9D9D9"/>
+               </mask>
+               <g mask="url(#mask0_67_352)">
+                  <path d="M12.4742 24.3436L12.4742 21.528L31.7892 21.528L23.1377 12.8802L25.1497 10.8691L37.2215 22.9358L25.1497 35.0026L23.1377 32.9914L31.7892 24.3436L12.4742 24.3436Z" fill="white"/>
+               </g>
+            </svg>
+         </button>
+      </div>
+      
+      <div class="flex flex-col justify-between text-white font-manrope w-[463px] h-[453px] py-6 hero-col hero-stats">
          <div></div>
          <div>
             <div class="flex items-end gap-6 mb-8">
@@ -122,7 +147,6 @@
                      <path d="M6.4 18L5 16.6L14.6 7H6V5L18 5V17H16V8.4L6.4 18Z" fill="#000000"/>
                   </svg>
                </a>
-               
                <a href="#" class="btn-view">
                   <span>vezi detalii</span>
                   <svg class="w-6 h-6 icon-rotate-45" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -130,11 +154,14 @@
                      <path d="M6.4 18L5 16.6L14.6 7H6V5L18 5V17H16V8.4L6.4 18Z" fill="#000000"/>
                   </svg>
                </a>
-            
             </div>
          </div>
       </div>
    </div>
+   <!-- ... existing code ... -->
+   
+   
+
    <div class="promo-products-bar header-bottom-offset">
       <div class="promo-product-card">
          <div class="promo-product-media">

@@ -67,6 +67,12 @@ body {
     padding-bottom: calc(6vw + 180px);
 }
 
+@media (max-width: 768px) {
+    .bg-header {
+        min-height: 2000px;
+    }
+}
+
 .header-bottom-offset {
     bottom: -3vw;
 }
@@ -588,7 +594,219 @@ body {
     font-size: 200px;
     line-height: 1;
 }
+/* HERO TITLE */
+.hero-title {
+    position: absolute;
+    left: 50%;
+    top: 149px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 
+.hero-title__brand {
+    font-family: 'Manrope', sans-serif;
+    color: #fff;
+    text-shadow: var(--shadow-glow);
+    font-weight: 300;
+    font-size: clamp(48px, 12vw, 200px);
+    line-height: 1;
+    white-space: nowrap;
+    margin: 0;
+}
+
+.hero-title__unit {
+    position: relative;
+    line-height: 0;
+    margin-top: -30px;
+    margin-left: -24px;
+}
+
+.hero-title__ghost {
+    display: inline-block;
+    vertical-align: bottom;
+    color: transparent;
+    user-select: none;
+    pointer-events: none;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 300;
+    font-size: clamp(40px, 12vw, 200px);
+    line-height: 1;
+}
+
+.hero-title__value {
+    font-family: 'Manrope', sans-serif;
+    vertical-align: top;
+    color: var(--color-primary);
+    text-shadow: var(--shadow-glow);
+    font-weight: 700;
+    font-size: calc(clamp(32px, 8vw, 100px) * 1.25);
+    line-height: 1;
+    margin-left: 8px;
+}
+
+
+@media (max-width: 1024px) {
+  .hero-title {
+    top: 50px;
+  }
+  .hero-title__brand {
+    text-shadow: var(--shadow-glow);
+    font-size: calc(clamp(48px, 12vw, 200px) * 1.25);
+  }
+  .hero-title__value {
+    font-size: calc(clamp(32px, 8vw, 100px) * 1.25);
+  }
+  .hero-title__unit {
+    margin-top: -20px;
+    margin-left: -16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    top: 145px;
+    padding: 0 16px;
+    width: 90%;
+    align-items: center;
+  }
+    .hero-title__brand {
+        white-space: normal;
+        text-align: center;
+        font-size: 83px;
+    }
+    .hero-title__value {
+        font-size: 40px;
+    }
+  .hero-title__unit {
+    margin-top: -12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    top: 50px;
+  }
+}
+
+.hero-col {
+    order: 0;
+}
+
+@media (max-width: 1024px) {
+    .hero-image {
+        order: -1;
+        position: relative;
+        top: -354px;
+    }
+
+
+    .hero-info {
+        order: 0;
+    }
+
+
+    .hero-stats {
+        order: 1;
+    }
+
+    /* a treia */
+    /* Dimensiuni fluide pe mobile fără a afecta desktopul */
+    .hero-image {
+        width: 100% !important;
+        max-width: 420px;
+        height: auto !important;
+        align-self: center !important;
+    }
+
+    .hero-info,
+    .hero-stats {
+        width: 100% !important;
+        max-width: none;
+        height: auto !important;
+    }
+
+    /* Optional: spațiere mai strânsă pe mobile între carduri */
+    .hero-row {
+        gap: 24px !important;
+        margin-top: 100px;
+    }
+}
+
+/* Core wrapper + arrows (ascunse pe desktop) */
+.hero-image-wrap { position: relative; }
+.hero-arrow { display: none; }
+
+/* Mobile/Tablet */
+@media (max-width: 1024px) {
+
+  .hero-image-wrap {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    position: relative;
+    top: -354px;
+    z-index: 2;
+  }
+
+  .hero-image {
+    width: 100% !important;
+    max-width: 420px;
+    height: auto !important;
+    align-self: center !important;
+    display: block;
+    top: 0 !important;
+    position: relative !important;
+  }
+
+
+  .hero-arrow {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    z-index: 2;
+  }
+  .hero-arrow--left  { left: -80px; }
+  .hero-arrow--right { right: -80px; }
+
+  .hero-arrow:hover {
+    background: rgba(0,0,0,0.6);
+    border-color: rgba(255,255,255,0.6);
+  }
+
+  .hero-row {
+      /*margin-top: 100px;*/
+      overflow: visible;
+  }
+
+    .hero-info {
+        order: 1; /* după .hero-image pe mobil */
+        position: relative; /* permite offset local */
+        margin-top: 140px; /* împinge sub imagine/săgeți (ajustează 100–160px după caz) */
+        z-index: 1; /* sub săgeți (z-index:2 pe săgeți), dar peste fundal */
+    }
+
+    .hero-image {
+        order: -1 !important;
+    }
+
+    .hero-stats {
+        order: 2;
+    }
+}
+
+/* 5) Elimină regula care mută imaginea cu -354px (era cauza) */
+@media (max-width: 1024px) {
+  .hero-image { /* deja resetat mai sus */ }
+  .hero-image { top: 0 !important; position: relative !important; }
+}
 /* ========================================
    UTILITIES
    ======================================== */
