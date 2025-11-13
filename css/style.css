@@ -1,3 +1,177 @@
+:root {
+    --color-primary: #D0FF00;
+    --color-black: #000000;
+    --color-white: #FFFFFF;
+    --radius-lg: 12px;
+    --radius-pill: 100px;
+
+    --card-padding-top: 60px;
+    --card-padding-x: 24px;
+    --card-padding-bottom: 24px;
+
+    --glass-bg: rgba(255, 255, 255, 0.06);
+    --glass-blur: 6.6px;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit !important;
+}
+
+/* Fonts */
+.font-poppins {
+    font-family: 'Poppins', sans-serif;
+}
+
+.font-manrope {
+    font-family: 'Manrope', sans-serif;
+}
+
+/* Utilities */
+.bg-img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-contain {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.icon-rotate-45 {
+    transform: rotate(45deg);
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border-radius: var(--radius-pill);
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 25px;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: var(--color-black);
+}
+
+.btn-secondary {
+    background: var(--color-black);
+    color: var(--color-primary);
+}
+
+/* Badge */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 9px;
+    background: var(--color-black);
+    color: var(--color-white);
+    border-radius: 13px;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+/* Price */
+.price {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    color: var(--color-black);
+}
+
+.price .amount {
+    font-size: 59px;
+    line-height: 81px;
+    font-weight: 400;
+}
+
+.price .currency {
+    font-size: 22px;
+    line-height: 31px;
+}
+
+/* Card product (merged variants) */
+.card-product {
+    position: relative;
+    width: 552px;
+    height: 456px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.card-product .content {
+    position: relative;
+    inset: 0;
+    padding: var(--card-padding-top) var(--card-padding-x) var(--card-padding-bottom);
+    box-sizing: border-box;
+}
+
+.card-product--primary {
+    background: url('images/bg.png') center/cover no-repeat;
+}
+
+.card-product--secondary {
+    background: url('images/bg_dr.png') center/cover no-repeat;
+}
+
+/* Effects */
+.shadow-glow {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.64);
+}
+
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+}
+
+/* Layout */
+.container-xl {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Sections */
+.banner-cantacuzino {
+    position: relative;
+    width: 100%;
+    max-width: 1728px;
+    min-height: 820px;
+    margin: 0 auto;
+    background: linear-gradient(0deg, #1D439C, #1D439C), #C4C4C4;
+    overflow: hidden;
+}
+
+.nav-links {
+    --link-color: var(--color-primary);
+}
+
+.nav-link {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.nav-link--muted {
+    color: inherit;
+    text-decoration: none;
+}
+
+.nav-link--muted:hover {
+    color: var(--color-primary);
+}
 body {
   margin: 0;
   font-family: 'Manrope', sans-serif;
@@ -108,6 +282,3 @@ body {
 .icon-cart:hover svg {
     stroke: #D0FF00;
 }
-
-
-
