@@ -55,7 +55,6 @@ body {
 #show-desktop-only {
     display: inline-flex;
 }
-/* Background images classes */
 
 /* Header background */
 .bg-header {
@@ -69,7 +68,7 @@ body {
 
 @media (max-width: 768px) {
     .bg-header {
-        min-height: 2000px;
+        min-height: 1520px;
     }
 }
 
@@ -77,10 +76,12 @@ body {
     bottom: -3vw;
 }
 
-/* Product info card background */
 .bg-product-info {
     background-image: url('../images/Subtract.png');
     background-color: transparent;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 /* Arrow decoration */
@@ -275,7 +276,7 @@ body {
 .navbar::before {
     content: "";
     position: absolute;
-    top: -34px; /* spațiu vizual de 34px deasupra fără a folosi margin */
+    top: -34px;
     left: 0;
     right: 0;
     height: 34px;
@@ -285,7 +286,7 @@ body {
 .navbar-inner {
     display: flex;
     align-items: center;
-    height: 105px; /* desktop height */
+    height: 105px;
 }
 
 /* LOGO */
@@ -695,50 +696,32 @@ body {
 }
 
 @media (max-width: 1024px) {
-    .hero-image {
-        order: -1;
-        position: relative;
-        top: -354px;
-    }
-
+    /* Ordinea pe mobile: imagine + săgeți, apoi cardul info, apoi stats */
+    .hero-image-wrap { order: -1 !important; }
+    .hero-image      { order: -1 !important; top: 0 !important; position: relative !important; }
 
     .hero-info {
-        order: 0;
+        order: 0 !important;
+        position: relative;
+        margin-top: -40px;
+        z-index: 1;
     }
 
+    .hero-stats { order: 1 !important; }
 
-    .hero-stats {
-        order: 1;
-    }
 
-    /* a treia */
-    /* Dimensiuni fluide pe mobile fără a afecta desktopul */
-    .hero-image {
-        width: 100% !important;
-        max-width: 420px;
-        height: auto !important;
-        align-self: center !important;
-    }
-
-    .hero-info,
-    .hero-stats {
-        width: 100% !important;
-        max-width: none;
-        height: auto !important;
-    }
-
-    /* Optional: spațiere mai strânsă pe mobile între carduri */
     .hero-row {
-        gap: 24px !important;
-        margin-top: 100px;
+        overflow: visible;
+        gap: 24px;
+        margin-top: 60px;
     }
 }
 
-/* Core wrapper + arrows (ascunse pe desktop) */
+
 .hero-image-wrap { position: relative; }
 .hero-arrow { display: none; }
 
-/* Mobile/Tablet */
+
 @media (max-width: 1024px) {
 
   .hero-image-wrap {
@@ -782,15 +765,19 @@ body {
   }
 
   .hero-row {
-      /*margin-top: 100px;*/
       overflow: visible;
   }
 
     .hero-info {
-        order: 1; /* după .hero-image pe mobil */
-        position: relative; /* permite offset local */
-        margin-top: 140px; /* împinge sub imagine/săgeți (ajustează 100–160px după caz) */
-        z-index: 1; /* sub săgeți (z-index:2 pe săgeți), dar peste fundal */
+        order: 1;
+        position: relative;
+        margin-top: -325px;
+        z-index: 1;
+        background-image: url('../images/Subtract.png');
+        background-color: transparent;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 
     .hero-image {
@@ -798,13 +785,13 @@ body {
     }
 
     .hero-stats {
+        margin-top: -320px;
         order: 2;
     }
 }
 
-/* 5) Elimină regula care mută imaginea cu -354px (era cauza) */
+
 @media (max-width: 1024px) {
-  .hero-image { /* deja resetat mai sus */ }
   .hero-image { top: 0 !important; position: relative !important; }
 }
 /* ========================================
@@ -924,9 +911,9 @@ header .promo-products-bar {
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    flex-direction: column; /* pe mobil e ascuns */
-    gap: 1.75rem; /* 7 * 0.25rem */
-    padding-left: 1.5rem; /* px-6 */
+    flex-direction: column;
+    gap: 1.75rem;
+    padding-left: 1.5rem;
     padding-right: 1.5rem;
 }
 
@@ -939,7 +926,7 @@ header .promo-products-bar {
     border-radius: 23px;
     display: flex;
     align-items: center;
-    padding: 1.25rem; /* p-5 */
+    padding: 1.25rem;
 }
 
 /* Media + content */
@@ -947,7 +934,7 @@ header .promo-products-bar {
     position: relative;
     width: 102.33px;
     height: 128px;
-    margin-right: 1.25rem; /* mr-5 */
+    margin-right: 1.25rem;
     flex-shrink: 0;
 }
 
@@ -960,7 +947,7 @@ header .promo-products-bar {
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem; /* gap-2 */
+    gap: 0.5rem;
 }
 
 /* Titluri și texte */
@@ -971,7 +958,7 @@ header .promo-products-bar {
     line-height: 44px;
     color: var(--color-primary);
     margin: 0;
-    transform: translateY(-0.875rem); /* -translate-y-3.5 */
+    transform: translateY(-0.875rem);
 }
 
 .promo-product-variant {
@@ -999,7 +986,6 @@ header .promo-products-bar {
     max-width: 245px;
 }
 
-/* Aliniere pe md: pe orizontală */
 @media (min-width: 768px) {
     .promo-products-bar {
         flex-direction: row;
