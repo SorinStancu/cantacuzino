@@ -1,18 +1,44 @@
+/* ========================================
+   CSS CUSTOM PROPERTIES
+   ======================================== */
 :root {
+    /* Colors */
     --color-primary: #D0FF00;
     --color-black: #000000;
     --color-white: #FFFFFF;
-    --radius-lg: 12px;
-    --radius-pill: 100px;
 
+    /* Border Radius */
+    --radius-sm: 13px;
+    --radius-lg: 12px;
+    --radius-xl: 23px;
+    --radius-pill: 100px;
+    --radius-navbar: 66px;
+
+    /* Spacing */
     --card-padding-top: 60px;
     --card-padding-x: 24px;
     --card-padding-bottom: 24px;
+    --navbar-padding-x: 84px;
 
+    /* Effects */
     --glass-bg: rgba(255, 255, 255, 0.06);
     --glass-blur: 6.6px;
+    --shadow-glow: 0 0 20px rgba(255, 255, 255, 0.64);
+
+    /* Buttons */
+    --icon-size: 32px;
+    --icon-stroke: #fff;
+    --icon-stroke-hover: #007bff;
+    --btn-bg: #222;
+    --btn-bg-hover: #333;
+    --btn-radius: 8px;
+    --btn-padding: 8px;
+    --transition: 0.3s ease;
 }
 
+/* ========================================
+   RESET & BASE
+   ======================================== */
 html {
     box-sizing: border-box;
 }
@@ -21,7 +47,69 @@ html {
     box-sizing: inherit !important;
 }
 
-/* Fonts */
+body {
+    margin: 0;
+    font-family: 'Manrope', sans-serif;
+}
+
+/* Background images classes */
+
+/* Header background */
+.bg-header {
+    background-image: url('../images/fundal 1.png');
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 850px;
+    padding-bottom: calc(6vw + 180px);
+}
+
+.header-bottom-offset {
+    bottom: -3vw;
+}
+/* Product info card background */
+.bg-product-info {
+    background-image: url('../images/Subtract.png');
+    background-color: transparent;
+}
+
+/* Arrow decoration */
+.bg-arrow {
+    background-image: url('../images/Arrow.png');
+}
+
+/* Product images in cards */
+.bg-sod-natural {
+    background-image: url('../images/SOD-NATURAL.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.bg-orostim-product {
+    background-image: url('../images/image 16.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* Warning section background */
+.bg-atentionare {
+    background-image: url('../images/bg-atentionare.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+/* Banner Cantacuzino section */
+.banner-cantacuzino {
+    background-image: url('../images/fundal 1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
 .font-poppins {
     font-family: 'Poppins', sans-serif;
 }
@@ -30,24 +118,17 @@ html {
     font-family: 'Manrope', sans-serif;
 }
 
-/* Utilities */
-.bg-img {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+/* ========================================
+   LAYOUT
+   ======================================== */
+.container-xl {
+    max-width: 1600px;
+    margin: 0 auto;
 }
 
-.bg-contain {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.icon-rotate-45 {
-    transform: rotate(45deg);
-}
-
-/* Buttons */
+/* ========================================
+   COMPONENTS - Buttons
+   ======================================== */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -72,7 +153,23 @@ html {
     color: var(--color-primary);
 }
 
-/* Badge */
+.btn-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 133px;
+    height: 52px;
+    background: var(--color-primary);
+    border-radius: 43px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-black);
+    text-decoration: none;
+}
+
+/* ========================================
+   COMPONENTS - Badge
+   ======================================== */
 .badge {
     display: inline-flex;
     align-items: center;
@@ -80,12 +177,14 @@ html {
     padding: 5px 9px;
     background: var(--color-black);
     color: var(--color-white);
-    border-radius: 13px;
+    border-radius: var(--radius-sm);
     font-size: 16px;
     line-height: 22px;
 }
 
-/* Price */
+/* ========================================
+   COMPONENTS - Price
+   ======================================== */
 .price {
     display: flex;
     align-items: baseline;
@@ -104,7 +203,9 @@ html {
     line-height: 31px;
 }
 
-/* Card product (merged variants) */
+/* ========================================
+   COMPONENTS - Cards
+   ======================================== */
 .card-product {
     position: relative;
     width: 552px;
@@ -121,103 +222,45 @@ html {
 }
 
 .card-product--primary {
-    background: url('images/bg.png') center/cover no-repeat;
+    background: url('../images/bg.png') center/cover no-repeat;
 }
 
 .card-product--secondary {
-    background: url('images/bg_dr.png') center/cover no-repeat;
+    background: url('../images/bg_dr.png') center/cover no-repeat;
 }
 
-/* Effects */
-.shadow-glow {
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.64);
+.terms-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 40px;
 }
 
-.glass {
-    background: var(--glass-bg);
-    backdrop-filter: blur(var(--glass-blur));
+.terms-text {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 190%;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 349px;
 }
 
-/* Layout */
-.container-xl {
-    max-width: 1600px;
-    margin: 0 auto;
-}
-
-/* Sections */
-.banner-cantacuzino {
-    position: relative;
-    width: 100%;
-    max-width: 1728px;
-    min-height: 820px;
-    margin: 0 auto;
-    background: linear-gradient(0deg, #1D439C, #1D439C), #C4C4C4;
-    overflow: hidden;
-}
-
-.nav-links {
-    --link-color: var(--color-primary);
-}
-
-.nav-link {
-    color: var(--link-color);
-    text-decoration: none;
-}
-
-.nav-link--muted {
-    color: inherit;
-    text-decoration: none;
-}
-
-.nav-link--muted:hover {
-    color: var(--color-primary);
-}
-body {
-  margin: 0;
-  font-family: 'Manrope', sans-serif;
-}
-
-.hero {
-  background-image: url('../images/fundal 1.png');
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-}
-
-.hero-content {
-  background: rgba(0, 0, 0, 0.4);
-  padding: 40px;
-  border-radius: 20px;
-}
-
-.hero h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 24px;
-  margin-bottom: 30px;
-}
-
+/* ========================================
+   COMPONENTS - Navigation
+   ======================================== */
 .navbar {
     position: relative;
     width: 1559px;
     height: 105px;
     margin: 34px auto;
-    padding: 0 84px;
+    padding: 0 var(--navbar-padding-x);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgba(255, 255, 255, 0.06);
+    background: var(--glass-bg);
     border: 1px solid rgba(255, 255, 255, 0.29);
-    backdrop-filter: blur(6.6px);
-    border-radius: 66px;
+    backdrop-filter: blur(var(--glass-blur));
+    border-radius: var(--radius-navbar);
     font-family: 'Poppins', sans-serif;
 }
 
@@ -241,44 +284,312 @@ body {
     font-weight: 400;
     line-height: 21px;
     text-decoration: none;
-    color: #FFFFFF;
-    background: #FFFFFF;
+    color: var(--color-white);
+    background: var(--color-white);
     border-radius: 25px;
 }
 
 .navbar-menu li.active a {
-    background: #D0FF00;
-    color: #000;
+    background: var(--color-primary);
+    color: var(--color-black);
     font-weight: 500;
 }
 
-
-.btn-login {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 133px;
-    height: 52px;
-    background: #D0FF00;
-    border-radius: 43px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #000;
-    text-decoration: none;
-}
 .navbar-icons {
     display: flex;
     gap: 24px;
     align-items: center;
 }
 
+
+
+
+/* Stil pentru butonul de căutare */
+.icon-search {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: var(--btn-radius);
+    padding: var(--btn-padding);
+    cursor: pointer;
+    transition: background var(--transition);
+}
+
+.icon-search:hover {
+    stroke: var(--color-primary);
+}
+
+.icon-search svg {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    stroke: var(--icon-stroke);
+    fill: none;
+    stroke-width: 2;
+    transition: stroke var(--transition);
+}
+
+.icon-search:hover svg {
+    stroke: var(--color-primary);
+}
+
+/* Navigation Links */
+.nav-links {
+    --link-color: var(--color-primary);
+}
+
+.nav-link {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.nav-link--muted {
+    color: inherit;
+    text-decoration: none;
+}
+
+.nav-link--muted:hover {
+    color: var(--color-primary);
+}
+
+/* ========================================
+   CART
+   ======================================== */
+.icon-cart {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: var(--btn-radius);
+    padding: var(--btn-padding);
+    cursor: pointer;
+    transition: background var(--transition);
+}
+
+.icon-cart:hover {
+    stroke: var(--color-primary);
+}
+
 .icon-cart svg {
-    width: 32px;
-    height: 32px;
-    stroke: #fff;
-    transition: stroke 0.3s ease;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    stroke: var(--icon-stroke);
+    fill: none;
+    stroke-width: 2;
+    transition: stroke var(--transition);
 }
 
 .icon-cart:hover svg {
-    stroke: #D0FF00;
+    stroke: var(--color-primary);
+}
+
+.btn-primary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 222px;
+    height: 52px;
+    background: var(--color-primary);
+    border-radius: 100px;
+    padding: 0 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary span {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    text-transform: uppercase;
+    color: var(--color-black);
+    transition: color 0.3s ease;
+}
+
+.btn-primary svg path {
+    transition: fill 0.3s ease;
+}
+
+/* Hover effect */
+.btn-primary:hover {
+    background: var(--color-black);
+}
+
+.btn-primary:hover span {
+    color: var(--color-primary);
+}
+
+.btn-primary:hover svg path {
+    fill: var(--color-primary);
+}
+
+/* ========================================
+   SLIDER
+   ======================================== */
+.hero {
+    background-image: url('../images/fundal 1.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-white);
+}
+
+.hero-content {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.banner-cantacuzino {
+    position: relative;
+    width: 100%;
+    max-width: 1728px;
+    min-height: 820px;
+    margin: 0 auto;
+    background: linear-gradient(0deg, #1D439C, #1D439C), #C4C4C4;
+    overflow: hidden;
+}
+
+.hero-ghost {
+    font-weight: 300;
+    font-size: 200px;
+    line-height: 1;
+}
+/* ========================================
+   UTILITIES
+   ======================================== */
+.bg-img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-contain {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.icon-rotate-45 {
+    transform: rotate(45deg);
+}
+
+.btn-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 222px;
+    height: 52px;
+    background: white;
+    border-radius: 100px;
+    padding: 0 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-view span {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    text-transform: uppercase;
+    color: var(--color-black);
+    transition: color 0.3s ease;
+}
+
+.btn-view svg path {
+    transition: fill 0.3s ease;
+}
+
+/* Hover effect */
+.btn-view:hover {
+    background: var(--color-black);
+}
+
+.btn-view:hover span {
+    color: var(--color-primary);
+}
+
+.btn-view:hover svg path {
+    fill: var(--color-primary);
+}
+
+.btn-black {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background: var(--color-black);
+    border-radius: 100px;
+    padding: 0 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-black span {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    transition: color 0.3s ease;
+}
+
+.btn-black svg path {
+    transition: fill 0.3s ease;
+}
+
+/* Hover effect */
+.btn-black:hover {
+    background: var(--color-primary);
+}
+
+.btn-black:hover span {
+    color: var(--color-black);
+}
+
+.btn-black:hover svg path {
+    fill: var(--color-black);
+}
+
+/* ========================================
+   EFFECTS
+   ======================================== */
+.shadow-glow {
+    text-shadow: var(--shadow-glow);
+}
+
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+}
+
+/* ========================================
+   CUSTOM
+   ======================================== */
+.ml--300 {
+    margin-left: -300px;
+}
+
+.mt-3vw {
+    margin-top: 3vw;
+}
+
+.size-104 {
+    width: 104px;
+    height: 104px;
 }

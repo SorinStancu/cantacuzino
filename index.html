@@ -10,7 +10,7 @@
    <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-white">
-<header class="relative bg-cover bg-no-repeat" style="background-image: url('images/fundal 1.png'); background-position: top center; min-height: 850px; padding-bottom: calc(6vw + 180px);">
+<header class="relative bg-header">
    <div class="absolute inset-0 bg-black/30 z-0"></div>
    <nav class="absolute left-1/2 -translate-x-1/2 top-8 z-10 w-full container-xl px-6">
       <div class="glass rounded-[66px] h-[105px] flex items-center px-6 font-poppins">
@@ -32,67 +32,71 @@
             </li>
          </ul>
          <div class="ml-auto flex items-center gap-6">
-            <button aria-label="Coș" class="w-8 h-8 text-white">
-               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <button class="icon-cart" aria-label="Coș">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                   <circle cx="6" cy="19" r="2"/>
                   <circle cx="17" cy="19" r="2"/>
                   <path d="M17 17h-11v-14h-2"/>
                   <path d="M6 5l14 1l-1 7h-13"/>
                </svg>
             </button>
-            <button aria-label="Căutare" class="w-8 h-8 text-white">
-               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <button class="icon-search" aria-label="Căutare">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                   <circle cx="10" cy="10" r="7"/>
                   <path d="m21 21-6-6"/>
                </svg>
             </button>
-            <a href="#" class="btn btn-primary rounded-[43px] h-[52px]">Autentificare</a>
+            <a href="#" class="btn btn-primary rounded-[43px] h-[52px]"><span>Autentificare</span></a>
          </div>
       </div>
    </nav>
-   <div class="absolute left-1/2 -translate-x-1/2 top-[149px] flex flex-col items-start font-manrope">
-      <div class="text-white shadow-glow font-light text-[200px] leading-[1] whitespace-nowrap">Orostim-HV</div>
+   <div class="absolute left-1/2 -translate-x-1/2 top-[149px] flex flex-col items-start ">
+      <h1 class="font-manrope text-white shadow-glow font-light text-[200px] leading-[1] whitespace-nowrap">Orostim-HV</h1>
       <div class="relative leading-[0] -mt-[30px] -ml-[24px]">
-         <span class="inline-block align-bottom text-transparent select-none pointer-events-none" style="font-weight:300;font-size:200px;line-height:1;">Orostim-HV</span>
-         <span class="align-top text-[var(--color-primary)] shadow-glow font-bold text-[100px] leading-[1]">125</span>
+         <span class="inline-block align-bottom text-transparent select-none pointer-events-none hero-ghost">Orostim-HV</span>
+         <span class="font-manrope align-top text-[var(--color-primary)] shadow-glow font-bold text-[100px] leading-[1]">125</span>
       </div>
    </div>
-   <svg class="absolute left-1/2 -translate-x-1/2 top-[455px] w-[1559px] h-[50px]" viewBox="0 0 1559 50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+   <svg class="absolute left-1/2 -translate-x-1/2 top-[455px] w-[1559px] h-[50px]" viewBox="0 0 1559 50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="false" role="img">
       <mask id="mask0_33_23" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1510" y="1" width="49" height="49">
          <rect x="1534.14" y="1.04968" width="34.1443" height="34.1443" transform="rotate(45 1534.14 1.04968)" fill="#D9D9D9"/>
       </mask>
-      <g mask="url(#mask0_33_23)">
-         <path d="M1522.47 25.3933L1522.47 22.5777L1541.79 22.5777L1533.14 13.9299L1535.15 11.9187L1547.22 23.9855L1535.15 36.0523L1533.14 34.0411L1541.79 25.3933L1522.47 25.3933Z" fill="white"/>
-      </g>
+      <a href="#" role="link" aria-label="Următorul">
+         <g mask="url(#mask0_33_23)" style="cursor:pointer">
+            <path d="M1522.47 25.3933L1522.47 22.5777L1541.79 22.5777L1533.14 13.9299L1535.15 11.9187L1547.22 23.9855L1535.15 36.0523L1533.14 34.0411L1541.79 25.3933L1522.47 25.3933Z" fill="white"/>
+         </g>
+      </a>
+      
       <mask id="mask1_33_23" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="49" height="49">
          <rect x="24.1436" y="48.2874" width="34.1443" height="34.1443" transform="rotate(-135 24.1436 48.2874)" fill="#D9D9D9"/>
       </mask>
-      <g mask="url(#mask1_33_23)">
-         <path d="M35.813 23.5395L35.813 26.355L16.4981 26.355L25.1495 35.0029L23.1376 37.014L11.0657 24.9472L23.1376 12.8805L25.1495 14.8916L16.4981 23.5395L35.813 23.5395Z" fill="white"/>
-      </g>
+      <a href="#" role="link" aria-label="Anteriorul">
+         <g mask="url(#mask1_33_23)" style="cursor:pointer">
+            <path d="M35.813 23.5395L35.813 26.355L16.4981 26.355L25.1495 35.0029L23.1376 37.014L11.0657 24.9472L23.1376 12.8805L25.1495 14.8916L16.4981 23.5395L35.813 23.5395Z" fill="white"/>
+         </g>
+      </a>
    </svg>
    <div class="absolute left-1/2 -translate-x-1/2 top-[564px] flex flex-col lg:flex-row gap-10 items-stretch px-6">
-      <div class="relative bg-img w-[580px] h-[453px] rounded-2xl" style="background-image: url('images/Subtract.png'); background-color: transparent;">
-         <div class="absolute w-[72px] h-[72px] right-0 -top-1 bg-img" style="background-image: url('images/Arrow.png');" aria-hidden="true"></div>
+      <div class="relative bg-product-info w-[580px] h-[453px] rounded-2xl">
+         <div class="absolute w-[72px] h-[72px] right-0 -top-1 bg-arrow" aria-hidden="true"></div>
          <div class="absolute left-[76px] top-[67px] w-[424px] font-manrope text-white">
             <h2 class="font-medium text-[33px] leading-[45px] mb-4">Pentru buna funcționare a sistemului imunitar</h2>
             <p class="text-base font-medium leading-[190%] text-white/80">
                OROSTIM-HV 125 supliment alimentar este o combinație între pulberea de extract de orz verde și un lizat bacterian original, cu formulă proprie, pentru utilizare orală.
             </p>
          </div>
-         <a href="#" class="btn btn-secondary absolute left-[349px] top-[363px] w-[185px] h-[52px]">
+         <a href="#" class="btn-black absolute left-[349px] top-[363px] w-[185px] h-[52px]">
             <span>PROSPECT</span>
-            <svg class="w-6 h-6" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <svg class="w-6 h-6" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                <mask id="mask0_49_8" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                   <rect width="24" height="24" fill="#D9D9D9"/>
                </mask>
                <g mask="url(#mask0_49_8)">
-                  <path d="M6.4 18L5 16.6L14.6 7H6V5L18 5V17H16V8.4L6.4 18Z" fill="var(--color-primary)"/>
+                  <path d="M6.4 18L5 16.6L14.6 7H6V5L18 5V17H16V8.4L6.4 18Z" fill="white"/>
                </g>
             </svg>
          </a>
+      
       </div>
       <img src="images/front.png" alt="Orostim-HV ambalaj frontal" class="w-[341px] h-[453px] object-contain self-end">
       <div class="flex flex-col justify-between text-white font-manrope w-[463px] h-[453px] py-6">
@@ -109,25 +113,27 @@
                </div>
             </div>
             <div class="flex items-center gap-[19px]">
-               <a href="#" class="flex justify-center items-center gap-[15px] w-[222px] h-[52px] bg-[var(--color-primary)] rounded-[100px] px-4">
-                  <span class="font-medium text-[18px] leading-[25px] uppercase text-black">Adaugă în coș</span>
+               <a href="#" class="btn-primary">
+                  <span>Adaugă în coș</span>
                   <svg class="w-6 h-6 icon-rotate-45" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                      <rect width="24" height="24"></rect>
                      <path d="M6.4 18L5 16.6L14.6 7H6V5L18 5V17H16V8.4L6.4 18Z" fill="#000000"/>
                   </svg>
                </a>
-               <a href="#" class="flex justify-center items-center gap-[15px] w-[222px] h-[52px] bg-white rounded-[100px] px-4">
-                  <span class="font-medium text-[18px] leading-[25px] uppercase text-black">vezi detalii</span>
+               
+               <a href="#" class="btn-view">
+                  <span>vezi detalii</span>
                   <svg class="w-6 h-6 icon-rotate-45" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                      <rect width="24" height="24"></rect>
                      <path d="M6.4 18L5 16.6L14.6 7H6V5L18 5V17H16V8.4L6.4 18Z" fill="#000000"/>
                   </svg>
                </a>
+            
             </div>
          </div>
       </div>
    </div>
-   <div class="absolute left-1/2 -translate-x-1/2 flex flex-col md:flex-row gap-7 px-6" style="bottom: -3vw;">
+   <div class="absolute left-1/2 -translate-x-1/2 flex flex-col md:flex-row gap-7 px-6 header-bottom-offset">
       <div class="relative w-[456px] h-[155px] bg-black rounded-[23px] flex items-center p-5">
          <div class="relative w-[102.33px] h-[128px] mr-5 shrink-0">
             <img src="images/Cutie-OROSTIM-HV.png" alt="Orostim-HV 250" class="w-full h-full object-contain">
@@ -152,69 +158,74 @@
    </div>
 </header>
 
-<section class="relative bg-white pt-20 pb-20" style="margin-top: 3vw;">
+<section class="relative bg-white pt-20 pb-20 mt-3vw">
    <div class="container-xl grid grid-cols-1 xl:grid-cols-[1fr_495px] gap-12 xl:gap-24 px-6">
       <div class="flex-2 relative flex flex-col items-end pr-[130px]">
          <h2 class="font-manrope text-[70px] leading-[96px] text-center mb-12">Top vânzări</h2>
          
          <article class="card-product card-product--primary mb-12" aria-labelledby="prod-sod-title">
-            <div class="content">
-               <div class="absolute right-6 top-14"><span class="badge">Stoc epuizat</span></div>
-               <h3 id="prod-sod-title" class="font-manrope font-medium text-[27px] leading-[190%] text-right text-black/80 absolute right-6 top-28">
-                  SOD NATURAL<br><span class="text-[16px]">(cutie cu 10 fiole)</span>
-               </h3>
-               <div class="absolute left-[67px] top-[221px]">
-                  <div class="price">
-                     <span class="amount">44,02</span><span class="currency">lei</span>
+            <a href="#" class="block relative">
+               <div class="content">
+                  <div class="absolute right-6 top-14"><span class="badge">Stoc epuizat</span></div>
+                  <h3 id="prod-sod-title" class="font-manrope font-medium text-[27px] leading-[190%] text-right text-black/80 absolute right-6 top-28">
+                     SOD NATURAL<br><span class="text-[16px]">(cutie cu 10 fiole)</span>
+                  </h3>
+                  <div class="absolute left-[67px] top-[221px]">
+                     <div class="price">
+                        <span class="amount">44,02</span><span class="currency">lei</span>
+                     </div>
                   </div>
+                  <p class="font-manrope text-[17.38px] leading-[24px] text-black absolute left-[72px] top-[318px] max-w-[228px]">
+                     Supliment alimentar antioxidant<br>Soluție buvabilă
+                  </p>
+                  <div class="absolute right-[49px] top-[214px] w-[195px] h-[196px] bg-sod-natural" aria-hidden="true"></div>
                </div>
-               <p class="font-manrope text-[17.38px] leading-[24px] text-black absolute left-[72px] top-[318px] max-w-[228px]">
-                  Supliment alimentar antioxidant<br>Soluție buvabilă
-               </p>
-               <div class="absolute right-[49px] top-[214px] w-[195px] h-[196px] bg-contain" style="background-image:url('images/SOD-NATURAL.png');" aria-hidden="true"></div>
-            </div>
+            </a>
          </article>
          
          <article class="card-product card-product--secondary mb-12" aria-labelledby="prod-orostim-250">
-            <div class="content">
-               <div class="absolute left-[70px] top-14"><span class="badge">Stoc epuizat</span></div>
-               <h3 id="prod-orostim-250" class="font-manrope font-medium text-[27px] leading-[190%] text-right text-black/80 absolute right-6 top-28">
-                  OROSTIM-HV 250<br><span class="text-[16px]">(30 capsule)</span>
-               </h3>
-               <div class="absolute left-[67px] top-[221px]">
-                  <div class="price">
-                     <span class="amount">66,61</span><span class="currency">lei</span>
+            <a href="#" class="block relative">
+               <div class="content">
+                  <div class="absolute left-[70px] top-14"><span class="badge">Stoc epuizat</span></div>
+                  <h3 id="prod-orostim-250" class="font-manrope font-medium text-[27px] leading-[190%] text-right text-black/80 absolute right-6 top-28">
+                     OROSTIM-HV 250<br><span class="text-[16px]">(30 capsule)</span>
+                  </h3>
+                  <div class="absolute left-[67px] top-[221px]">
+                     <div class="price">
+                        <span class="amount">66,61</span><span class="currency">lei</span>
+                     </div>
                   </div>
+                  <p class="font-manrope text-[17.38px] leading-[24px] text-black absolute left-[72px] top-[318px] max-w-[228px]">
+                     Supliment alimentar pentru buna funcționare a sistemului imunitar
+                  </p>
+                  <div class="absolute right-[85px] top-[214px] w-[156px] h-[213px] bg-orostim-product" aria-hidden="true"></div>
                </div>
-               <p class="font-manrope text-[17.38px] leading-[24px] text-black absolute left-[72px] top-[318px] max-w-[228px]">
-                  Supliment alimentar pentru buna funcționare a sistemului imunitar
-               </p>
-               <div class="absolute right-[85px] top-[214px] w-[156px] h-[213px] bg-contain" style="background-image:url('images/image 16.png');" aria-hidden="true"></div>
-            </div>
+            </a>
          </article>
          
          <article class="card-product card-product--primary" aria-labelledby="prod-orostim-125">
-            <div class="content">
-               <div class="absolute right-6 top-14"><span class="badge">Stoc epuizat</span></div>
-               <h3 id="prod-orostim-125" class="font-manrope font-medium text-[27px] leading-[190%] text-right text-black/80 absolute right-6 top-28">
-                  OROSTIM-HV 125<br><span class="text-[16px]">(30 capsule)</span>
-               </h3>
-               <div class="absolute left-[67px] top-[221px]">
-                  <div class="price">
-                     <span class="amount">66,61</span><span class="currency">lei</span>
+            <a href="#" class="block relative">
+               <div class="content">
+                  <div class="absolute right-6 top-14"><span class="badge">Stoc epuizat</span></div>
+                  <h3 id="prod-orostim-125" class="font-manrope font-medium text-[27px] leading-[190%] text-right text-black/80 absolute right-6 top-28">
+                     OROSTIM-HV 125<br><span class="text-[16px]">(30 capsule)</span>
+                  </h3>
+                  <div class="absolute left-[67px] top-[221px]">
+                     <div class="price">
+                        <span class="amount">66,61</span><span class="currency">lei</span>
+                     </div>
                   </div>
+                  <p class="font-manrope text-[17.38px] leading-[24px] text-black absolute left-[72px] top-[318px] max-w-[228px]">
+                     Supliment alimentar pentru buna funcționare a sistemului imunitar
+                  </p>
+                  <div class="absolute right-[85px] top-[214px] w-[156px] h-[213px] bg-orostim-product" aria-hidden="true"></div>
                </div>
-               <p class="font-manrope text-[17.38px] leading-[24px] text-black absolute left-[72px] top-[318px] max-w-[228px]">
-                  Supliment alimentar pentru buna funcționare a sistemului imunitar
-               </p>
-               <div class="absolute right-[85px] top-[214px] w-[156px] h-[213px] bg-contain" style="background-image:url('images/image 16.png');" aria-hidden="true"></div>
-            </div>
+            </a>
          </article>
       </div>
       
       <div class="flex-2 relative flex flex-col items-first">
-         <div class="shrink-0 w-full xl:w-[350px] rounded-xl relative p-6 -ml-[150px]"
-              style="background-image: url('images/bg-atentionare.png'); background-repeat: no-repeat; background-size: contain; background-position: center;">
+         <div class="shrink-0 w-full xl:w-[350px] rounded-xl relative p-6 -ml-[150px] bg-atentionare">
             <div class="flex flex-col gap-4 mb-6">
                <a href="#" class="btn btn-primary w-[259px] h-[52px]">
                   <span>termeni și condiții</span>
@@ -222,7 +233,7 @@
                      <path d="M6.4 18L5 16.6L14.6 7H6V5L18 5V17H16V8.4L6.4 18Z" fill="#000000"/>
                   </svg>
                </a>
-               <a href="#contact" class="btn btn-secondary w-[166px] h-[52px]">
+               <a href="#contact" class="btn btn-black w-[166px] h-[52px]">
                   <span>contact</span>
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="icon-rotate-45">
                      <path d="M6.4 18L5 16.6L14.6 7H6V5L18 5V17H16V8.4L6.4 18Z" fill="var(--color-primary)"/>
@@ -230,24 +241,27 @@
                </a>
             </div>
             <h2 class="font-manrope font-medium text-[47px] leading-[64px] text-white mb-4">Atenționări</h2>
-            <div class="space-y-4">
-               <p class="font-manrope font-medium text-[16px] leading-[190%] text-white/80 max-w-[349px]">
+            <div class="terms-container">
+               <p class="terms-text">
                   1. Conform dispozițiilor art. 16 lit. d) și e) din OUG 34/2014, sunt exceptate de la returnare produsele susceptibile a se deteriora, din motive de protecție a sănătății. Produsul SOD NATURAL face parte din această categorie, întrucât necesită condiții speciale de depozitare și păstrare! Prin urmare, orice comandă de SOD NATURAL, care a fost livrată din depozitul Institutului „Cantacuzino", NU POATE FI RETURNATĂ de către client.
                </p>
-               <p class="font-manrope font-medium text-[16px] leading-[190%] text-white/80 max-w-[349px]">
+               <p class="terms-text">
                   2. Costul transportului va fi achitat de client la destinație.
                </p>
-               <p class="font-manrope font-medium text-[16px] leading-[190%] text-white/80 max-w-[349px]">
+               <p class="terms-text">
                   3. Modalitatea de plată acceptată deocamdată pentru achiziționarea produselor prin intermediul acestui magazin online este transferul bancar (ordin de plată).
                </p>
-               <p class="font-manrope font-medium text-[16px] leading-[190%] text-white/80 max-w-[349px]">
+               <p class="terms-text">
                   4. Înainte de plasarea unei comenzi, vă rugăm să citiți cu atenție „Termenii și condițiile" de utilizare a acestui site. Dacă nu sunteți de acord cu acestea, vă rugăm să nu folosiți site-ul nostru. Prin acceptarea termenilor și condițiilor de utilizare, sunteți de acord să respectați „Termenii și condițiile" de utilizare în versiunea publicată pe site la momentul vizitei dvs.
                </p>
             </div>
+            
             <div class="absolute -right-10 -bottom-12 md:-bottom-16">
-               <div class="w-26 h-26 rounded-full bg-[var(--color-primary)] relative flex items-center justify-center" style="width:104px;height:104px;">
+               <div class="w-26 h-26 rounded-full bg-[var(--color-primary)] relative flex items-center justify-center size-104">
                   <svg width="57" height="52" viewBox="0 0 57 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-                     <path d="M28.4997 0C30.9742 0 33.2802 1.25655 34.6924 3.35527L34.9644 3.78578L55.9883 40.2391C56.6273 41.3882 56.9749 42.6869 56.9987 44.0136C57.0225 45.3403 56.7216 46.6515 56.1243 47.8246C55.527 48.9976 54.6528 49.994 53.5836 50.7205C52.5143 51.447 51.285 51.8799 50.0108 51.9785L49.5055 52H7.46541C6.18984 51.9851 4.9387 51.6348 3.82877 50.9819C2.71885 50.3289 1.78632 49.3946 1.11825 48.2661C0.450173 47.1376 0.0683264 45.8517 0.0083507 44.5285C-0.051625 43.2053 0.212226 41.8878 0.775275 40.6992L1.03179 40.2014L22.0454 3.77502C22.7182 2.6229 23.6655 1.67028 24.7961 1.00905C25.9266 0.347823 27.2022 0.000296424 28.4997 0ZM28.5256 35.8667L28.1966 35.8855C27.5668 35.9633 26.9864 36.2783 26.5652 36.7707C26.1441 37.2631 25.9115 37.8988 25.9115 38.5574C25.9115 39.216 26.1441 39.8517 26.5652 40.3441C26.9864 40.8365 27.5668 41.1514 28.1966 41.2292L28.4997 41.2481L28.8288 41.2292C29.4585 41.1514 30.0389 40.8365 30.4601 40.3441C30.8812 39.8517 31.1138 39.216 31.1138 38.5574C31.1138 37.8988 30.8812 37.2631 30.4601 36.7707C30.0389 36.2783 29.4585 35.9633 28.8288 35.8855L28.5256 35.8667ZM28.4997 17.032C27.8651 17.0321 27.2525 17.274 26.7783 17.712C26.304 18.1499 26.001 18.7533 25.9268 19.4078L25.9086 19.7227V30.4854L25.9268 30.8002C26.0017 31.4541 26.305 32.0569 26.7791 32.4942C27.2533 32.9315 27.8655 33.173 28.4997 33.173C29.1339 33.173 29.7461 32.9315 30.2203 32.4942C30.6945 32.0569 30.9977 31.4541 31.0726 30.8002L31.0908 30.4854V19.7227L31.0726 19.4078C30.9984 18.7533 30.6954 18.1499 30.2211 17.712C29.7469 17.274 29.1343 17.0321 28.4997 17.032Z" fill="black"/>
+                     <path
+                         d="M28.4997 0C30.9742 0 33.2802 1.25655 34.6924 3.35527L34.9644 3.78578L55.9883 40.2391C56.6273 41.3882 56.9749 42.6869 56.9987 44.0136C57.0225 45.3403 56.7216 46.6515 56.1243 47.8246C55.527 48.9976 54.6528 49.994 53.5836 50.7205C52.5143 51.447 51.285 51.8799 50.0108 51.9785L49.5055 52H7.46541C6.18984 51.9851 4.9387 51.6348 3.82877 50.9819C2.71885 50.3289 1.78632 49.3946 1.11825 48.2661C0.450173 47.1376 0.0683264 45.8517 0.0083507 44.5285C-0.051625 43.2053 0.212226 41.8878 0.775275 40.6992L1.03179 40.2014L22.0454 3.77502C22.7182 2.6229 23.6655 1.67028 24.7961 1.00905C25.9266 0.347823 27.2022 0.000296424 28.4997 0ZM28.5256 35.8667L28.1966 35.8855C27.5668 35.9633 26.9864 36.2783 26.5652 36.7707C26.1441 37.2631 25.9115 37.8988 25.9115 38.5574C25.9115 39.216 26.1441 39.8517 26.5652 40.3441C26.9864 40.8365 27.5668 41.1514 28.1966 41.2292L28.4997 41.2481L28.8288 41.2292C29.4585 41.1514 30.0389 40.8365 30.4601 40.3441C30.8812 39.8517 31.1138 39.216 31.1138 38.5574C31.1138 37.8988 30.8812 37.2631 30.4601 36.7707C30.0389 36.2783 29.4585 35.9633 28.8288 35.8855L28.5256 35.8667ZM28.4997 17.032C27.8651 17.0321 27.2525 17.274 26.7783 17.712C26.304 18.1499 26.001 18.7533 25.9268 19.4078L25.9086 19.7227V30.4854L25.9268 30.8002C26.0017 31.4541 26.305 32.0569 26.7791 32.4942C27.2533 32.9315 27.8655 33.173 28.4997 33.173C29.1339 33.173 29.7461 32.9315 30.2203 32.4942C30.6945 32.0569 30.9977 31.4541 31.0726 30.8002L31.0908 30.4854V19.7227L31.0726 19.4078C30.9984 18.7533 30.6954 18.1499 30.2211 17.712C29.7469 17.274 29.1343 17.0321 28.4997 17.032Z"
+                         fill="black"/>
                   </svg>
                </div>
             </div>
@@ -285,11 +299,13 @@
                <div class="flex flex-col items-center">
                   <div class="w-[90px] h-[90px] lg:w-[104px] lg:h-[104px] rounded-full bg-[var(--color-primary)] flex items-center justify-center mb-4">
                      <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                      </svg>
                   </div>
                   <div class="text-white font-manrope text-[18px] lg:text-[20px] leading-[1.35] text-left">
-                     0775128957<br>021-306 9250
+                     <a href="tel:0775128957">0775128957</a><br>
+                     <a href="tel:0213069250">021-306 9250</a>
                   </div>
                </div>
                
@@ -301,7 +317,8 @@
                      </svg>
                   </div>
                   <div class="text-white font-manrope text-[18px] lg:text-[20px] leading-[1.35] text-left lowercase">
-                     comenzi.cantacuzino@mapn.ro<br>comenzi@cantacuzino.ro
+                     <a href="mailto:comenzi.cantacuzino@mapn.ro" >comenzi.cantacuzino@mapn.ro</a><br>
+                     <a href="mailto:comenzi@cantacuzino.ro" >comenzi@cantacuzino.ro</a>
                   </div>
                </div>
             </div>
@@ -319,7 +336,7 @@
             </div>
             <p class="text-white/80 font-manrope font-light text-[16px] leading-[1.4] m-0">Lorem ipsum dolor...</p>
          </div>
-         <div class="w-full max-w-[712px] items-center" style="margin-left:-300px;">
+         <div class="w-full max-w-[712px] items-center ml--300">
             <div class="glass border border-white/30 rounded-[30px] lg:rounded-[40px] p-8 lg:p-10 relative">
                <div class="grid grid-cols-1 lg:grid-cols-[0.4fr_0.6fr] gap-6 items-start">
                   <div>
