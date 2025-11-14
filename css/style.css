@@ -57,6 +57,21 @@ body {
 }
 
 /* Header background */
+/*.cantacuzino-bg-header {
+    background-image: url('../images/fundal 1.png');
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: clamp(700px, 100vh, 950px);
+    padding-bottom: clamp(220px, 6vw + 160px, 360px);
+}
+
+@media (max-width: 768px) {
+    .cantacuzino-bg-header {
+       !* min-height: 1520px;*!
+    min-height: clamp(900px, 130vh, 1300px);
+    }
+}*/
 .cantacuzino-bg-header {
     background-image: url('../images/fundal 1.png');
     background-position: top center;
@@ -66,9 +81,35 @@ body {
     padding-bottom: calc(6vw + 160px);
 }
 
+@media (max-width: 2000px) {
+    .cantacuzino-bg-header {
+        min-height: 950px;
+    }
+}
+
+@media (max-width: 1366px) {
+    .cantacuzino-bg-header {
+        min-height: 1000px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .cantacuzino-bg-header {
+        min-height: 1200px;
+    }
+}
+
+
 @media (max-width: 768px) {
     .cantacuzino-bg-header {
-        min-height: 1520px;
+        min-height: 1450px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .cantacuzino-bg-header {
+        min-height: 1650px;
     }
 }
 
@@ -681,9 +722,12 @@ body {
 
 .cantacuzino-hero-title__unit {
     position: relative;
-    line-height: 0;
-    margin-top: -30px;
-    margin-left: -24px;
+    display: inline-flex;
+    align-self: flex-end;
+    align-items: flex-start;
+    line-height: 1;
+    margin-top: -0.3em;
+    margin-left: 0;
 }
 
 .cantacuzino-hero-title__ghost {
@@ -706,7 +750,7 @@ body {
     font-weight: 700;
     font-size: calc(clamp(32px, 8vw, 100px) * 1.25);
     line-height: 1;
-    margin-left: 8px;
+    margin-left: 0.15em;
 }
 
 
@@ -743,7 +787,7 @@ body {
         font-size: 40px;
     }
   .cantacuzino-hero-title__unit {
-    margin-top: -12px;
+      margin-top: -0.15em;
   }
 }
 
@@ -1305,7 +1349,9 @@ header .cantacuzino-promo-products-bar {
 .cantacuzino-h-6 {
     height: 1.5rem;
 }
-
+.cantacuzino-gap-4 {
+    gap: 1rem;
+}
 /* Hero Image Wrap - Clasă compusă */
 .cantacuzino-hero-image-wrap {
     position: relative;
@@ -2190,20 +2236,14 @@ header .cantacuzino-promo-products-bar {
     gap: 0.75rem;
     background-color: var(--color-primary);
     border-radius: 9999px;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
+    padding: 0.75rem 1.5rem;
     margin-bottom: 1.5rem;
 }
 
 @media (max-width: 1023px) {
     .cantacuzino-review-badge {
         gap: 0.5rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
+        padding: 0.5rem 1rem;
         margin-bottom: 1rem;
     }
 
@@ -2531,19 +2571,12 @@ header .cantacuzino-promo-products-bar {
 .cantacuzino-footer-container {
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.25);
+    padding: 2rem 1rem;
 }
 
 @media (min-width: 768px) {
     .cantacuzino-footer-container {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-        padding-top: 2.5rem;
-        padding-bottom: 2.5rem;
+        padding: 2.5rem 1.5rem;
     }
 }
 
@@ -2622,46 +2655,122 @@ header .cantacuzino-promo-products-bar {
 .cantacuzino-footer-link:hover {
     color: var(--color-black);
 }
-
+/* =========================
+   Newsletter – layout general
+   ========================= */
 .cantacuzino-newsletter-column {
-    max-width: 450px;
-    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24.81px; /* din Figma: ~24.81 */
+    /* la nevoie, lățimea poate fi lăsată fluidă în footer,
+       nu forțăm 449px ca în designul desktop */
 }
 
+/* Titlul "Newsletter" */
+.cantacuzino-newsletter-title {
+    margin: 0;
+    width: auto; /* nu blocăm la 113px ca în Figma, ca să fie flexibil */
+    font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 39px; /* 175% ca în Figma */
+    color: #000000;
+}
+
+/* =========================
+   Formular newsletter
+   ========================= */
+
+.cantacuzino-newsletter-form {
+    width: 100%;
+}
+
+/* Container input + icon */
+.cantacuzino-newsletter-form .cantacuzino-flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* ca în Figma */
+    gap: 31.71px; /* Figma: Frame 30 gap ~195px între text și icon, adaptat pentru layout fluid */
+}
+
+/* Input + underline */
+.cantacuzino-newsletter-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 0;
+    font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px; /* Figma: 31px, dar 30px arată mai curat în browser */
+    color: rgba(0, 0, 0, 0.8);
+    background-color: transparent;
+}
+
+/* Placeholder la fel ca textul din design */
+.cantacuzino-newsletter-input::placeholder {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+/* Linie de sub input (underline) */
+.cantacuzino-input-underline {
+    width: 100%;
+    height: 0;
+    border-bottom: 1.3786px solid #000000;
+    opacity: 0.25; /* ca Line 16 din Figma */
+}
+
+/* Icon-ul de mail (buton) */
+.cantacuzino-newsletter-form button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 4px; /* cantacuzino-pb-1 aproximativ */
+}
+
+/* Ajustări pentru aliniere vizuală a icon-ului cu textul */
+.cantacuzino-newsletter-form button svg {
+    display: block;
+}
+
+/* =========================
+   Responsive mici ajustări
+   ========================= */
 @media (min-width: 1024px) {
     .cantacuzino-newsletter-column {
-        margin-left: 0;
+        max-width: 449.42px; /* din Figma */
+    }
+
+    .cantacuzino-input-underline {
+        max-width: 449.42px;
     }
 }
 
-.cantacuzino-newsletter-title {
-    color: var(--color-black);
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-}
+@media (max-width: 640px) {
+    .cantacuzino-newsletter-column {
+        gap: 20px;
+    }
 
-@media (min-width: 768px) {
+    .cantacuzino-newsletter-form .cantacuzino-flex {
+        gap: 16px;
+    }
+
     .cantacuzino-newsletter-title {
         font-size: 20px;
         line-height: 32px;
-        margin-bottom: 1.25rem;
+    }
+
+    .cantacuzino-newsletter-input {
+        font-size: 16px;
+        line-height: 26px;
     }
 }
-
-@media (min-width: 1024px) {
-    .cantacuzino-newsletter-title {
-        font-size: 22px;
-        line-height: 39px;
-        margin-bottom: 1.5rem;
-    }
-}
-
-.cantacuzino-newsletter-form {
-    margin: 0;
-}
-
 .cantacuzino-items-end {
     align-items: flex-end;
 }
