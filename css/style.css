@@ -63,7 +63,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 850px;
-    padding-bottom: calc(6vw + 180px);
+    padding-bottom: calc(6vw + 160px);
 }
 
 @media (max-width: 768px) {
@@ -285,7 +285,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding-bottom: 40px;
+    padding-bottom: 112px;
 }
 
 @media (max-width: 1023px) {
@@ -395,11 +395,13 @@ body {
     margin-left: auto;
 }
 
-.cantacuzino-icon-cart svg,
-.cantacuzino-icon-search svg {
-    width: 24px;
-    height: 24px;
-    fill: var(--color-white);
+.cantacuzino-icon-cart,
+.cantacuzino-icon-search {
+    background: transparent;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 /* BUTTONS */
@@ -1099,6 +1101,10 @@ header .cantacuzino-promo-products-bar {
     height: 34px;
 }
 
+.cantacuzino-spacer-65 {
+    height: 65px;
+}
+
 .cantacuzino-flex-2 {
     flex: 2;
 }
@@ -1724,6 +1730,7 @@ header .cantacuzino-promo-products-bar {
     flex-direction: column;
     gap: 0.75rem;
     margin-bottom: 1.25rem;
+    padding-top: 50px;
 }
 
 @media (max-width: 1023px) {
@@ -1845,7 +1852,7 @@ header .cantacuzino-promo-products-bar {
         width: 3.5rem;
         height: 3.5rem;
     }
-    
+
     .cantacuzino-warning-icon-circle svg {
         width: 32px;
         height: 28px;
@@ -1857,7 +1864,7 @@ header .cantacuzino-promo-products-bar {
         width: 4.5rem;
         height: 4.5rem;
     }
-    
+
     .cantacuzino-warning-icon-circle svg {
         width: 42px;
         height: 38px;
@@ -2033,7 +2040,7 @@ header .cantacuzino-promo-products-bar {
         height: 70px;
         margin-bottom: 0.75rem;
     }
-    
+
     .cantacuzino-contact-icon-circle svg {
         width: 32px;
         height: 32px;
@@ -2202,7 +2209,7 @@ header .cantacuzino-promo-products-bar {
         padding-bottom: 0.5rem;
         margin-bottom: 1rem;
     }
-    
+
     .cantacuzino-review-badge img {
         width: 24px;
         height: 24px;
