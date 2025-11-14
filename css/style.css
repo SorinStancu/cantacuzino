@@ -41,6 +41,7 @@
    ======================================== */
 html {
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 *, *::before, *::after {
@@ -50,6 +51,7 @@ html {
 body {
     margin: 0;
     font-family: 'Manrope', sans-serif;
+    overflow-x: hidden;
 }
 
 #cantacuzino-show-desktop-only {
@@ -781,7 +783,7 @@ body {
     .cantacuzino-hero-title__brand {
         white-space: normal;
         text-align: center;
-        font-size: 83px;
+        font-size: 80px;
     }
     .cantacuzino-hero-title__value {
         font-size: 40px;
@@ -793,7 +795,7 @@ body {
 
 @media (max-width: 480px) {
   .cantacuzino-hero-title {
-    top: 50px;
+    /*top: 50px;*/
   }
 }
 
@@ -823,10 +825,23 @@ body {
     }
 }
 
-
 .cantacuzino-hero-image-wrap { position: relative; }
 .cantacuzino-hero-arrow { display: none; }
 
+@media (max-width: 329px) {
+    .cantacuzino-hero-image-wrap {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        position: relative;
+        top: -280px;
+        z-index: 2;
+    }
+
+    .cantacuzino-hero-image {
+        max-width: 329px;
+    }
+}
 
 @media (max-width: 1024px) {
 
@@ -1195,7 +1210,9 @@ header .cantacuzino-promo-products-bar {
 }
 
 .cantacuzino-w-1559 {
-    width: 1559px;
+   /* width: 1559px;*/
+    width: 100%;
+    max-width: 1559px;
 }
 
 .cantacuzino-h-50 {
