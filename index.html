@@ -14,21 +14,25 @@
    <div class="cantacuzino-spacer-34"></div>
    <nav class="cantacuzino-navbar">
       <div class="cantacuzino-navbar-inner cantacuzino-font-poppins">
-         <button class="cantacuzino-navbar-toggle" aria-label="Meniu">
+         <!-- Checkbox toggle (CSS-only mobile menu) -->
+         <input type="checkbox" id="cantacuzino-menu-toggle" class="cantacuzino-menu-toggle" aria-label="Deschide meniul" />
+         <label for="cantacuzino-menu-toggle" class="cantacuzino-navbar-toggle" aria-label="Meniu" aria-controls="cantacuzino-main-menu" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
-         </button>
+         </label>
          
          <a href="#" class="cantacuzino-navbar-logo" aria-label="Institutul Cantacuzino">
             <img src="images/Logo-Institutul-Cantacuzino-BNT-RO-CMYK 1.png" alt="Institutul Cantacuzino">
          </a>
          
-         <ul class="cantacuzino-navbar-menu cantacuzino-nav-links">
+         <ul class="cantacuzino-navbar-menu cantacuzino-nav-links" id="cantacuzino-main-menu">
             <li><a href="#" class="cantacuzino-nav-link cantacuzino-active">Prima pagină</a></li>
             <li><a href="#" class="cantacuzino-nav-link cantacuzino-nav-link--muted">Cum cumpăr</a></li>
             <li><a href="#" class="cantacuzino-nav-link cantacuzino-nav-link--muted">Catalog de produse</a></li>
             <li><a href="#" class="cantacuzino-nav-link cantacuzino-nav-link--muted">Nutreț / Alimente animale</a></li>
+            <!-- Autentificare in meniul mobil -->
+            <li class="cantacuzino-show-mobile-only"><a href="#" class="cantacuzino-nav-link">Autentificare</a></li>
          </ul>
          
          <div class="cantacuzino-navbar-icons">
@@ -490,5 +494,12 @@
       </div>
    </div>
 </footer>
+<!-- Link de autentificare la finalul paginii -->
+<div class="cantacuzino-auth-bottom">
+   <a href="#" class="cantacuzino-auth-bottom-link" rel="nofollow">Autentificare</a>
+   <span class="cantacuzino-auth-bottom-sep" aria-hidden="true">•</span>
+   <a href="#" class="cantacuzino-auth-bottom-link" rel="nofollow">Creare cont</a>
+   
+</div>
 </body>
 </html>

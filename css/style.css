@@ -870,6 +870,15 @@ body {
     box-shadow: none;
 }
 
+/* Hidden checkbox used to toggle the mobile menu (CSS-only) */
+.cantacuzino-menu-toggle {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
 /* BUTTONS */
 .cantacuzino-btn {
     display: flex;
@@ -939,8 +948,28 @@ body {
 }
 
 @media (max-width: 768px) {
+    .cantacuzino-navbar-inner { position: relative; }
+
     .cantacuzino-navbar-menu {
         display: none;
+        position: absolute;
+        top: 70px; /* equal to .cantacuzino-navbar-inner height in mobile */
+        left: 0;
+        right: 0;
+        /* Solid background for mobile dropdown (no transparency) */
+        background: var(--color-white);
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        backdrop-filter: none;
+        border-radius: 16px;
+        padding: 14px 16px;
+        flex-direction: column;
+        gap: 12px;
+        z-index: 5;
+    }
+
+    /* Show menu when checkbox is checked */
+    #cantacuzino-menu-toggle:checked ~ .cantacuzino-navbar-menu {
+        display: flex;
     }
 
     .cantacuzino-navbar-toggle {
@@ -959,7 +988,36 @@ body {
     .cantacuzino-navbar-icons {
         margin-left: 0;
     }
+
+    /* Show mobile-only items */
+    .cantacuzino-show-mobile-only { display: block; }
+
+    /* Ensure readable link color on solid white mobile menu */
+    .cantacuzino-navbar-menu li a {
+        color: var(--color-black);
+    }
+    .cantacuzino-navbar-menu li a:hover {
+        color: var(--color-primary);
+    }
 }
+
+/* Hide mobile-only items on larger screens */
+.cantacuzino-show-mobile-only { display: none; }
+
+/* Bottom auth links */
+.cantacuzino-auth-bottom {
+    text-align: center;
+    padding: 16px 12px 32px;
+    font-family: 'Poppins', sans-serif;
+}
+.cantacuzino-auth-bottom-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 6px;
+}
+.cantacuzino-auth-bottom-link:hover { text-decoration: underline; }
+.cantacuzino-auth-bottom-sep { color: #999; margin: 0 2px; }
 
 
 /* Stil pentru butonul de căutare */
