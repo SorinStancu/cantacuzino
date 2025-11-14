@@ -112,10 +112,7 @@ body {
 
 /* Banner Cantacuzino section */
 .cantacuzino-banner-cantacuzino {
-    background-image: url('../images/fundal 1.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: #1D439C;
 }
 
 /* ========================================
@@ -285,7 +282,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding-bottom: 112px;
 }
 
 @media (max-width: 1023px) {
@@ -1577,7 +1573,7 @@ header .cantacuzino-promo-products-bar {
 .cantacuzino-product-title-position {
     position: absolute;
     right: 1.5rem;
-    top: 7rem;
+    top: 4rem;
 }
 
 @media (max-width: 767px) {
@@ -1714,6 +1710,7 @@ header .cantacuzino-promo-products-bar {
 @media (min-width: 1024px) {
     .cantacuzino-attention-box {
         margin-left: -100px;
+        background-size: cover;      /* doar desktop, fără background-color */
     }
 }
 
