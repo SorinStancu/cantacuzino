@@ -14,6 +14,7 @@
    <div class="cantacuzino-spacer-34"></div>
    <nav class="cantacuzino-navbar">
       <div class="cantacuzino-navbar-inner cantacuzino-font-poppins">
+         <!-- Checkbox toggle (CSS-only mobile menu) -->
          <input type="checkbox" id="cantacuzino-menu-toggle" class="cantacuzino-menu-toggle" aria-label="Deschide meniul" />
          <label for="cantacuzino-menu-toggle" class="cantacuzino-navbar-toggle" aria-label="Meniu" aria-controls="cantacuzino-main-menu" aria-expanded="false">
             <span></span>
@@ -30,6 +31,7 @@
             <li><a href="#" class="cantacuzino-nav-link cantacuzino-nav-link--muted">Cum cumpăr</a></li>
             <li><a href="#" class="cantacuzino-nav-link cantacuzino-nav-link--muted">Catalog de produse</a></li>
             <li><a href="#" class="cantacuzino-nav-link cantacuzino-nav-link--muted">Nutreț / Alimente animale</a></li>
+            <!-- Autentificare in meniul mobil -->
             <li class="cantacuzino-show-mobile-only"><a href="#" class="cantacuzino-nav-link">Autentificare</a></li>
          </ul>
          
@@ -428,7 +430,7 @@
          </div>
          <div class="cantacuzino-font-manrope cantacuzino-newsletter-column">
             <h4 class="cantacuzino-newsletter-title">Newsletter</h4>
-            <form class="cantacuzino-newsletter-form">
+            <form class="cantacuzino-newsletter-form" onsubmit="event.preventDefault();">
                <div class="cantacuzino-flex cantacuzino-items-end cantacuzino-gap-3">
                   <label for="cantacuzino-footer-email" class="cantacuzino-sr-only">Email</label>
                   <div class="cantacuzino-flex-1 cantacuzino-relative">

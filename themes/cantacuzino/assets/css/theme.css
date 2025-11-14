@@ -1,0 +1,13 @@
+/* Cantacuzino child theme customizations */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;700&display=swap');
+
+/* Bază: setează fontul global conform designului */
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Aici poți muta treptat CSS-ul din paginile tale statice
+   și poți alinia clasele la markup-ul din template-uri */

@@ -1,0 +1,24 @@
+name: cantacuzino
+display_name: "Cantacuzino"
+version: 1.0.0
+author:
+  name: "Cantacuzino"
+  email: "you@example.com"
+  url: "https://example.com"
+meta:
+  compatibility:
+    from: 1.7.0.0
+    to: ~
+parent: classic
+assets:
+  use_parent_assets: true
+  css:
+    all:
+      - id: cantacuzino-theme
+        path: assets/css/theme.css
+        priority: 100
+  js:
+    all:
+      - id: cantacuzino-theme
+        path: assets/js/theme.js
+        position: bottom

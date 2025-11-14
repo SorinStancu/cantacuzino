@@ -6,6 +6,7 @@
     --color-primary: #D0FF00;
     --color-black: #000000;
     --color-white: #FFFFFF;
+    --color-menu: #7B8A92;
 
     /* Border Radius */
     --radius-sm: clamp(10px, 2vw, 13px);
@@ -351,30 +352,47 @@ body {
 /* ========================================
    COMPONENTS - Badge
    ======================================== */
-.cantacuzino-badge {
+/* Shared badge styles */
+.cantacuzino-badge-epuizat,
+.cantacuzino-badge-stoc {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: clamp(3px, 0.8vw, 5px) clamp(6px, 1.2vw, 9px);
-    background: var(--color-black);
-    color: var(--color-white);
     border-radius: var(--radius-sm);
     font-size: clamp(10px, 2.5vw, 16px);
     line-height: clamp(14px, 3.5vw, 22px);
+    margin: 10px;
+}
+
+/* Specific variants */
+.cantacuzino-badge-epuizat {
+    background: var(--color-black);
+    color: var(--color-white);
+}
+
+.cantacuzino-badge-stoc {
+    background: var(--color-primary);
+    color: var(--color-black);
 }
 
 /* Mobile scaling for badge */
 @media (max-width: 640px) {
-    .cantacuzino-badge {
-        padding: clamp(3px, 0.7vw, 4px) clamp(5px, 1vw, 8px);
-        font-size: clamp(9px, 2.2vw, 12px);
+    .cantacuzino-badge-epuizat,
+    .cantacuzino-badge-stoc {
+        /*padding: clamp(3px, 0.7vw, 4px) clamp(5px, 1vw, 8px);
+        font-size: clamp(9px, 2.2vw, 12px);*/
         line-height: clamp(13px, 3vw, 16px);
         font-weight: 500;
+        padding: 8px 15px;
+        font-size: 14px;
+        border-radius: 14px;
     }
 }
 
 @media (max-width: 480px) {
-    .cantacuzino-badge {
+    .cantacuzino-badge-epuizat,
+    .cantacuzino-badge-stoc {
         padding: clamp(2px, 0.6vw, 3px) clamp(4px, 0.9vw, 7px);
         font-size: clamp(8px, 2vw, 11px);
         line-height: clamp(12px, 2.8vw, 15px);
@@ -382,7 +400,8 @@ body {
 }
 
 @media (max-width: 375px) {
-    .cantacuzino-badge {
+    .cantacuzino-badge-epuizat,
+    .cantacuzino-badge-stoc {
         padding: clamp(2px, 0.5vw, 3px) clamp(3px, 0.8vw, 6px);
         font-size: clamp(7px, 1.8vw, 10px);
         line-height: clamp(11px, 2.5vw, 14px);
@@ -390,7 +409,8 @@ body {
 }
 
 @media (max-width: 320px) {
-    .cantacuzino-badge {
+    .cantacuzino-badge-epuizat,
+    .cantacuzino-badge-stoc {
         padding: clamp(2px, 0.5vw, 3px) clamp(3px, 0.7vw, 5px);
         font-size: clamp(7px, 1.5vw, 9px);
         line-height: clamp(10px, 2.2vw, 13px);
@@ -801,6 +821,7 @@ body {
     backdrop-filter: blur(var(--glass-blur));
     border-radius: var(--radius-navbar);
     font-family: 'Poppins', sans-serif;
+    z-index: 99999;
 }
 
 .cantacuzino-navbar::before {
@@ -953,18 +974,17 @@ body {
     .cantacuzino-navbar-menu {
         display: none;
         position: absolute;
-        top: 70px; /* equal to .cantacuzino-navbar-inner height in mobile */
+        top: 70px;
         left: 0;
         right: 0;
-        /* Solid background for mobile dropdown (no transparency) */
-        background: var(--color-white);
+        background: var(--color-menu);
         border: 1px solid rgba(0, 0, 0, 0.12);
         backdrop-filter: none;
         border-radius: 16px;
         padding: 14px 16px;
         flex-direction: column;
         gap: 12px;
-        z-index: 5;
+        z-index: 99999;
     }
 
     /* Show menu when checkbox is checked */
@@ -989,10 +1009,8 @@ body {
         margin-left: 0;
     }
 
-    /* Show mobile-only items */
     .cantacuzino-show-mobile-only { display: block; }
 
-    /* Ensure readable link color on solid white mobile menu */
     .cantacuzino-navbar-menu li a {
         color: var(--color-black);
     }
@@ -1001,10 +1019,8 @@ body {
     }
 }
 
-/* Hide mobile-only items on larger screens */
 .cantacuzino-show-mobile-only { display: none; }
 
-/* Bottom auth links */
 .cantacuzino-auth-bottom {
     text-align: center;
     padding: 16px 12px 32px;
@@ -1020,7 +1036,6 @@ body {
 .cantacuzino-auth-bottom-sep { color: #999; margin: 0 2px; }
 
 
-/* Stil pentru butonul de căutare */
 .cantacuzino-icon-search {
     display: inline-flex;
     align-items: center;
@@ -1049,7 +1064,6 @@ body {
     stroke: var(--color-primary);
 }
 
-/* Navigation Links */
 .cantacuzino-nav-links {
     --link-color: var(--color-primary);
 }
@@ -1122,7 +1136,6 @@ body {
     transition: color 0.3s ease;
 }
 
-/* Mobile scaling for primary button */
 @media (max-width: 640px) {
     .cantacuzino-btn-primary {
         width: clamp(140px, 32vw, 200px);
@@ -1289,7 +1302,6 @@ body {
     margin-left: 0.15em;
 }
 
-/* Mobile scaling for hero value */
 @media (max-width: 640px) {
     .cantacuzino-hero-title__value {
         font-size: clamp(20px, 6vw, 36px);
@@ -1363,7 +1375,6 @@ body {
 }
 
 @media (max-width: 1024px) {
-    /* Ordinea pe mobile: imagine + săgeți, apoi cardul info, apoi stats */
     .cantacuzino-hero-image-wrap { order: -1 !important; }
     .cantacuzino-hero-image      { order: -1 !important; top: 0 !important; position: relative !important; }
 
@@ -1849,7 +1860,6 @@ header .cantacuzino-promo-products-bar {
 
 /* ========================================
    CANTACUZINO CUSTOM CLASSES - HEADER
-   Structured in order of appearance in HTML
    ======================================== */
 
 /* Body */
@@ -2387,10 +2397,10 @@ header .cantacuzino-promo-products-bar {
 /* Mobile scaling for title top sales */
 @media (max-width: 640px) {
     .cantacuzino-title-top-sales {
-        font-size: clamp(22px, 6vw, 32px);
+        font-size: clamp(26px, 7.2vw, 38px);
         line-height: clamp(28px, 7.5vw, 1.2);
-        text-align: left;
-        margin-bottom: clamp(1rem, 2.5vw, 1.5rem);
+        text-align: center;
+        margin-bottom: clamp(1.1rem, 2.75vw, 1.65rem);
         color: var(--color-black);
         font-weight: 400;
         width: 100%;
@@ -4705,8 +4715,17 @@ header .cantacuzino-promo-products-bar {
         .cantacuzino-badge-top-left {
             position: static !important;
             grid-column: 1 / -1;
-            justify-self: center;
             margin: 0 0 0.5rem 0;
+        }
+
+        /* dreapta */
+        .cantacuzino-badge-top-right {
+            justify-self: end;
+        }
+
+        /* stânga */
+        .cantacuzino-badge-top-left {
+            justify-self: start;
         }
 
         /* Titlul pe toată lățimea, centrat */
