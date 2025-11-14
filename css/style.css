@@ -8,32 +8,42 @@
     --color-white: #FFFFFF;
 
     /* Border Radius */
-    --radius-sm: 13px;
-    --radius-lg: 12px;
-    --radius-xl: 23px;
-    --radius-pill: 100px;
-    --radius-navbar: 66px;
+    --radius-sm: clamp(10px, 2vw, 13px);
+    --radius-lg: clamp(10px, 2vw, 12px);
+    --radius-xl: clamp(18px, 3vw, 23px);
+    --radius-pill: clamp(80px, 15vw, 100px);
+    --radius-navbar: clamp(50px, 10vw, 66px);
 
-    /* Spacing */
-    --card-padding-top: 60px;
-    --card-padding-x: 24px;
-    --card-padding-bottom: 24px;
-    --navbar-padding-x: 84px;
+    /* Spacing - Fluid scaling */
+    --card-padding-top: clamp(40px, 8vw, 60px);
+    --card-padding-x: clamp(16px, 3vw, 24px);
+    --card-padding-bottom: clamp(16px, 3vw, 24px);
+    --navbar-padding-x: clamp(20px, 5vw, 84px);
 
     /* Effects */
     --glass-bg: rgba(255, 255, 255, 0.06);
-    --glass-blur: 6.6px;
-    --shadow-glow: 0 0 20px rgba(255, 255, 255, 0.64);
+    --glass-blur: clamp(4px, 1vw, 6.6px);
+    --shadow-glow: 0 0 clamp(15px, 3vw, 20px) rgba(255, 255, 255, 0.64);
 
-    /* Buttons */
-    --icon-size: 32px;
+    /* Buttons - Fluid sizing */
+    --icon-size: clamp(20px, 4vw, 32px);
     --icon-stroke: #fff;
     --icon-stroke-hover: #007bff;
     --btn-bg: #222;
     --btn-bg-hover: #333;
-    --btn-radius: 8px;
-    --btn-padding: 8px;
+    --btn-radius: clamp(6px, 1.2vw, 8px);
+    --btn-padding: clamp(6px, 1.2vw, 8px);
     --transition: 0.3s ease;
+
+    /* Font sizes - Fluid scaling */
+    --font-size-xs: clamp(10px, 2vw, 12px);
+    --font-size-sm: clamp(12px, 2.5vw, 14px);
+    --font-size-base: clamp(14px, 3vw, 16px);
+    --font-size-lg: clamp(16px, 3.5vw, 18px);
+    --font-size-xl: clamp(18px, 4vw, 22px);
+    --font-size-2xl: clamp(20px, 4.5vw, 28px);
+    --font-size-3xl: clamp(24px, 5vw, 36px);
+    --font-size-4xl: clamp(32px, 6vw, 48px);
 }
 
 /* ========================================
@@ -79,39 +89,77 @@ body {
     background-position: top center;
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: 850px;
-    padding-bottom: calc(6vw + 160px);
+    min-height: clamp(700px, 90vh, 850px);
+    padding-bottom: clamp(140px, 6vw + 120px, calc(6vw + 160px));
 }
 
-@media (max-width: 2000px) {
+/* Desktop large */
+@media (min-width: 1600px) {
     .cantacuzino-bg-header {
-        min-height: 950px;
+        min-height: 850px;
     }
 }
 
+/* Desktop medium */
+@media (max-width: 1599px) {
+    .cantacuzino-bg-header {
+        min-height: clamp(800px, 92vh, 950px);
+    }
+}
+
+/* Desktop small */
 @media (max-width: 1366px) {
     .cantacuzino-bg-header {
-        min-height: 1000px;
+        min-height: clamp(850px, 95vh, 1000px);
     }
 }
 
+/* Tablet large */
 @media (max-width: 1024px) {
     .cantacuzino-bg-header {
-        min-height: 1200px;
+        min-height: clamp(1100px, 110vh, 1200px);
     }
 }
 
-
+/* Tablet */
 @media (max-width: 768px) {
     .cantacuzino-bg-header {
-        min-height: 1450px;
+        min-height: clamp(1300px, 125vh, 1450px);
     }
 }
 
+/* Mobile large */
+@media (max-width: 640px) {
+    .cantacuzino-bg-header {
+        min-height: clamp(1400px, 130vh, 1500px);
+    }
+}
 
+/* Mobile medium */
 @media (max-width: 480px) {
     .cantacuzino-bg-header {
-        min-height: 1650px;
+        min-height: clamp(1500px, 135vh, 1650px);
+    }
+}
+
+/* Mobile small */
+@media (max-width: 414px) {
+    .cantacuzino-bg-header {
+        min-height: clamp(1550px, 140vh, 1700px);
+    }
+}
+
+/* Mobile very small */
+@media (max-width: 375px) {
+    .cantacuzino-bg-header {
+        min-height: clamp(1600px, 145vh, 1750px);
+    }
+}
+
+/* Mobile extra small */
+@media (max-width: 320px) {
+    .cantacuzino-bg-header {
+        min-height: clamp(1650px, 150vh, 1800px);
     }
 }
 
@@ -173,8 +221,39 @@ body {
    LAYOUT
    ======================================== */
 .cantacuzino-container-xl {
-    max-width: 1600px;
+    max-width: clamp(320px, 95vw, 1600px);
     margin: 0 auto;
+    padding-left: clamp(0.5rem, 2vw, 1rem);
+    padding-right: clamp(0.5rem, 2vw, 1rem);
+}
+
+/* Mobile scaling for container */
+@media (max-width: 640px) {
+    .cantacuzino-container-xl {
+        padding-left: clamp(0.5rem, 1.5vw, 0.875rem);
+        padding-right: clamp(0.5rem, 1.5vw, 0.875rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-container-xl {
+        padding-left: clamp(0.5rem, 1.2vw, 0.75rem);
+        padding-right: clamp(0.5rem, 1.2vw, 0.75rem);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-container-xl {
+        padding-left: clamp(0.5rem, 1vw, 0.625rem);
+        padding-right: clamp(0.5rem, 1vw, 0.625rem);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-container-xl {
+        padding-left: clamp(0.375rem, 0.9vw, 0.5rem);
+        padding-right: clamp(0.375rem, 0.9vw, 0.5rem);
+    }
 }
 
 /* ========================================
@@ -184,14 +263,47 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 10px 20px;
+    gap: clamp(6px, 1.5vw, 10px);
+    padding: clamp(8px, 2vw, 10px) clamp(12px, 3vw, 20px);
     border-radius: var(--radius-pill);
     text-transform: uppercase;
     font-weight: 500;
-    line-height: 25px;
-    font-size: 18px;
+    line-height: clamp(18px, 4vw, 25px);
+    font-size: clamp(12px, 3vw, 18px);
     text-decoration: none;
+}
+
+/* Mobile scaling for buttons */
+@media (max-width: 640px) {
+    .cantacuzino-btn {
+        padding: clamp(6px, 1.5vw, 8px) clamp(10px, 2.5vw, 16px);
+        font-size: clamp(11px, 2.8vw, 16px);
+        line-height: clamp(16px, 3.5vw, 22px);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-btn {
+        padding: clamp(5px, 1.2vw, 7px) clamp(8px, 2vw, 14px);
+        font-size: clamp(10px, 2.5vw, 14px);
+        line-height: clamp(14px, 3vw, 20px);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-btn {
+        padding: clamp(4px, 1vw, 6px) clamp(7px, 1.8vw, 12px);
+        font-size: clamp(9px, 2.2vw, 12px);
+        line-height: clamp(13px, 2.8vw, 18px);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-btn {
+        padding: clamp(3px, 0.8vw, 5px) clamp(6px, 1.5vw, 10px);
+        font-size: clamp(8px, 2vw, 11px);
+        line-height: clamp(12px, 2.5vw, 16px);
+    }
 }
 
 .cantacuzino-btn-primary {
@@ -225,20 +337,45 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 5px 9px;
+    padding: clamp(3px, 0.8vw, 5px) clamp(6px, 1.2vw, 9px);
     background: var(--color-black);
     color: var(--color-white);
     border-radius: var(--radius-sm);
-    font-size: 16px;
-    line-height: 22px;
+    font-size: clamp(10px, 2.5vw, 16px);
+    line-height: clamp(14px, 3.5vw, 22px);
 }
 
-@media (max-width: 767px) {
+/* Mobile scaling for badge */
+@media (max-width: 640px) {
     .cantacuzino-badge {
-        padding: 4px 8px;
-        font-size: 12px;
-        line-height: 16px;
+        padding: clamp(3px, 0.7vw, 4px) clamp(5px, 1vw, 8px);
+        font-size: clamp(9px, 2.2vw, 12px);
+        line-height: clamp(13px, 3vw, 16px);
         font-weight: 500;
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-badge {
+        padding: clamp(2px, 0.6vw, 3px) clamp(4px, 0.9vw, 7px);
+        font-size: clamp(8px, 2vw, 11px);
+        line-height: clamp(12px, 2.8vw, 15px);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-badge {
+        padding: clamp(2px, 0.5vw, 3px) clamp(3px, 0.8vw, 6px);
+        font-size: clamp(7px, 1.8vw, 10px);
+        line-height: clamp(11px, 2.5vw, 14px);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-badge {
+        padding: clamp(2px, 0.5vw, 3px) clamp(3px, 0.7vw, 5px);
+        font-size: clamp(7px, 1.5vw, 9px);
+        line-height: clamp(10px, 2.2vw, 13px);
     }
 }
 
@@ -248,32 +385,68 @@ body {
 .cantacuzino-price {
     display: flex;
     align-items: baseline;
-    gap: 8px;
+    gap: clamp(4px, 1vw, 8px);
     color: var(--color-black);
 }
 
 .cantacuzino-price .cantacuzino-amount {
-    font-size: 59px;
-    line-height: 81px;
+    font-size: clamp(28px, 6vw, 59px);
+    line-height: clamp(38px, 8vw, 81px);
     font-weight: 400;
 }
 
-@media (max-width: 767px) {
+/* Mobile scaling for price */
+@media (max-width: 640px) {
     .cantacuzino-price .cantacuzino-amount {
-        font-size: 36px;
-        line-height: 48px;
+        font-size: clamp(24px, 5.5vw, 36px);
+        line-height: clamp(32px, 7vw, 48px);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-price .cantacuzino-amount {
+        font-size: clamp(20px, 5vw, 32px);
+        line-height: clamp(28px, 6vw, 44px);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-price .cantacuzino-amount {
+        font-size: clamp(18px, 4.5vw, 28px);
+        line-height: clamp(24px, 5.5vw, 40px);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-price .cantacuzino-amount {
+        font-size: clamp(16px, 4vw, 24px);
+        line-height: clamp(22px, 5vw, 36px);
     }
 }
 
 .cantacuzino-price .cantacuzino-currency {
-    font-size: 22px;
-    line-height: 31px;
+    font-size: clamp(12px, 2.5vw, 22px);
+    line-height: clamp(18px, 3.5vw, 31px);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 640px) {
     .cantacuzino-price .cantacuzino-currency {
-        font-size: 16px;
-        line-height: 22px;
+        font-size: clamp(11px, 2.2vw, 16px);
+        line-height: clamp(16px, 3vw, 22px);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-price .cantacuzino-currency {
+        font-size: clamp(10px, 2vw, 14px);
+        line-height: clamp(14px, 2.8vw, 20px);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-price .cantacuzino-currency {
+        font-size: clamp(9px, 1.8vw, 12px);
+        line-height: clamp(13px, 2.5vw, 18px);
     }
 }
 
@@ -282,19 +455,41 @@ body {
    ======================================== */
 .cantacuzino-card-product {
     position: relative;
-    width: 552px;
-    height: 456px;
+    width: clamp(280px, 90vw, 552px);
+    height: clamp(300px, 70vw, 456px);
     border-radius: var(--radius-lg);
     overflow: hidden;
 }
 
-@media (max-width: 767px) {
+/* Mobile scaling for card product */
+@media (max-width: 640px) {
     .cantacuzino-card-product {
         width: 100%;
-        max-width: 552px;
+        max-width: clamp(280px, 95vw, 552px);
         height: auto;
-        min-height: 320px;
-        margin-bottom: 1.5rem;
+        min-height: clamp(280px, 65vw, 320px);
+        margin-bottom: clamp(1rem, 2.5vw, 1.5rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-card-product {
+        min-height: clamp(260px, 60vw, 300px);
+        margin-bottom: clamp(0.875rem, 2vw, 1.25rem);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-card-product {
+        min-height: clamp(240px, 55vw, 280px);
+        margin-bottom: clamp(0.75rem, 1.8vw, 1rem);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-card-product {
+        min-height: clamp(220px, 50vw, 260px);
+        margin-bottom: clamp(0.625rem, 1.5vw, 0.875rem);
     }
 }
 
@@ -366,9 +561,9 @@ body {
 .cantacuzino-navbar {
     position: relative;
     width: 100%;
-    max-width: 1559px;
+    max-width: clamp(320px, 95vw, 1559px);
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 clamp(12px, 2.5vw, 24px);
     background: var(--glass-bg);
     border: 1px solid rgba(255, 255, 255, 0.29);
     backdrop-filter: blur(var(--glass-blur));
@@ -389,29 +584,29 @@ body {
 .cantacuzino-navbar-inner {
     display: flex;
     align-items: center;
-    height: 105px;
+    height: clamp(60px, 12vw, 105px);
 }
 
 /* LOGO */
 .cantacuzino-navbar-logo img {
-    width: 76.8px;
-    height: 82px;
+    width: clamp(50px, 10vw, 76.8px);
+    height: clamp(54px, 11vw, 82px);
     object-fit: contain;
 }
 
 /* MENU */
 .cantacuzino-navbar-menu {
     display: flex;
-    gap: 36px;
+    gap: clamp(16px, 3.5vw, 36px);
     list-style: none;
     margin: 0;
-    padding: 0 0 0 50px;
+    padding: 0 0 0 clamp(20px, 4.5vw, 50px);
 }
 
 .cantacuzino-navbar-menu li a {
-    font-size: 14px;
+    font-size: clamp(11px, 2.2vw, 14px);
     font-weight: 400;
-    line-height: 21px;
+    line-height: clamp(16px, 3vw, 21px);
     text-decoration: none;
     color: var(--color-white);
     transition: color 0.3s ease;
@@ -618,23 +813,72 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
-    width: 222px;
-    height: 52px;
+    gap: clamp(10px, 2.5vw, 15px);
+    width: clamp(160px, 35vw, 222px);
+    height: clamp(40px, 8vw, 52px);
     background: var(--color-primary);
     border-radius: 100px;
-    padding: 0 16px;
+    padding: 0 clamp(12px, 2.5vw, 16px);
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
 .cantacuzino-btn-primary span {
     font-weight: 500;
-    font-size: 18px;
-    line-height: 25px;
+    font-size: clamp(12px, 3vw, 18px);
+    line-height: clamp(18px, 4vw, 25px);
     text-transform: uppercase;
     color: var(--color-black);
     transition: color 0.3s ease;
+}
+
+/* Mobile scaling for primary button */
+@media (max-width: 640px) {
+    .cantacuzino-btn-primary {
+        width: clamp(140px, 32vw, 200px);
+        height: clamp(36px, 7vw, 48px);
+    }
+    
+    .cantacuzino-btn-primary span {
+        font-size: clamp(11px, 2.8vw, 16px);
+        line-height: clamp(16px, 3.5vw, 22px);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-btn-primary {
+        width: clamp(120px, 30vw, 180px);
+        height: clamp(32px, 6.5vw, 44px);
+    }
+    
+    .cantacuzino-btn-primary span {
+        font-size: clamp(10px, 2.5vw, 14px);
+        line-height: clamp(14px, 3vw, 20px);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-btn-primary {
+        width: clamp(100px, 28vw, 160px);
+        height: clamp(28px, 6vw, 40px);
+    }
+    
+    .cantacuzino-btn-primary span {
+        font-size: clamp(9px, 2.2vw, 12px);
+        line-height: clamp(13px, 2.8vw, 18px);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-btn-primary {
+        width: clamp(90px, 25vw, 140px);
+        height: clamp(24px, 5.5vw, 36px);
+    }
+    
+    .cantacuzino-btn-primary span {
+        font-size: clamp(8px, 2vw, 11px);
+        line-height: clamp(12px, 2.5vw, 16px);
+    }
 }
 
 .cantacuzino-btn-primary svg path {
@@ -750,9 +994,34 @@ body {
     color: var(--color-primary);
     text-shadow: var(--shadow-glow);
     font-weight: 700;
-    font-size: calc(clamp(32px, 8vw, 100px) * 1.25);
+    font-size: clamp(24px, 7vw, calc(clamp(32px, 8vw, 100px) * 1.25));
     line-height: 1;
     margin-left: 0.15em;
+}
+
+/* Mobile scaling for hero value */
+@media (max-width: 640px) {
+    .cantacuzino-hero-title__value {
+        font-size: clamp(20px, 6vw, 36px);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-hero-title__value {
+        font-size: clamp(18px, 5.5vw, 32px);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-hero-title__value {
+        font-size: clamp(16px, 5vw, 28px);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-hero-title__value {
+        font-size: clamp(14px, 4.5vw, 24px);
+    }
 }
 
 
@@ -795,7 +1064,7 @@ body {
 
 @media (max-width: 480px) {
   .cantacuzino-hero-title {
-    /*top: 50px;*/
+    top: clamp(40px, 8vh, 60px);
   }
 }
 
@@ -828,10 +1097,10 @@ body {
 .cantacuzino-hero-image-wrap { position: relative; }
 .cantacuzino-hero-arrow { display: none; }
 
-@media (max-width: 329px) {
+@media (max-width: 500px) {
     .cantacuzino-hero-image-wrap {
         width: 100%;
-        max-width: 320px;
+        max-width: 370px;
         margin: 0 auto;
         position: relative;
         top: -280px;
@@ -843,7 +1112,7 @@ body {
     }
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 550px) and (max-width: 1024px) {
 
   .cantacuzino-hero-image-wrap {
     width: 100%;
@@ -1033,78 +1302,198 @@ header .cantacuzino-promo-products-bar {
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
-    gap: 1.75rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    gap: clamp(1rem, 2.5vw, 1.75rem);
+    padding-left: clamp(0.75rem, 2vw, 1.5rem);
+    padding-right: clamp(0.75rem, 2vw, 1.5rem);
 }
 
 /* Card generic */
 .cantacuzino-promo-product-card {
     position: relative;
-    width: 456px;
-    height: 155px;
+    width: clamp(280px, 70vw, 456px);
+    height: clamp(120px, 25vw, 155px);
     background: #000;
-    border-radius: 23px;
+    border-radius: clamp(18px, 3vw, 23px);
     display: flex;
     align-items: center;
-    padding: 1.25rem;
+    padding: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+/* Mobile scaling for promo card */
+@media (max-width: 640px) {
+    .cantacuzino-promo-product-card {
+        width: clamp(260px, 85vw, 400px);
+        height: clamp(110px, 22vw, 140px);
+        padding: clamp(0.625rem, 1.8vw, 1rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-promo-product-card {
+        width: clamp(240px, 90vw, 360px);
+        height: clamp(100px, 20vw, 130px);
+        padding: clamp(0.5rem, 1.5vw, 0.875rem);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-promo-product-card {
+        width: clamp(220px, 95vw, 320px);
+        height: clamp(90px, 18vw, 120px);
+        padding: clamp(0.5rem, 1.2vw, 0.75rem);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-promo-product-card {
+        width: clamp(200px, 98vw, 280px);
+        height: clamp(80px, 16vw, 110px);
+        padding: clamp(0.375rem, 1vw, 0.625rem);
+    }
 }
 
 /* Media + content */
 .cantacuzino-promo-product-media {
     position: relative;
-    width: 102.33px;
-    height: 128px;
-    margin-right: 1.25rem;
+    width: clamp(70px, 15vw, 102.33px);
+    height: clamp(90px, 18vw, 128px);
+    margin-right: clamp(0.75rem, 1.8vw, 1.25rem);
     flex-shrink: 0;
 }
 
 .cantacuzino-promo-product-media--sod {
-    width: 120px;
-    height: 121px;
+    width: clamp(80px, 17vw, 120px);
+    height: clamp(85px, 17vw, 121px);
 }
 
 .cantacuzino-promo-product-content {
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: clamp(0.25rem, 0.8vw, 0.5rem);
 }
 
 /* Titluri și texte */
 .cantacuzino-promo-product-title {
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
-    font-size: 32px;
-    line-height: 44px;
+    font-size: clamp(18px, 4.5vw, 32px);
+    line-height: clamp(26px, 6vw, 44px);
     color: var(--color-primary);
     margin: 0;
-    transform: translateY(-0.875rem);
+    transform: translateY(clamp(-0.5rem, -1.2vw, -0.875rem));
+}
+
+/* Mobile scaling for promo title */
+@media (max-width: 640px) {
+    .cantacuzino-promo-product-title {
+        font-size: clamp(16px, 4vw, 28px);
+        line-height: clamp(22px, 5.5vw, 38px);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-promo-product-title {
+        font-size: clamp(14px, 3.5vw, 24px);
+        line-height: clamp(20px, 5vw, 34px);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-promo-product-title {
+        font-size: clamp(12px, 3vw, 22px);
+        line-height: clamp(18px, 4.5vw, 30px);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-promo-product-title {
+        font-size: clamp(11px, 2.8vw, 20px);
+        line-height: clamp(16px, 4vw, 28px);
+    }
 }
 
 .cantacuzino-promo-product-variant {
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
-    font-size: 18px;
-    line-height: 25px;
+    font-size: clamp(12px, 2.5vw, 18px);
+    line-height: clamp(18px, 3.5vw, 25px);
     color: var(--color-primary);
+}
+
+/* Mobile scaling for promo variant */
+@media (max-width: 640px) {
+    .cantacuzino-promo-product-variant {
+        font-size: clamp(11px, 2.2vw, 16px);
+        line-height: clamp(16px, 3vw, 22px);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-promo-product-variant {
+        font-size: clamp(10px, 2vw, 14px);
+        line-height: clamp(14px, 2.8vw, 20px);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-promo-product-variant {
+        font-size: clamp(9px, 1.8vw, 12px);
+        line-height: clamp(13px, 2.5vw, 18px);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-promo-product-variant {
+        font-size: clamp(8px, 1.5vw, 11px);
+        line-height: clamp(12px, 2.2vw, 16px);
+    }
 }
 
 .cantacuzino-promo-product-subtitle {
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
-    font-size: 18px;
-    line-height: 25px;
+    font-size: clamp(12px, 2.5vw, 18px);
+    line-height: clamp(18px, 3.5vw, 25px);
     color: var(--color-primary);
     margin: 0;
 }
 
+/* Mobile scaling for promo subtitle */
+@media (max-width: 640px) {
+    .cantacuzino-promo-product-subtitle {
+        font-size: clamp(11px, 2.2vw, 16px);
+        line-height: clamp(16px, 3vw, 22px);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-promo-product-subtitle {
+        font-size: clamp(10px, 2vw, 14px);
+        line-height: clamp(14px, 2.8vw, 20px);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-promo-product-subtitle {
+        font-size: clamp(9px, 1.8vw, 12px);
+        line-height: clamp(13px, 2.5vw, 18px);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-promo-product-subtitle {
+        font-size: clamp(8px, 1.5vw, 11px);
+        line-height: clamp(12px, 2.2vw, 16px);
+    }
+}
+
 .cantacuzino-promo-product-subtitle--max {
-    max-width: 286px;
+    max-width: clamp(180px, 40vw, 286px);
 }
 
 .cantacuzino-promo-product-subtitle--max-sod {
-    max-width: 245px;
+    max-width: clamp(160px, 35vw, 245px);
 }
 
 @media (min-width: 768px) {
@@ -1430,17 +1819,75 @@ header .cantacuzino-promo-products-bar {
 /* Statistici - Clase compuse */
 .cantacuzino-stat-number {
     font-weight: 500;
-    font-size: 36px;
-    line-height: 49px;
+    font-size: clamp(20px, 4.5vw, 36px);
+    line-height: clamp(28px, 6vw, 49px);
     text-transform: uppercase;
+}
+
+/* Mobile scaling for stat number */
+@media (max-width: 640px) {
+    .cantacuzino-stat-number {
+        font-size: clamp(18px, 4vw, 32px);
+        line-height: clamp(24px, 5.5vw, 44px);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-stat-number {
+        font-size: clamp(16px, 3.5vw, 28px);
+        line-height: clamp(22px, 5vw, 40px);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-stat-number {
+        font-size: clamp(14px, 3vw, 24px);
+        line-height: clamp(20px, 4.5vw, 36px);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-stat-number {
+        font-size: clamp(12px, 2.5vw, 22px);
+        line-height: clamp(18px, 4vw, 32px);
+    }
 }
 
 .cantacuzino-stat-label {
     font-weight: 400;
-    font-size: 20px;
-    line-height: 27px;
+    font-size: clamp(12px, 2.5vw, 20px);
+    line-height: clamp(18px, 3.5vw, 27px);
     text-transform: uppercase;
     opacity: 0.9;
+}
+
+/* Mobile scaling for stat label */
+@media (max-width: 640px) {
+    .cantacuzino-stat-label {
+        font-size: clamp(11px, 2.2vw, 18px);
+        line-height: clamp(16px, 3vw, 24px);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-stat-label {
+        font-size: clamp(10px, 2vw, 16px);
+        line-height: clamp(14px, 2.8vw, 22px);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-stat-label {
+        font-size: clamp(9px, 1.8vw, 14px);
+        line-height: clamp(13px, 2.5vw, 20px);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-stat-label {
+        font-size: clamp(8px, 1.5vw, 12px);
+        line-height: clamp(12px, 2.2vw, 18px);
+    }
 }
 
 .cantacuzino-text-36 {
@@ -1510,22 +1957,44 @@ header .cantacuzino-promo-products-bar {
 .cantacuzino-section-top-sales {
     position: relative;
     background-color: var(--color-white);
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    margin-top: 3vw;
+    padding-top: clamp(1rem, 3vw, 2rem);
+    padding-bottom: clamp(1rem, 3vw, 2rem);
+    margin-top: clamp(1.5vw, 3vw, 3vw);
+}
+
+/* Mobile scaling for section padding */
+@media (max-width: 640px) {
+    .cantacuzino-section-top-sales {
+        padding-top: clamp(0.75rem, 2.5vw, 1.5rem);
+        padding-bottom: clamp(0.75rem, 2.5vw, 1.5rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-section-top-sales {
+        padding-top: clamp(0.5rem, 2vw, 1.25rem);
+        padding-bottom: clamp(0.5rem, 2vw, 1.25rem);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-section-top-sales {
+        padding-top: clamp(0.5rem, 1.8vw, 1rem);
+        padding-bottom: clamp(0.5rem, 1.8vw, 1rem);
+    }
 }
 
 @media (min-width: 768px) {
     .cantacuzino-section-top-sales {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
+        padding-top: clamp(2rem, 4vw, 3rem);
+        padding-bottom: clamp(2rem, 4vw, 3rem);
     }
 }
 
 @media (min-width: 1024px) {
     .cantacuzino-section-top-sales {
-        padding-top: 5rem;
-        padding-bottom: 5rem;
+        padding-top: clamp(3rem, 6vw, 5rem);
+        padding-bottom: clamp(3rem, 6vw, 5rem);
     }
 }
 
@@ -1533,9 +2002,42 @@ header .cantacuzino-promo-products-bar {
 .cantacuzino-grid-products {
     display: grid;
     grid-template-columns: repeat(1, minmax(0, 1fr));
-    gap: 3rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    padding-left: clamp(0.75rem, 2vw, 1.5rem);
+    padding-right: clamp(0.75rem, 2vw, 1.5rem);
+}
+
+/* Mobile scaling for grid gap */
+@media (max-width: 640px) {
+    .cantacuzino-grid-products {
+        gap: clamp(1rem, 3vw, 2rem);
+        padding-left: clamp(0.5rem, 1.5vw, 1rem);
+        padding-right: clamp(0.5rem, 1.5vw, 1rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-grid-products {
+        gap: clamp(0.75rem, 2.5vw, 1.5rem);
+        padding-left: clamp(0.5rem, 1.2vw, 0.875rem);
+        padding-right: clamp(0.5rem, 1.2vw, 0.875rem);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-grid-products {
+        gap: clamp(0.5rem, 2vw, 1.25rem);
+        padding-left: clamp(0.5rem, 1vw, 0.75rem);
+        padding-right: clamp(0.5rem, 1vw, 0.75rem);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-grid-products {
+        gap: clamp(0.5rem, 1.8vw, 1rem);
+        padding-left: clamp(0.375rem, 0.9vw, 0.625rem);
+        padding-right: clamp(0.375rem, 0.9vw, 0.625rem);
+    }
 }
 
 @media (min-width: 1280px) {
@@ -1564,21 +2066,46 @@ header .cantacuzino-promo-products-bar {
 
 /* Title Top Sales */
 .cantacuzino-title-top-sales {
-    font-size: 70px;
-    line-height: 96px;
+    font-size: clamp(24px, 8vw, 70px);
+    line-height: clamp(32px, 11vw, 96px);
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: clamp(1rem, 4vw, 3rem);
 }
 
-@media (max-width: 767px) {
+/* Mobile scaling for title top sales */
+@media (max-width: 640px) {
     .cantacuzino-title-top-sales {
-        font-size: 32px;
-        line-height: 1.2;
+        font-size: clamp(22px, 6vw, 32px);
+        line-height: clamp(28px, 7.5vw, 1.2);
         text-align: left;
-        margin-bottom: 1.5rem;
+        margin-bottom: clamp(1rem, 2.5vw, 1.5rem);
         color: var(--color-black);
         font-weight: 400;
         width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-title-top-sales {
+        font-size: clamp(20px, 5.5vw, 30px);
+        line-height: clamp(26px, 7vw, 1.2);
+        margin-bottom: clamp(0.875rem, 2vw, 1.25rem);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-title-top-sales {
+        font-size: clamp(18px, 5vw, 28px);
+        line-height: clamp(24px, 6.5vw, 1.2);
+        margin-bottom: clamp(0.75rem, 1.8vw, 1rem);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-title-top-sales {
+        font-size: clamp(16px, 4.5vw, 26px);
+        line-height: clamp(22px, 6vw, 1.2);
+        margin-bottom: clamp(0.625rem, 1.5vw, 0.875rem);
     }
 }
 
@@ -1591,61 +2118,153 @@ header .cantacuzino-promo-products-bar {
 /* Badge Positions */
 .cantacuzino-badge-top-right {
     position: absolute;
-    right: 1.5rem;
-    top: 3.5rem;
+    right: clamp(0.5rem, 2vw, 1.5rem);
+    top: clamp(0.5rem, 5vw, 3.5rem);
+    z-index: 10;
 }
 
-@media (max-width: 767px) {
+/* Mobile scaling for badge top right */
+@media (max-width: 640px) {
     .cantacuzino-badge-top-right {
-        right: 0.5rem;
-        top: 0.5rem;
-        z-index: 10;
+        right: clamp(0.375rem, 1.5vw, 0.5rem);
+        top: clamp(0.375rem, 1.5vw, 0.5rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-badge-top-right {
+        right: clamp(0.25rem, 1.2vw, 0.5rem);
+        top: clamp(0.25rem, 1.2vw, 0.5rem);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-badge-top-right {
+        right: clamp(0.25rem, 1vw, 0.5rem);
+        top: clamp(0.25rem, 1vw, 0.5rem);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-badge-top-right {
+        right: clamp(0.125rem, 0.8vw, 0.5rem);
+        top: clamp(0.125rem, 0.8vw, 0.5rem);
     }
 }
 
 .cantacuzino-badge-top-left {
     position: absolute;
-    left: 70px;
-    top: 3.5rem;
+    left: clamp(0.5rem, 10vw, 70px);
+    top: clamp(0.5rem, 5vw, 3.5rem);
+    z-index: 10;
 }
 
-@media (max-width: 767px) {
+/* Mobile scaling for badge top left */
+@media (max-width: 640px) {
     .cantacuzino-badge-top-left {
-        left: 0.5rem;
-        top: 0.5rem;
-        z-index: 10;
+        left: clamp(0.375rem, 1.5vw, 0.5rem);
+        top: clamp(0.375rem, 1.5vw, 0.5rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-badge-top-left {
+        left: clamp(0.25rem, 1.2vw, 0.5rem);
+        top: clamp(0.25rem, 1.2vw, 0.5rem);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-badge-top-left {
+        left: clamp(0.25rem, 1vw, 0.5rem);
+        top: clamp(0.25rem, 1vw, 0.5rem);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-badge-top-left {
+        left: clamp(0.125rem, 0.8vw, 0.5rem);
+        top: clamp(0.125rem, 0.8vw, 0.5rem);
     }
 }
 
 /* Product Title */
 .cantacuzino-product-title {
     font-weight: 500;
-    font-size: 27px;
+    font-size: clamp(14px, 3.5vw, 27px);
     line-height: 190%;
     text-align: right;
     color: rgba(0, 0, 0, 0.8);
 }
 
-@media (max-width: 767px) {
+/* Mobile scaling for product title */
+@media (max-width: 640px) {
     .cantacuzino-product-title {
-        font-size: 16px;
+        font-size: clamp(13px, 3.2vw, 16px);
         line-height: 1.4;
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-product-title {
+        font-size: clamp(12px, 3vw, 15px);
+        line-height: 1.35;
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-product-title {
+        font-size: clamp(11px, 2.8vw, 14px);
+        line-height: 1.3;
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-product-title {
+        font-size: clamp(10px, 2.5vw, 13px);
+        line-height: 1.25;
     }
 }
 
 .cantacuzino-product-title-position {
     position: absolute;
-    right: 1.5rem;
-    top: 4rem;
+    right: clamp(0.5rem, 2vw, 1.5rem);
+    top: clamp(0.5rem, 6vw, 4rem);
+    z-index: 5;
+    max-width: 45%;
+    text-align: right;
 }
 
-@media (max-width: 767px) {
+/* Mobile scaling for product title position */
+@media (max-width: 640px) {
     .cantacuzino-product-title-position {
-        right: 0.5rem;
-        top: 0.5rem;
-        z-index: 5;
-        max-width: 45%;
-        text-align: right;
+        right: clamp(0.375rem, 1.5vw, 0.5rem);
+        top: clamp(0.375rem, 1.5vw, 0.5rem);
+        max-width: clamp(40%, 8vw, 45%);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-product-title-position {
+        right: clamp(0.25rem, 1.2vw, 0.5rem);
+        top: clamp(0.25rem, 1.2vw, 0.5rem);
+        max-width: clamp(38%, 7.5vw, 43%);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-product-title-position {
+        right: clamp(0.25rem, 1vw, 0.5rem);
+        top: clamp(0.25rem, 1vw, 0.5rem);
+        max-width: clamp(35%, 7vw, 40%);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-product-title-position {
+        right: clamp(0.125rem, 0.8vw, 0.5rem);
+        top: clamp(0.125rem, 0.8vw, 0.5rem);
+        max-width: clamp(32%, 6.5vw, 38%);
     }
 }
 
@@ -1656,78 +2275,187 @@ header .cantacuzino-promo-products-bar {
 /* Price Position */
 .cantacuzino-price-position {
     position: absolute;
-    left: 67px;
-    top: 221px;
+    left: clamp(0.75rem, 10vw, 67px);
+    top: clamp(2.5rem, 30vw, 221px);
 }
 
-@media (max-width: 767px) {
+/* Mobile scaling for price position */
+@media (max-width: 640px) {
     .cantacuzino-price-position {
-        left: 0.75rem;
-        top: 2.5rem;
+        left: clamp(0.625rem, 1.5vw, 0.75rem);
+        top: clamp(2rem, 4vw, 2.5rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-price-position {
+        left: clamp(0.5rem, 1.2vw, 0.75rem);
+        top: clamp(1.75rem, 3.5vw, 2.25rem);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-price-position {
+        left: clamp(0.5rem, 1vw, 0.75rem);
+        top: clamp(1.5rem, 3vw, 2rem);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-price-position {
+        left: clamp(0.375rem, 0.8vw, 0.75rem);
+        top: clamp(1.25rem, 2.5vw, 1.75rem);
     }
 }
 
 /* Product Description */
 .cantacuzino-product-description {
-    font-size: 17.38px;
-    line-height: 24px;
+    font-size: clamp(11px, 2.8vw, 17.38px);
+    line-height: clamp(16px, 3.5vw, 24px);
     color: var(--color-black);
     position: absolute;
-    left: 72px;
-    top: 318px;
-    max-width: 228px;
+    left: clamp(12px, 4vw, 72px);
+    top: clamp(60px, 20vw, 318px);
+    max-width: clamp(100px, 15vw, 228px);
 }
 
-@media (max-width: 767px) {
+/* Mobile scaling for product description */
+@media (max-width: 640px) {
     .cantacuzino-product-description {
-        font-size: 12px;
-        line-height: 16px;
-        left: 0.75rem;
-        top: 4.5rem;
-        max-width: 140px;
+        font-size: clamp(10px, 2.5vw, 12px);
+        line-height: clamp(14px, 3vw, 16px);
+        left: clamp(8px, 2vw, 0.75rem);
+        top: clamp(50px, 12vw, 4.5rem);
+        max-width: clamp(90px, 22vw, 140px);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-product-description {
+        font-size: clamp(9px, 2.2vw, 11px);
+        line-height: clamp(13px, 2.8vw, 15px);
+        left: clamp(6px, 1.8vw, 0.625rem);
+        top: clamp(45px, 11vw, 4rem);
+        max-width: clamp(80px, 20vw, 120px);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-product-description {
+        font-size: clamp(8px, 2vw, 10px);
+        line-height: clamp(12px, 2.5vw, 14px);
+        left: clamp(5px, 1.5vw, 0.5rem);
+        top: clamp(40px, 10vw, 3.5rem);
+        max-width: clamp(70px, 18vw, 110px);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-product-description {
+        font-size: clamp(7px, 1.8vw, 9px);
+        line-height: clamp(11px, 2.2vw, 13px);
+        left: clamp(4px, 1.2vw, 0.5rem);
+        top: clamp(35px, 9vw, 3rem);
+        max-width: clamp(60px, 16vw, 100px);
     }
 }
 
 /* Product Images */
 .cantacuzino-product-image-sod {
     position: absolute;
-    right: 49px;
-    top: 214px;
-    width: 195px;
-    height: 196px;
+    right: clamp(0.5rem, 7vw, 49px);
+    top: clamp(1.5rem, 28vw, 214px);
+    width: clamp(90px, 28vw, 195px);
+    height: clamp(90px, 28vw, 196px);
     background-image: url('../images/SOD-NATURAL.png');
     background-size: contain;
     background-repeat: no-repeat;
+    background-position: center;
 }
 
-@media (max-width: 767px) {
+/* Mobile scaling for product image sod */
+@media (max-width: 640px) {
     .cantacuzino-product-image-sod {
-        right: 0.5rem;
-        top: 1.5rem;
-        width: 90px;
-        height: 90px;
-        background-position: center;
+        right: clamp(0.375rem, 1.5vw, 0.5rem);
+        top: clamp(1.25rem, 2.5vw, 1.5rem);
+        width: clamp(80px, 15vw, 90px);
+        height: clamp(80px, 15vw, 90px);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-product-image-sod {
+        right: clamp(0.25rem, 1.2vw, 0.5rem);
+        top: clamp(1rem, 2vw, 1.5rem);
+        width: clamp(70px, 13vw, 85px);
+        height: clamp(70px, 13vw, 85px);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-product-image-sod {
+        right: clamp(0.25rem, 1vw, 0.5rem);
+        top: clamp(0.875rem, 1.8vw, 1.25rem);
+        width: clamp(60px, 11vw, 75px);
+        height: clamp(60px, 11vw, 75px);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-product-image-sod {
+        right: clamp(0.125rem, 0.8vw, 0.5rem);
+        top: clamp(0.75rem, 1.5vw, 1rem);
+        width: clamp(55px, 10vw, 70px);
+        height: clamp(55px, 10vw, 70px);
     }
 }
 
 .cantacuzino-product-image-orostim {
     position: absolute;
-    right: 85px;
-    top: 214px;
-    width: 156px;
-    height: 213px;
+    right: clamp(0.5rem, 12vw, 85px);
+    top: clamp(1.5rem, 28vw, 214px);
+    width: clamp(75px, 22vw, 156px);
+    height: clamp(100px, 30vw, 213px);
     background-image: url('../images/image 16.png');
     background-size: contain;
     background-repeat: no-repeat;
+    background-position: center;
 }
 
-@media (max-width: 767px) {
+/* Mobile scaling for product image orostim */
+@media (max-width: 640px) {
     .cantacuzino-product-image-orostim {
-        right: 0.5rem;
-        top: 1.5rem;
-        width: 75px;
-        height: 100px;
-        background-position: center;
+        right: clamp(0.375rem, 1.5vw, 0.5rem);
+        top: clamp(1.25rem, 2.5vw, 1.5rem);
+        width: clamp(65px, 12vw, 75px);
+        height: clamp(85px, 16vw, 100px);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-product-image-orostim {
+        right: clamp(0.25rem, 1.2vw, 0.5rem);
+        top: clamp(1rem, 2vw, 1.5rem);
+        width: clamp(55px, 10vw, 70px);
+        height: clamp(75px, 14vw, 90px);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-product-image-orostim {
+        right: clamp(0.25rem, 1vw, 0.5rem);
+        top: clamp(0.875rem, 1.8vw, 1.25rem);
+        width: clamp(50px, 9vw, 65px);
+        height: clamp(65px, 12vw, 80px);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-product-image-orostim {
+        right: clamp(0.125rem, 0.8vw, 0.5rem);
+        top: clamp(0.75rem, 1.5vw, 1rem);
+        width: clamp(45px, 8vw, 60px);
+        height: clamp(60px, 11vw, 75px);
     }
 }
 
@@ -1737,6 +2465,13 @@ header .cantacuzino-promo-products-bar {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+
+/* Permite vizibilitatea marginii dreaptă jos pe mobile și tabletă */
+@media (max-width: 1023px) {
+    .cantacuzino-attention-column {
+        overflow: visible;
+    }
 }
 
 /* Attention Box */
@@ -1759,6 +2494,8 @@ header .cantacuzino-promo-products-bar {
         margin-left: 0;
         width: 100%;
         max-width: 100%;
+        overflow: visible;
+        margin-right: 0;
     }
 }
 
@@ -1791,12 +2528,14 @@ header .cantacuzino-promo-products-bar {
     gap: 0.75rem;
     margin-bottom: 1.25rem;
     padding-top: 50px;
+    align-items: flex-start;
 }
 
 @media (max-width: 1023px) {
     .cantacuzino-buttons-group {
         gap: 0.75rem;
         margin-bottom: 1rem;
+        align-items: center;
     }
 }
 
@@ -1809,62 +2548,141 @@ header .cantacuzino-promo-products-bar {
 
 .cantacuzino-btn-terms {
     width: 100%;
-    height: 48px;
+    height: clamp(40px, 8vw, 48px);
 }
 
+/* Butoanele să nu fie pe toată lățimea pe mobile și tabletă */
 @media (max-width: 1023px) {
     .cantacuzino-btn-terms {
-        width: 100%;
-        height: 44px;
+        width: auto;
+        min-width: 200px;
+        max-width: 100%;
+    }
+}
+
+/* Mobile scaling for buttons */
+@media (max-width: 640px) {
+    .cantacuzino-btn-terms {
+        width: auto;
+        min-width: 180px;
+        max-width: 100%;
+        height: clamp(38px, 7.5vw, 44px);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-btn-terms {
+        height: clamp(36px, 7vw, 42px);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-btn-terms {
+        height: clamp(34px, 6.5vw, 40px);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-btn-terms {
+        height: clamp(32px, 6vw, 38px);
     }
 }
 
 @media (min-width: 768px) {
     .cantacuzino-btn-terms {
-        width: 259px;
-        height: 52px;
+        width: clamp(200px, 25vw, 259px);
+        height: clamp(46px, 7.5vw, 52px);
     }
 }
 
 .cantacuzino-btn-contact {
     width: 100%;
-    height: 48px;
+    height: clamp(40px, 8vw, 48px);
 }
 
+/* Butoanele să nu fie pe toată lățimea pe mobile și tabletă */
 @media (max-width: 1023px) {
     .cantacuzino-btn-contact {
-        width: 100%;
-        height: 44px;
+        width: auto;
+        min-width: 200px;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .cantacuzino-btn-contact {
+        height: clamp(38px, 7.5vw, 44px);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-btn-contact {
+        height: clamp(36px, 7vw, 42px);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-btn-contact {
+        height: clamp(34px, 6.5vw, 40px);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-btn-contact {
+        height: clamp(32px, 6vw, 38px);
     }
 }
 
 @media (min-width: 768px) {
     .cantacuzino-btn-contact {
-        width: 166px;
-        height: 52px;
+        width: clamp(140px, 18vw, 166px);
+        height: clamp(46px, 7.5vw, 52px);
     }
 }
 
 /* Attention Title */
 .cantacuzino-attention-title {
     font-weight: 500;
-    font-size: 47px;
-    line-height: 64px;
+    font-size: clamp(20px, 5vw, 47px);
+    line-height: clamp(28px, 6.5vw, 64px);
     color: var(--color-white);
-    margin-bottom: 1rem;
+    margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
 }
 
-@media (max-width: 1023px) {
+/* Mobile scaling for attention title */
+@media (max-width: 640px) {
     .cantacuzino-attention-title {
-        font-size: 24px;
+        font-size: clamp(18px, 4.5vw, 24px);
+        line-height: clamp(24px, 5.5vw, 1.3);
+        margin-bottom: clamp(0.5rem, 1.2vw, 0.75rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-attention-title {
+        font-size: clamp(16px, 4vw, 22px);
         line-height: 1.3;
-        margin-bottom: 0.75rem;
+        margin-bottom: clamp(0.5rem, 1vw, 0.625rem);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-attention-title {
+        font-size: clamp(14px, 3.5vw, 20px);
+        margin-bottom: clamp(0.375rem, 0.9vw, 0.5rem);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-attention-title {
+        font-size: clamp(12px, 3vw, 18px);
+        margin-bottom: clamp(0.25rem, 0.8vw, 0.5rem);
     }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
     .cantacuzino-attention-title {
-        font-size: 28px;
+        font-size: clamp(24px, 4.5vw, 28px);
     }
 }
 
@@ -1897,8 +2715,8 @@ header .cantacuzino-promo-products-bar {
 }
 
 .cantacuzino-warning-icon-circle {
-    width: 6.5rem;
-    height: 6.5rem;
+    width: clamp(3.5rem, 8vw, 6.5rem);
+    height: clamp(3.5rem, 8vw, 6.5rem);
     border-radius: 9999px;
     background-color: var(--color-primary);
     position: relative;
@@ -1907,27 +2725,64 @@ header .cantacuzino-promo-products-bar {
     justify-content: center;
 }
 
-@media (max-width: 1023px) {
+/* Mobile scaling for warning icon */
+@media (max-width: 640px) {
     .cantacuzino-warning-icon-circle {
-        width: 3.5rem;
-        height: 3.5rem;
+        width: clamp(3rem, 7vw, 4rem);
+        height: clamp(3rem, 7vw, 4rem);
     }
 
     .cantacuzino-warning-icon-circle svg {
-        width: 32px;
-        height: 28px;
+        width: clamp(24px, 5vw, 32px);
+        height: clamp(22px, 4.5vw, 28px);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-warning-icon-circle {
+        width: clamp(2.75rem, 6.5vw, 3.5rem);
+        height: clamp(2.75rem, 6.5vw, 3.5rem);
+    }
+
+    .cantacuzino-warning-icon-circle svg {
+        width: clamp(22px, 4.5vw, 28px);
+        height: clamp(20px, 4vw, 26px);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-warning-icon-circle {
+        width: clamp(2.5rem, 6vw, 3rem);
+        height: clamp(2.5rem, 6vw, 3rem);
+    }
+
+    .cantacuzino-warning-icon-circle svg {
+        width: clamp(20px, 4vw, 26px);
+        height: clamp(18px, 3.5vw, 24px);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-warning-icon-circle {
+        width: clamp(2.25rem, 5.5vw, 2.75rem);
+        height: clamp(2.25rem, 5.5vw, 2.75rem);
+    }
+
+    .cantacuzino-warning-icon-circle svg {
+        width: clamp(18px, 3.5vw, 24px);
+        height: clamp(16px, 3vw, 22px);
     }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
     .cantacuzino-warning-icon-circle {
-        width: 4.5rem;
-        height: 4.5rem;
+        width: clamp(3.5rem, 7.5vw, 4.5rem);
+        height: clamp(3.5rem, 7.5vw, 4.5rem);
     }
 
     .cantacuzino-warning-icon-circle svg {
-        width: 42px;
-        height: 38px;
+        width: clamp(32px, 5.5vw, 42px);
+        height: clamp(28px, 5vw, 38px);
     }
 }
 
@@ -1972,6 +2827,8 @@ header .cantacuzino-promo-products-bar {
         grid-template-columns: repeat(1, minmax(0, 1fr));
         gap: 2rem;
         min-height: auto;
+        justify-items: center;
+        text-align: center;
     }
 }
 
@@ -1986,22 +2843,44 @@ header .cantacuzino-promo-products-bar {
     color: var(--color-primary);
     font-family: 'Manrope', sans-serif;
     font-weight: 300;
-    font-size: 30px;
+    font-size: clamp(14px, 3.5vw, 30px);
     line-height: 1.4;
     margin: 0;
-    margin-bottom: 1rem;
+    margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
 }
 
-@media (max-width: 1023px) {
+/* Mobile scaling for banner subtitle */
+@media (max-width: 640px) {
     .cantacuzino-banner-subtitle {
-        font-size: 18px;
-        margin-bottom: 0.75rem;
+        font-size: clamp(13px, 3.2vw, 18px);
+        margin-bottom: clamp(0.5rem, 1.2vw, 0.75rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-banner-subtitle {
+        font-size: clamp(12px, 3vw, 16px);
+        margin-bottom: clamp(0.375rem, 1vw, 0.625rem);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-banner-subtitle {
+        font-size: clamp(11px, 2.8vw, 14px);
+        margin-bottom: clamp(0.25rem, 0.9vw, 0.5rem);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-banner-subtitle {
+        font-size: clamp(10px, 2.5vw, 13px);
+        margin-bottom: clamp(0.25rem, 0.8vw, 0.5rem);
     }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
     .cantacuzino-banner-subtitle {
-        font-size: 22px;
+        font-size: clamp(18px, 3.5vw, 22px);
     }
 }
 
@@ -2010,21 +2889,43 @@ header .cantacuzino-promo-products-bar {
     color: var(--color-white);
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
-    font-size: 70px;
+    font-size: clamp(24px, 7vw, 70px);
     line-height: 1.4;
     margin: 0;
 }
 
-@media (max-width: 1023px) {
+/* Mobile scaling for banner title */
+@media (max-width: 640px) {
     .cantacuzino-banner-title {
-        font-size: 32px;
+        font-size: clamp(22px, 6.5vw, 32px);
         line-height: 1.3;
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-banner-title {
+        font-size: clamp(20px, 6vw, 28px);
+        line-height: 1.25;
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-banner-title {
+        font-size: clamp(18px, 5.5vw, 26px);
+        line-height: 1.2;
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-banner-title {
+        font-size: clamp(16px, 5vw, 24px);
+        line-height: 1.15;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
     .cantacuzino-banner-title {
-        font-size: 42px;
+        font-size: clamp(32px, 6vw, 42px);
         line-height: 1.35;
     }
 }
@@ -2050,6 +2951,8 @@ header .cantacuzino-promo-products-bar {
         overflow: visible;
         padding-left: 0;
         margin-top: 1.5rem;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -2059,58 +2962,115 @@ header .cantacuzino-promo-products-bar {
         gap: 2rem;
         padding-left: 2rem;
         margin-top: 0;
+        justify-content: center;
     }
 }
 
 /* Contact Text */
 .cantacuzino-contact-text {
-    font-size: 20px;
+    font-size: clamp(12px, 2.5vw, 20px);
     line-height: 1.35;
     font-weight: 500;
     margin: 0;
 }
 
-@media (max-width: 1023px) {
+/* Mobile scaling for contact text */
+@media (max-width: 640px) {
     .cantacuzino-contact-text {
-        font-size: 16px;
+        font-size: clamp(11px, 2.2vw, 16px);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-contact-text {
+        font-size: clamp(10px, 2vw, 14px);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-contact-text {
+        font-size: clamp(9px, 1.8vw, 12px);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-contact-text {
+        font-size: clamp(8px, 1.5vw, 11px);
     }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
     .cantacuzino-contact-text {
-        font-size: 18px;
+        font-size: clamp(16px, 2.5vw, 18px);
     }
 }
 
 /* Contact Icon Circle */
 .cantacuzino-contact-icon-circle {
-    width: 104px;
-    height: 104px;
+    width: clamp(60px, 12vw, 104px);
+    height: clamp(60px, 12vw, 104px);
     border-radius: 9999px;
     background-color: var(--color-primary);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1rem;
+    margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
 }
 
-@media (max-width: 1023px) {
+/* Mobile scaling for contact icon */
+@media (max-width: 640px) {
     .cantacuzino-contact-icon-circle {
-        width: 70px;
-        height: 70px;
-        margin-bottom: 0.75rem;
+        width: clamp(55px, 11vw, 70px);
+        height: clamp(55px, 11vw, 70px);
+        margin-bottom: clamp(0.5rem, 1.2vw, 0.75rem);
     }
-
+    
     .cantacuzino-contact-icon-circle svg {
-        width: 32px;
-        height: 32px;
+        width: clamp(24px, 5vw, 32px);
+        height: clamp(24px, 5vw, 32px);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-contact-icon-circle {
+        width: clamp(50px, 10vw, 65px);
+        height: clamp(50px, 10vw, 65px);
+    }
+    
+    .cantacuzino-contact-icon-circle svg {
+        width: clamp(22px, 4.5vw, 28px);
+        height: clamp(22px, 4.5vw, 28px);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-contact-icon-circle {
+        width: clamp(45px, 9vw, 60px);
+        height: clamp(45px, 9vw, 60px);
+    }
+    
+    .cantacuzino-contact-icon-circle svg {
+        width: clamp(20px, 4vw, 26px);
+        height: clamp(20px, 4vw, 26px);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-contact-icon-circle {
+        width: clamp(40px, 8vw, 55px);
+        height: clamp(40px, 8vw, 55px);
+    }
+    
+    .cantacuzino-contact-icon-circle svg {
+        width: clamp(18px, 3.5vw, 24px);
+        height: clamp(18px, 3.5vw, 24px);
     }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
     .cantacuzino-contact-icon-circle {
-        width: 80px;
-        height: 80px;
+        width: clamp(70px, 10vw, 80px);
+        height: clamp(70px, 10vw, 80px);
     }
 }
 
@@ -2118,7 +3078,7 @@ header .cantacuzino-promo-products-bar {
 .cantacuzino-contact-link-text {
     color: var(--color-white);
     font-family: 'Manrope', sans-serif;
-    font-size: 20px;
+    font-size: clamp(12px, 2.5vw, 20px);
     line-height: 1.35;
     text-align: left;
 }
@@ -2132,16 +3092,38 @@ header .cantacuzino-promo-products-bar {
     text-decoration: underline;
 }
 
-@media (max-width: 1023px) {
+/* Mobile scaling for contact link text */
+@media (max-width: 640px) {
     .cantacuzino-contact-link-text {
-        font-size: 16px;
+        font-size: clamp(11px, 2.2vw, 16px);
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-contact-link-text {
+        font-size: clamp(10px, 2vw, 14px);
+        text-align: center;
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-contact-link-text {
+        font-size: clamp(9px, 1.8vw, 12px);
+        text-align: center;
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-contact-link-text {
+        font-size: clamp(8px, 1.5vw, 11px);
         text-align: center;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
     .cantacuzino-contact-link-text {
-        font-size: 18px;
+        font-size: clamp(16px, 2.5vw, 18px);
         text-align: left;
     }
 }
@@ -2216,6 +3198,21 @@ header .cantacuzino-promo-products-bar {
 
 .cantacuzino-max-w-420 {
     max-width: 100%;
+}
+
+/* Centrare secțiune reviewuri pozitive pe mobile și tabletă */
+@media (max-width: 1023px) {
+    .cantacuzino-max-w-420 {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    
+    .cantacuzino-review-badge {
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+    }
 }
 
 @media (min-width: 768px) {
@@ -2345,23 +3342,45 @@ header .cantacuzino-promo-products-bar {
     color: var(--color-white);
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
-    font-size: 70px;
+    font-size: clamp(24px, 6vw, 70px);
     line-height: 1.4;
-    margin-bottom: 0.5rem;
+    margin-bottom: clamp(0.25rem, 0.8vw, 0.5rem);
     margin-top: 0;
 }
 
-@media (max-width: 1023px) {
+/* Mobile scaling for stats number */
+@media (max-width: 640px) {
     .cantacuzino-stats-number {
-        font-size: 36px;
-        margin-top: 1.5rem;
+        font-size: clamp(22px, 5.5vw, 36px);
+        margin-top: clamp(1rem, 2.5vw, 1.5rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-stats-number {
+        font-size: clamp(20px, 5vw, 32px);
+        margin-top: clamp(0.75rem, 2vw, 1.25rem);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-stats-number {
+        font-size: clamp(18px, 4.5vw, 28px);
+        margin-top: clamp(0.5rem, 1.8vw, 1rem);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-stats-number {
+        font-size: clamp(16px, 4vw, 24px);
+        margin-top: clamp(0.5rem, 1.5vw, 0.875rem);
     }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
     .cantacuzino-stats-number {
-        font-size: 42px;
-        margin-top: 2rem;
+        font-size: clamp(32px, 5.5vw, 42px);
+        margin-top: clamp(1.5rem, 3vw, 2rem);
     }
 }
 
@@ -2370,22 +3389,44 @@ header .cantacuzino-promo-products-bar {
     color: var(--color-white);
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
-    font-size: 30px;
+    font-size: clamp(14px, 3.5vw, 30px);
     line-height: 1.4;
-    margin-bottom: 1.5rem;
+    margin-bottom: clamp(0.5rem, 2vw, 1.5rem);
 }
 
-@media (max-width: 1023px) {
+/* Mobile scaling for stats label */
+@media (max-width: 640px) {
     .cantacuzino-stats-label {
-        font-size: 18px;
-        margin-bottom: 0.75rem;
+        font-size: clamp(13px, 3.2vw, 18px);
+        margin-bottom: clamp(0.5rem, 1.2vw, 0.75rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-stats-label {
+        font-size: clamp(12px, 3vw, 16px);
+        margin-bottom: clamp(0.375rem, 1vw, 0.625rem);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-stats-label {
+        font-size: clamp(11px, 2.8vw, 14px);
+        margin-bottom: clamp(0.25rem, 0.9vw, 0.5rem);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-stats-label {
+        font-size: clamp(10px, 2.5vw, 13px);
+        margin-bottom: clamp(0.25rem, 0.8vw, 0.5rem);
     }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
     .cantacuzino-stats-label {
-        font-size: 22px;
-        margin-bottom: 1rem;
+        font-size: clamp(18px, 3.5vw, 22px);
+        margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
     }
 }
 
@@ -2534,22 +3575,47 @@ header .cantacuzino-promo-products-bar {
 
 .cantacuzino-info-title {
     font-weight: 500;
-    font-size: 18px;
+    font-size: clamp(14px, 3vw, 18px);
     line-height: 1.5;
     color: var(--color-black);
 }
 
+/* Mobile scaling for info title */
+@media (max-width: 640px) {
+    .cantacuzino-info-title {
+        font-size: clamp(13px, 2.8vw, 16px);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-info-title {
+        font-size: clamp(12px, 2.5vw, 15px);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-info-title {
+        font-size: clamp(11px, 2.2vw, 14px);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-info-title {
+        font-size: clamp(10px, 2vw, 13px);
+    }
+}
+
 @media (min-width: 768px) {
     .cantacuzino-info-title {
-        font-size: 20px;
-        line-height: 32px;
+        font-size: clamp(18px, 3.2vw, 20px);
+        line-height: clamp(28px, 5vw, 32px);
     }
 }
 
 @media (min-width: 1024px) {
     .cantacuzino-info-title {
-        font-size: 22px;
-        line-height: 39px;
+        font-size: clamp(20px, 3.5vw, 22px);
+        line-height: clamp(35px, 6vw, 39px);
     }
 }
 
@@ -2558,22 +3624,47 @@ header .cantacuzino-promo-products-bar {
 }
 
 .cantacuzino-info-text {
-    font-size: 16px;
+    font-size: clamp(12px, 2.5vw, 16px);
     line-height: 1.5;
     color: rgba(0, 0, 0, 0.8);
 }
 
+/* Mobile scaling for info text */
+@media (max-width: 640px) {
+    .cantacuzino-info-text {
+        font-size: clamp(11px, 2.2vw, 14px);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-info-text {
+        font-size: clamp(10px, 2vw, 13px);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-info-text {
+        font-size: clamp(9px, 1.8vw, 12px);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-info-text {
+        font-size: clamp(8px, 1.5vw, 11px);
+    }
+}
+
 @media (min-width: 768px) {
     .cantacuzino-info-text {
-        font-size: 17px;
-        line-height: 28px;
+        font-size: clamp(15px, 2.8vw, 17px);
+        line-height: clamp(24px, 4.5vw, 28px);
     }
 }
 
 @media (min-width: 1024px) {
     .cantacuzino-info-text {
-        font-size: 18px;
-        line-height: 30px;
+        font-size: clamp(16px, 3vw, 18px);
+        line-height: clamp(27px, 5vw, 30px);
     }
 }
 
@@ -2610,63 +3701,182 @@ header .cantacuzino-promo-products-bar {
     gap: 2.5rem;
 }
 
+/* Menu și Link-uri utile pe două coloane pe mobile și tabletă */
+@media (min-width: 640px) and (max-width: 1023px) {
+    .cantacuzino-footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-areas: 
+            "menu links"
+            "newsletter newsletter"
+            "anpc anpc";
+    }
+    
+    .cantacuzino-footer-grid > nav:first-of-type {
+        grid-area: menu;
+    }
+    
+    .cantacuzino-footer-grid > div.cantacuzino-font-manrope:not(.cantacuzino-newsletter-column):not(.cantacuzino-flex) {
+        grid-area: links;
+    }
+    
+    .cantacuzino-footer-grid > .cantacuzino-newsletter-column {
+        grid-area: newsletter;
+    }
+    
+    .cantacuzino-footer-grid > .cantacuzino-flex.cantacuzino-flex-col {
+        grid-area: anpc;
+    }
+}
+
 @media (min-width: 1024px) {
     .cantacuzino-footer-grid {
         grid-template-columns: 250px 250px 1fr 350px;
+        grid-template-areas: unset;
+    }
+    
+    .cantacuzino-footer-grid > nav:first-of-type,
+    .cantacuzino-footer-grid > div:first-of-type:not(.cantacuzino-newsletter-column):not(.cantacuzino-flex),
+    .cantacuzino-footer-grid > .cantacuzino-newsletter-column,
+    .cantacuzino-footer-grid > .cantacuzino-flex.cantacuzino-flex-col {
+        grid-area: unset;
     }
 }
 
 .cantacuzino-footer-heading {
     color: var(--color-black);
     font-weight: 500;
-    font-size: 18px;
+    font-size: clamp(14px, 3vw, 18px);
     line-height: 1.5;
-    margin-bottom: 1.5rem;
+    margin-bottom: clamp(0.75rem, 2vw, 1.5rem);
+}
+
+/* Mobile scaling for footer heading */
+@media (max-width: 640px) {
+    .cantacuzino-footer-heading {
+        font-size: clamp(13px, 2.8vw, 16px);
+        margin-bottom: clamp(0.5rem, 1.5vw, 1.25rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-footer-heading {
+        font-size: clamp(12px, 2.5vw, 15px);
+        margin-bottom: clamp(0.5rem, 1.2vw, 1rem);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-footer-heading {
+        font-size: clamp(11px, 2.2vw, 14px);
+        margin-bottom: clamp(0.375rem, 1vw, 0.875rem);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-footer-heading {
+        font-size: clamp(10px, 2vw, 13px);
+        margin-bottom: clamp(0.25rem, 0.9vw, 0.75rem);
+    }
 }
 
 @media (min-width: 768px) {
     .cantacuzino-footer-heading {
-        font-size: 20px;
-        line-height: 32px;
-        margin-bottom: 2rem;
+        font-size: clamp(18px, 3.2vw, 20px);
+        line-height: clamp(28px, 5vw, 32px);
+        margin-bottom: clamp(1.5rem, 3vw, 2rem);
     }
 }
 
 @media (min-width: 1024px) {
     .cantacuzino-footer-heading {
-        font-size: 23px;
-        line-height: 39px;
-        margin-bottom: 38px;
+        font-size: clamp(20px, 3.5vw, 23px);
+        line-height: clamp(35px, 6vw, 39px);
+        margin-bottom: clamp(2rem, 5vw, 38px);
     }
 }
 
 .cantacuzino-footer-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    font-size: 16px;
+    gap: clamp(8px, 1.5vw, 12px);
+    font-size: clamp(12px, 2.5vw, 16px);
     line-height: 1.5;
     color: rgba(0, 0, 0, 0.8);
 }
 
+/* Mobile scaling for footer list */
+@media (max-width: 640px) {
+    .cantacuzino-footer-list {
+        gap: clamp(6px, 1.2vw, 10px);
+        font-size: clamp(11px, 2.2vw, 14px);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-footer-list {
+        gap: clamp(5px, 1vw, 9px);
+        font-size: clamp(10px, 2vw, 13px);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-footer-list {
+        gap: clamp(4px, 0.9vw, 8px);
+        font-size: clamp(9px, 1.8vw, 12px);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-footer-list {
+        gap: clamp(4px, 0.8vw, 7px);
+        font-size: clamp(8px, 1.5vw, 11px);
+    }
+}
+
 @media (min-width: 768px) {
     .cantacuzino-footer-list {
-        gap: 15px;
-        font-size: 18px;
-        line-height: 24px;
+        gap: clamp(12px, 2vw, 15px);
+        font-size: clamp(16px, 3vw, 18px);
+        line-height: clamp(22px, 4vw, 24px);
     }
 }
 
 @media (min-width: 1024px) {
     .cantacuzino-footer-list {
-        font-size: 19px;
-        line-height: 26px;
+        font-size: clamp(17px, 3.2vw, 19px);
+        line-height: clamp(24px, 4.5vw, 26px);
     }
 }
 
 .cantacuzino-footer-link {
     text-decoration: none;
     color: rgba(0, 0, 0, 0.8);
+    font-size: clamp(12px, 2.5vw, 16px);
+}
+
+/* Mobile scaling for footer link */
+@media (max-width: 640px) {
+    .cantacuzino-footer-link {
+        font-size: clamp(11px, 2.2vw, 14px);
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-footer-link {
+        font-size: clamp(10px, 2vw, 13px);
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-footer-link {
+        font-size: clamp(9px, 1.8vw, 12px);
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-footer-link {
+        font-size: clamp(8px, 1.5vw, 11px);
+    }
 }
 
 .cantacuzino-footer-link:hover {
@@ -2893,6 +4103,15 @@ header .cantacuzino-promo-products-bar {
     }
 }
 
+/* Imagini ANPC în linie pe mobile și tabletă */
+@media (max-width: 1023px) {
+    .cantacuzino-footer-grid .cantacuzino-flex.cantacuzino-flex-col {
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
 .cantacuzino-footer-bottom {
     margin-top: 2.5rem;
     display: flex;
@@ -2902,10 +4121,27 @@ header .cantacuzino-promo-products-bar {
     gap: 1.5rem;
 }
 
+/* Centrare iconuri social media pe mobile și tabletă */
+@media (max-width: 1023px) {
+    .cantacuzino-footer-bottom {
+        align-items: center;
+    }
+    
+    .cantacuzino-footer-bottom .cantacuzino-flex {
+        justify-content: center;
+        width: 100%;
+    }
+}
+
 @media (min-width: 1024px) {
     .cantacuzino-footer-bottom {
         flex-direction: row;
         align-items: center;
+    }
+    
+    .cantacuzino-footer-bottom .cantacuzino-flex {
+        justify-content: flex-start;
+        width: auto;
     }
 }
 
