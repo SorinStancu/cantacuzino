@@ -231,6 +231,11 @@ body {
 
 /* Mobile scaling for container */
 @media (max-width: 1023px) {
+    /* Override: menținem relative pentru price & description, conform cerinței */
+    .cantacuzino-price-position,
+    .cantacuzino-product-description {
+        position: relative !important;
+    }
     .cantacuzino-section-top-sales .cantacuzino-container-xl {
         padding-right: clamp(1.5rem, 4vw, 3rem);
         overflow: visible;
@@ -349,9 +354,7 @@ body {
     text-decoration: none;
 }
 
-/* ========================================
-   COMPONENTS - Badge
-   ======================================== */
+/* COMPONENTS - Badge */
 /* Shared badge styles */
 .cantacuzino-badge-epuizat,
 .cantacuzino-badge-stoc {
@@ -362,7 +365,19 @@ body {
     border-radius: var(--radius-sm);
     font-size: clamp(10px, 2.5vw, 16px);
     line-height: clamp(14px, 3.5vw, 22px);
-    margin: 10px;
+}
+
+/* Specific variants */
+.cantacuzino-badge-epuizat {
+    background: var(--color-black);
+    color: var(--color-white);
+    margin-right: 10px;
+}
+
+.cantacuzino-badge-stoc {
+    background: var(--color-primary);
+    color: var(--color-black);
+    margin-left: 10px;
 }
 
 /* Specific variants */
@@ -420,14 +435,22 @@ body {
 /* ========================================
    COMPONENTS - Price
    ======================================== */
-.cantacuzino-price {
+/* Deprecated: .cantacuzino-price (kept for compatibility) */
+.cantacuzino-price,
+.cantacuzino-price-right,
+.cantacuzino-price-left {
     display: flex;
     align-items: baseline;
     gap: clamp(4px, 1vw, 8px);
     color: var(--color-black);
 }
 
-.cantacuzino-price .cantacuzino-amount {
+.cantacuzino-price-right { justify-content: flex-end; text-align: right; }
+.cantacuzino-price-left { justify-content: flex-start; text-align: left; }
+
+.cantacuzino-price .cantacuzino-amount,
+.cantacuzino-price-right .cantacuzino-amount,
+.cantacuzino-price-left .cantacuzino-amount {
     font-size: clamp(28px, 6vw, 59px);
     line-height: clamp(38px, 8vw, 81px);
     font-weight: 400;
@@ -435,54 +458,70 @@ body {
 
 /* Mobile scaling for price */
 @media (max-width: 640px) {
-    .cantacuzino-price .cantacuzino-amount {
+    .cantacuzino-price .cantacuzino-amount,
+    .cantacuzino-price-right .cantacuzino-amount,
+    .cantacuzino-price-left .cantacuzino-amount {
         font-size: clamp(24px, 5.5vw, 36px);
         line-height: clamp(32px, 7vw, 48px);
     }
 }
 
 @media (max-width: 480px) {
-    .cantacuzino-price .cantacuzino-amount {
+    .cantacuzino-price .cantacuzino-amount,
+    .cantacuzino-price-right .cantacuzino-amount,
+    .cantacuzino-price-left .cantacuzino-amount {
         font-size: clamp(20px, 5vw, 32px);
         line-height: clamp(28px, 6vw, 44px);
     }
 }
 
 @media (max-width: 375px) {
-    .cantacuzino-price .cantacuzino-amount {
+    .cantacuzino-price .cantacuzino-amount,
+    .cantacuzino-price-right .cantacuzino-amount,
+    .cantacuzino-price-left .cantacuzino-amount {
         font-size: clamp(18px, 4.5vw, 28px);
         line-height: clamp(24px, 5.5vw, 40px);
     }
 }
 
 @media (max-width: 320px) {
-    .cantacuzino-price .cantacuzino-amount {
+    .cantacuzino-price .cantacuzino-amount,
+    .cantacuzino-price-right .cantacuzino-amount,
+    .cantacuzino-price-left .cantacuzino-amount {
         font-size: clamp(16px, 4vw, 24px);
         line-height: clamp(22px, 5vw, 36px);
     }
 }
 
-.cantacuzino-price .cantacuzino-currency {
+.cantacuzino-price .cantacuzino-currency,
+.cantacuzino-price-right .cantacuzino-currency,
+.cantacuzino-price-left .cantacuzino-currency {
     font-size: clamp(12px, 2.5vw, 22px);
     line-height: clamp(18px, 3.5vw, 31px);
 }
 
 @media (max-width: 640px) {
-    .cantacuzino-price .cantacuzino-currency {
+    .cantacuzino-price .cantacuzino-currency,
+    .cantacuzino-price-right .cantacuzino-currency,
+    .cantacuzino-price-left .cantacuzino-currency {
         font-size: clamp(11px, 2.2vw, 16px);
         line-height: clamp(16px, 3vw, 22px);
     }
 }
 
 @media (max-width: 480px) {
-    .cantacuzino-price .cantacuzino-currency {
+    .cantacuzino-price .cantacuzino-currency,
+    .cantacuzino-price-right .cantacuzino-currency,
+    .cantacuzino-price-left .cantacuzino-currency {
         font-size: clamp(10px, 2vw, 14px);
         line-height: clamp(14px, 2.8vw, 20px);
     }
 }
 
 @media (max-width: 375px) {
-    .cantacuzino-price .cantacuzino-currency {
+    .cantacuzino-price .cantacuzino-currency,
+    .cantacuzino-price-right .cantacuzino-currency,
+    .cantacuzino-price-left .cantacuzino-currency {
         font-size: clamp(9px, 1.8vw, 12px);
         line-height: clamp(13px, 2.5vw, 18px);
     }
@@ -550,9 +589,17 @@ body {
 .cantacuzino-card-product .cantacuzino-content {
     position: relative;
     inset: 0;
-    /* Pe desktop folosim padding-ul existent; pe mobil/tabletă îl suprascriem cu safe area (%) */
     padding: var(--card-padding-top) var(--card-padding-x) var(--card-padding-bottom);
     box-sizing: border-box;
+}
+
+/* Desktop: rezervă spațiu pentru titlu + subtitlu absolut poziționate
+   ca să nu se suprapună cu prețul și descrierea (care sunt în flux) */
+@media (min-width: 1024px) {
+    .cantacuzino-card-product .cantacuzino-content {
+        /* Doar padding-top pentru a păstra padding-ul lateral existent */
+        padding-top: clamp(7rem, 10vw, 9rem);
+    }
 }
 
 @media (max-width: 767px) {
@@ -575,10 +622,8 @@ body {
 
 /* ==============================
    Product Card - Tablet & Mobile (≤1023px)
-   - păstrează conținutul în interiorul ramei indiferent de rezoluție
    ============================== */
 @media (max-width: 1023px) {
-    /* Arată întreaga ramă și menține raportul de aspect al fundalului */
     .cantacuzino-card-product--primary,
     .cantacuzino-card-product--secondary {
         background-size: contain;
@@ -587,7 +632,6 @@ body {
         background-color: #fff;
     }
 
-    /* Raport de aspect derivat din dimensiunile cardului desktop (552x456) */
     .cantacuzino-card-product {
         width: 100%;
         max-width: 552px;
@@ -596,7 +640,6 @@ body {
         overflow: hidden;
     }
 
-    /* Folosește o zonă de siguranță (% din card) care nu se suprapune peste chenarul ramei */
     .cantacuzino-card-product .cantacuzino-content {
         display: grid;
         grid-template-columns: 1fr minmax(120px, 40vw);
@@ -606,13 +649,18 @@ body {
         padding: var(--frame-pad-t) var(--frame-pad-r) var(--frame-pad-b) var(--frame-pad-l);
     }
 
-    /* Elemente în flux – evită orice absolute care ar „ieși” din ramă la schimbare de rezoluție */
     .cantacuzino-badge-top-right,
     .cantacuzino-badge-top-left,
     .cantacuzino-product-title-position,
+    .cantacuzino-product-title-position-right,
+    .cantacuzino-product-title-position-left,
+    .cantacuzino-product-subtitle,
+    .cantacuzino-product-subtitle-right,
+    .cantacuzino-product-subtitle-left,
     .cantacuzino-price-position,
     .cantacuzino-product-description,
-    .cantacuzino-product-image-sod {
+    .cantacuzino-product-image-sod,
+    .cantacuzino-product-image-orostim {
         position: static !important;
         inset: auto !important;
     }
@@ -626,13 +674,23 @@ body {
         z-index: 1;
     }
 
-    /* Titlu + tipografie rezonabilă pe tabletă/mobil */
-    .cantacuzino-product-title-position {
+    /* Titlu + tipografie rezonabilă pe tabletă/mobil
+       Notă: alinierea stânga/dreapta se face per clasă dedicată mai jos */
+    .cantacuzino-product-title-position,
+    .cantacuzino-product-title-position-right,
+    .cantacuzino-product-title-position-left,
+    .cantacuzino-product-subtitle,
+    .cantacuzino-product-subtitle-right,
+    .cantacuzino-product-subtitle-left {
         grid-column: 1 / 2;
-        text-align: left;
         max-width: 100%;
         margin: 0;
     }
+    /* Aliniere pe mobil/tabletă după variantă */
+    .cantacuzino-product-title-position-right,
+    .cantacuzino-product-subtitle-right { text-align: right; }
+    .cantacuzino-product-title-position-left,
+    .cantacuzino-product-subtitle-left { text-align: left; }
     .cantacuzino-product-title {
         font-size: clamp(14px, 2.6vw, 20px);
         line-height: 1.35;
@@ -642,10 +700,14 @@ body {
         line-height: 1.3;
     }
 
-    /* Preț sub titlu, coloană stânga */
+    /* Preț sub titlu, coloană stânga (în flux pe mobil/tabletă) */
     .cantacuzino-price-position { grid-column: 1 / 2; margin-top: 0.25rem; }
-    .cantacuzino-price .cantacuzino-amount { font-size: clamp(24px, 5.2vw, 38px); line-height: 1.1; }
-    .cantacuzino-price .cantacuzino-currency { font-size: clamp(12px, 2.4vw, 20px); line-height: 1.2; margin-left: 6px; }
+    .cantacuzino-price .cantacuzino-amount,
+    .cantacuzino-price-right .cantacuzino-amount,
+    .cantacuzino-price-left .cantacuzino-amount { font-size: clamp(24px, 5.2vw, 38px); line-height: 1.1; }
+    .cantacuzino-price .cantacuzino-currency,
+    .cantacuzino-price-right .cantacuzino-currency,
+    .cantacuzino-price-left .cantacuzino-currency { font-size: clamp(12px, 2.4vw, 20px); line-height: 1.2; margin-left: 6px; }
 
     /* Descriere sub preț, limitată ca lățime pentru a nu atinge rama */
     .cantacuzino-product-description {
@@ -657,14 +719,52 @@ body {
         line-height: clamp(16px, 2.6vw, 19px);
     }
 
-    /* Imagine în dreapta, scalată în zona de siguranță */
-    .cantacuzino-product-image-sod {
+    /* Subtitlu sub titlu pe mobil/tabletă */
+    .cantacuzino-product-subtitle,
+    .cantacuzino-product-subtitle-right,
+    .cantacuzino-product-subtitle-left {
+        grid-column: 1 / 2;
+        margin-top: 0.15rem;
+        font-size: clamp(12px, 2.1vw, 15px);
+        line-height: 1.3;
+        color: rgba(0, 0, 0, 0.75);
+        text-align: left;
+    }
+
+    /* Imagini pe mobil/tabletă prin grid
+       - Cardurile primary: imaginea în coloana din dreapta
+       - Cardurile secondary: imaginea în coloana din stânga */
+    .cantacuzino-card-product--primary .cantacuzino-product-image-sod,
+    .cantacuzino-card-product--primary .cantacuzino-product-image-orostim {
         grid-column: 2 / 3;
         width: min(40vw, 180px);
         aspect-ratio: 1 / 1;
         height: auto;
         justify-self: end;
         align-self: center;
+    }
+
+    .cantacuzino-card-product--secondary .cantacuzino-product-image-sod,
+    .cantacuzino-card-product--secondary .cantacuzino-product-image-orostim {
+        grid-column: 1 / 2;
+        width: min(40vw, 180px);
+        aspect-ratio: 1 / 1;
+        height: auto;
+        justify-self: start;
+        align-self: center;
+    }
+
+    /* Pentru secondary, inversăm coloanele ca în machetă (imagine stânga, text dreapta) */
+    .cantacuzino-card-product--secondary .cantacuzino-content {
+        grid-template-columns: minmax(120px, 40vw) 1fr;
+    }
+
+    /* Mutăm textul în coloana a doua pentru secondary */
+    .cantacuzino-card-product--secondary .cantacuzino-product-title-position-left,
+    .cantacuzino-card-product--secondary .cantacuzino-product-subtitle-left,
+    .cantacuzino-card-product--secondary .cantacuzino-price-position,
+    .cantacuzino-card-product--secondary .cantacuzino-product-description {
+        grid-column: 2 / 3;
     }
 
     /* Variante secondary – fără inversări pe tabletă/mobil */
@@ -2437,26 +2537,34 @@ header .cantacuzino-promo-products-bar {
     position: relative;
 }
 
+/* Imagini generice: păstrează proporțiile și ocupă lățimea disponibilă */
+.cantacuzino-img-contain {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
 /* Badge Positions */
 .cantacuzino-badge-top-right {
     position: absolute;
-    right: clamp(0.5rem, 2vw, 1.5rem);
-    top: clamp(0.5rem, 5vw, 3.5rem);
+    right: clamp(0.55rem, 2.2vw, 1.65rem);
+    top: clamp(0.55rem, 5.5vw, 3.85rem);
     z-index: 10;
 }
 
 /* Mobile scaling for badge top right */
 @media (max-width: 640px) {
     .cantacuzino-badge-top-right {
-        right: clamp(0.375rem, 1.5vw, 0.5rem);
-        top: clamp(0.375rem, 1.5vw, 0.5rem);
+        right: clamp(0.413rem, 1.65vw, 0.55rem);
+        top: clamp(0.413rem, 1.65vw, 0.55rem);
     }
 }
 
 @media (max-width: 480px) {
     .cantacuzino-badge-top-right {
-        right: clamp(0.25rem, 1.2vw, 0.5rem);
-        top: clamp(0.25rem, 1.2vw, 0.5rem);
+        right: clamp(0.275rem, 1.32vw, 0.55rem);
+        top: clamp(0.275rem, 1.32vw, 0.55rem);
     }
 }
 
@@ -2513,8 +2621,8 @@ header .cantacuzino-promo-products-bar {
 /* Product Title */
 .cantacuzino-product-title {
     font-weight: 500;
-    font-size: clamp(14px, 3.5vw, 27px);
-    line-height: 190%;
+    font-size: clamp(17px, 4.2vw, 32px);
+    line-height: 120%;
     text-align: right;
     color: rgba(0, 0, 0, 0.8);
 }
@@ -2522,14 +2630,14 @@ header .cantacuzino-promo-products-bar {
 /* Mobile scaling for product title */
 @media (max-width: 640px) {
     .cantacuzino-product-title {
-        font-size: clamp(13px, 3.2vw, 16px);
+        font-size: 24px;
         line-height: 1.4;
     }
 }
 
 @media (max-width: 480px) {
     .cantacuzino-product-title {
-        font-size: clamp(12px, 3vw, 15px);
+        font-size: 20px;
         line-height: 1.35;
     }
 }
@@ -2557,6 +2665,155 @@ header .cantacuzino-promo-products-bar {
     text-align: right;
 }
 
+/* New explicit sides for product title position */
+.cantacuzino-product-title-position-right {
+    position: absolute;
+    right: clamp(0.5rem, 2vw, 1.5rem);
+    left: auto;
+    top: clamp(0.5rem, 6vw, 4rem);
+    z-index: 10;
+    text-align: right;
+}
+
+.cantacuzino-product-title-position-left {
+    position: absolute;
+    left: clamp(0.5rem, 2vw, 1.5rem);
+    right: auto;
+    top: clamp(0.5rem, 6vw, 4rem);
+    z-index: 10;
+    text-align: left;
+}
+
+/* Subtitlu produs – desktop/larg: poziționare absolută */
+.cantacuzino-product-subtitle {
+    font-weight: 400;
+    font-size: clamp(12px, 1.3vw, 16px);
+    line-height: 1.3;
+    color: rgba(0, 0, 0, 0.75);
+    margin: 0; /* reset margin for h4 when used as subtitle */
+}
+
+.cantacuzino-product-subtitle-right {
+    position: absolute;
+    right: clamp(0.5rem, 2vw, 1.5rem);
+    left: auto;
+    z-index: 10;
+    max-width: 45%;
+    text-align: right;
+}
+
+.cantacuzino-product-subtitle-left {
+    position: absolute;
+    left: clamp(0.5rem, 2vw, 1.5rem);
+    right: auto;
+    z-index: 10;
+    max-width: 45%;
+    text-align: left;
+}
+
+/* Subtitle responsive mirrors to stay just under the title */
+@media (max-width: 1023px) {
+    .cantacuzino-product-subtitle-right {
+        right: clamp(0.5rem, 2vw, 1.5rem);
+        top: clamp(1.5rem, 2.6vw, 1.6rem);
+        max-width: 45%;
+        z-index: 15;
+    }
+    .cantacuzino-product-subtitle-left {
+        left: clamp(0.5rem, 2vw, 1.5rem);
+        top: clamp(1.5rem, 2.6vw, 1.6rem);
+        max-width: 45%;
+        z-index: 15;
+        text-align: left;
+    }
+}
+
+@media (max-width: 767px) {
+    .cantacuzino-product-subtitle-right {
+        right: clamp(0.5rem, 1.5vw, 1rem);
+        top: clamp(1.25rem, 2.2vw, 1.35rem);
+        max-width: 45%;
+        z-index: 15;
+    }
+    .cantacuzino-product-subtitle-left {
+        left: clamp(0.5rem, 1.5vw, 1rem);
+        top: clamp(1.25rem, 2.2vw, 1.35rem);
+        max-width: 45%;
+        z-index: 15;
+        text-align: left;
+    }
+}
+
+@media (max-width: 640px) {
+    .cantacuzino-product-subtitle-right {
+        right: clamp(0.5rem, 1.5vw, 0.75rem);
+        top: clamp(1.25rem, 2vw, 1.25rem);
+        max-width: 45%;
+        z-index: 15;
+    }
+    .cantacuzino-product-subtitle-left {
+        left: clamp(0.5rem, 1.5vw, 0.75rem);
+        top: clamp(1.25rem, 2vw, 1.25rem);
+        max-width: 45%;
+        z-index: 15;
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-product-subtitle-right {
+        right: 0.5rem;
+        top: 1.25rem;
+        max-width: 43%;
+        z-index: 15;
+        font-size: clamp(11px, 2.6vw, 14px);
+    }
+    .cantacuzino-product-subtitle-left {
+        left: 0.5rem;
+        top: 1.25rem;
+        max-width: 43%;
+        z-index: 15;
+        font-size: clamp(11px, 2.6vw, 14px);
+        text-align: left;
+    }
+}
+
+@media (max-width: 375px) {
+    .cantacuzino-product-subtitle-right {
+        right: 0.5rem;
+        top: 1.15rem;
+        max-width: 40%;
+        z-index: 15;
+        font-size: clamp(10px, 2.4vw, 13px);
+    }
+    .cantacuzino-product-subtitle-left {
+        left: 0.5rem;
+        top: 1.15rem;
+        max-width: 40%;
+        z-index: 15;
+        font-size: clamp(10px, 2.4vw, 13px);
+        text-align: left;
+    }
+}
+
+@media (max-width: 320px) {
+    .cantacuzino-product-subtitle-right {
+        right: 0.5rem;
+        top: 1.05rem;
+        max-width: 38%;
+        z-index: 15;
+        font-size: clamp(9px, 2.2vw, 12px);
+    }
+    .cantacuzino-product-subtitle-left {
+        left: 0.5rem;
+        top: 1.05rem;
+        max-width: 38%;
+        z-index: 15;
+        font-size: clamp(9px, 2.2vw, 12px);
+        text-align: left;
+    }
+}
+
 /* Mobile scaling for product title position - titluri în colțul dreapta sus */
 @media (max-width: 1023px) {
     .cantacuzino-product-title-position {
@@ -2564,6 +2821,19 @@ header .cantacuzino-promo-products-bar {
         top: clamp(0.5rem, 2vw, 1rem);
         max-width: 45%;
         z-index: 15;
+    }
+    .cantacuzino-product-title-position-right {
+        right: clamp(0.5rem, 2vw, 1.5rem);
+        left: auto;
+        top: clamp(0.5rem, 2vw, 1rem);
+        z-index: 15;
+    }
+    .cantacuzino-product-title-position-left {
+        left: clamp(0.5rem, 2vw, 1.5rem);
+        right: auto;
+        top: clamp(0.5rem, 2vw, 1rem);
+        z-index: 15;
+        text-align: left;
     }
 }
 
@@ -2574,6 +2844,19 @@ header .cantacuzino-promo-products-bar {
         max-width: 45%;
         z-index: 15;
     }
+    .cantacuzino-product-title-position-right {
+        right: clamp(0.5rem, 1.5vw, 1rem);
+        left: auto;
+        top: clamp(0.5rem, 1.5vw, 0.75rem);
+        z-index: 15;
+    }
+    .cantacuzino-product-title-position-left {
+        left: clamp(0.5rem, 1.5vw, 1rem);
+        right: auto;
+        top: clamp(0.5rem, 1.5vw, 0.75rem);
+        z-index: 15;
+        text-align: left;
+    }
 }
 
 @media (max-width: 640px) {
@@ -2582,6 +2865,19 @@ header .cantacuzino-promo-products-bar {
         top: clamp(0.5rem, 1.5vw, 0.75rem);
         max-width: 45%;
         z-index: 15;
+    }
+    .cantacuzino-product-title-position-right {
+        right: clamp(0.5rem, 1.5vw, 0.75rem);
+        left: auto;
+        top: clamp(0.5rem, 1.5vw, 0.75rem);
+        z-index: 15;
+    }
+    .cantacuzino-product-title-position-left {
+        left: clamp(0.5rem, 1.5vw, 0.75rem);
+        right: auto;
+        top: clamp(0.5rem, 1.5vw, 0.75rem);
+        z-index: 15;
+        text-align: left;
     }
 }
 
@@ -2593,6 +2889,21 @@ header .cantacuzino-promo-products-bar {
         z-index: 15;
         font-size: clamp(12px, 3vw, 16px);
     }
+    .cantacuzino-product-title-position-right {
+        right: 0.5rem;
+        left: auto;
+        top: 0.5rem;
+        z-index: 15;
+        font-size: clamp(12px, 3vw, 16px);
+    }
+    .cantacuzino-product-title-position-left {
+        left: 0.5rem;
+        right: auto;
+        top: 0.5rem;
+        z-index: 15;
+        font-size: clamp(12px, 3vw, 16px);
+        text-align: left;
+    }
 }
 
 @media (max-width: 375px) {
@@ -2602,6 +2913,21 @@ header .cantacuzino-promo-products-bar {
         max-width: 40%;
         z-index: 15;
         font-size: clamp(11px, 2.8vw, 15px);
+    }
+    .cantacuzino-product-title-position-right {
+        right: 0.5rem;
+        left: auto;
+        top: 0.5rem;
+        z-index: 15;
+        font-size: clamp(11px, 2.8vw, 15px);
+    }
+    .cantacuzino-product-title-position-left {
+        left: 0.5rem;
+        right: auto;
+        top: 0.5rem;
+        z-index: 15;
+        font-size: clamp(11px, 2.8vw, 15px);
+        text-align: left;
     }
 }
 
@@ -2613,102 +2939,60 @@ header .cantacuzino-promo-products-bar {
         z-index: 15;
         font-size: clamp(10px, 2.5vw, 14px);
     }
+    .cantacuzino-product-title-position-right {
+        right: 0.5rem;
+        left: auto;
+        top: 0.5rem;
+        z-index: 15;
+        font-size: clamp(10px, 2.5vw, 14px);
+    }
+    .cantacuzino-product-title-position-left {
+        left: 0.5rem;
+        right: auto;
+        top: 0.5rem;
+        z-index: 15;
+        font-size: clamp(10px, 2.5vw, 14px);
+        text-align: left;
+    }
 }
 
 .cantacuzino-text-16 {
     font-size: 16px;
 }
 
-/* Price Position */
+/* Price Position (desktop): implicit pe dreapta pentru cardurile primary; pe stânga pentru secondary */
 .cantacuzino-price-position {
-    position: absolute;
-    left: clamp(0.75rem, 10vw, 67px);
-    top: clamp(2.5rem, 30vw, 221px);
+    position: relative;
     z-index: 8;
+    /* containerul nu mai impune alinierea; lăsăm conținutul (.cantacuzino-price-left/right) să decidă */
+    text-align: inherit;
+    margin-top: 0.25rem;
 }
 
-/* Preț în dreapta pentru card-urile secondary (OROSTIM-HV 250) */
+/* Preț pe stânga pentru card-urile secondary (OROSTIM-HV 250) */
 .cantacuzino-card-product--secondary .cantacuzino-price-position {
-    left: auto;
-    right: clamp(0.75rem, 10vw, 67px);
+    /* fără poziționare pe stânga/dreapta; alinierea vine din conținut */
+    text-align: inherit;
 }
 
-/* Mobile scaling for price position */
+/* IMPORTANT: pe tabletă/mobil (≤1023px) prețul intră în fluxul grid, fără poziționare absolută.
+   Notă: există deja o secțiune la ≈609–731 care setează `position: static !important` pe mobil.
+   Păstrăm o singură sursă de adevăr aici pentru evitarea conflictelor. */
 @media (max-width: 1023px) {
     .cantacuzino-price-position {
-        left: clamp(0.75rem, 2vw, 1rem);
-        top: clamp(2.5rem, 6vw, 3.5rem);
-        z-index: 8;
+        position: relative !important;
+        inset: auto !important;
+        grid-column: 1 / 2;
+        margin-top: 0.25rem;
+        text-align: inherit; /* alinierea vine din .cantacuzino-price-left/.cantacuzino-price-right */
     }
 
     .cantacuzino-card-product--secondary .cantacuzino-price-position {
-        left: auto;
-        right: clamp(0.75rem, 2vw, 1rem);
-    }
-}
-
-@media (max-width: 767px) {
-    .cantacuzino-price-position {
-        left: clamp(0.75rem, 1.5vw, 1rem);
-        top: clamp(2rem, 5vw, 3rem);
-        z-index: 8;
-    }
-
-    .cantacuzino-card-product--secondary .cantacuzino-price-position {
-        left: auto;
-        right: clamp(0.75rem, 1.5vw, 1rem);
-    }
-}
-
-@media (max-width: 640px) {
-    .cantacuzino-price-position {
-        left: clamp(0.75rem, 1.5vw, 1rem);
-        top: clamp(2rem, 5vw, 3rem);
-        z-index: 8;
-    }
-
-    .cantacuzino-card-product--secondary .cantacuzino-price-position {
-        left: auto;
-        right: clamp(0.75rem, 1.5vw, 1rem);
-    }
-}
-
-@media (max-width: 480px) {
-    .cantacuzino-price-position {
-        left: 0.75rem;
-        top: 2rem;
-        z-index: 8;
-    }
-
-    .cantacuzino-card-product--secondary .cantacuzino-price-position {
-        left: auto;
-        right: 0.75rem;
-    }
-}
-
-@media (max-width: 375px) {
-    .cantacuzino-price-position {
-        left: 0.75rem;
-        top: 1.75rem;
-        z-index: 8;
-    }
-
-    .cantacuzino-card-product--secondary .cantacuzino-price-position {
-        left: auto;
-        right: 0.75rem;
-    }
-}
-
-@media (max-width: 320px) {
-    .cantacuzino-price-position {
-        left: 0.75rem;
-        top: 1.5rem;
-        z-index: 8;
-    }
-
-    .cantacuzino-card-product--secondary .cantacuzino-price-position {
-        left: auto;
-        right: 0.75rem;
+        position: relative !important;
+        inset: auto !important;
+        grid-column: 1 / 2;
+        margin-top: 0.25rem;
+        text-align: inherit;
     }
 }
 
@@ -2717,41 +3001,54 @@ header .cantacuzino-promo-products-bar {
     font-size: clamp(11px, 2.8vw, 17.38px);
     line-height: clamp(16px, 3.5vw, 24px);
     color: var(--color-black);
-    position: absolute;
-    left: clamp(12px, 4vw, 72px);
-    top: clamp(60px, 20vw, 318px);
+    position: relative;
     max-width: clamp(100px, 15vw, 228px);
+    margin-top: 25px;
+}
+/* Descriere: alinieri după ID (oglindire stânga/dreapta) */
+.cantacuzino-product-description[id^="cantacuzino-description-left"] {
+    text-align: left;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.cantacuzino-product-description[id^="cantacuzino-description-right"] {
+    text-align: right;
+    margin-left: auto;
+    margin-right: 0;
 }
 
 /* Mobile scaling for product description */
 @media (max-width: 1023px) {
     .cantacuzino-product-description {
-        left: clamp(0.75rem, 2vw, 1rem);
-        top: clamp(4.5rem, 10vw, 6rem);
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
         max-width: clamp(140px, 30vw, 200px);
         z-index: 8;
+        margin-top: 0.375rem;
     }
 
     /* Descriere în dreapta pentru card-urile secondary (OROSTIM-HV 250) */
     .cantacuzino-card-product--secondary .cantacuzino-product-description {
-        left: auto;
-        right: clamp(0.75rem, 2vw, 1rem);
-        text-align: right;
+        text-align: left; /* pe mobil/tabletă menținem alinierea la stânga conform layout-ului în flux */
     }
 }
 
 @media (max-width: 767px) {
     .cantacuzino-product-description {
-        left: clamp(0.75rem, 1.5vw, 1rem);
-        top: clamp(4rem, 9vw, 5.5rem);
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
         max-width: clamp(130px, 28vw, 180px);
         z-index: 8;
+        margin-top: 0.35rem;
     }
 
     .cantacuzino-card-product--secondary .cantacuzino-product-description {
-        left: auto;
-        right: clamp(0.75rem, 1.5vw, 1rem);
-        text-align: right;
+        text-align: left;
     }
 }
 
@@ -2759,16 +3056,17 @@ header .cantacuzino-promo-products-bar {
     .cantacuzino-product-description {
         font-size: clamp(10px, 2.5vw, 12px);
         line-height: clamp(14px, 3vw, 16px);
-        left: clamp(0.75rem, 1.5vw, 1rem);
-        top: clamp(4rem, 9vw, 5.5rem);
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
         max-width: clamp(130px, 28vw, 180px);
         z-index: 8;
+        margin-top: 0.35rem;
     }
 
     .cantacuzino-card-product--secondary .cantacuzino-product-description {
-        left: auto;
-        right: clamp(0.75rem, 1.5vw, 1rem);
-        text-align: right;
+        text-align: left;
     }
 }
 
@@ -2776,16 +3074,17 @@ header .cantacuzino-promo-products-bar {
     .cantacuzino-product-description {
         font-size: clamp(9px, 2.2vw, 11px);
         line-height: clamp(13px, 2.8vw, 15px);
-        left: 0.75rem;
-        top: 3.5rem;
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
         max-width: clamp(100px, 25vw, 140px);
         z-index: 8;
+        margin-top: 0.3rem;
     }
 
     .cantacuzino-card-product--secondary .cantacuzino-product-description {
-        left: auto;
-        right: 0.75rem;
-        text-align: right;
+        text-align: left;
     }
 }
 
@@ -2830,11 +3129,20 @@ header .cantacuzino-promo-products-bar {
     top: clamp(1.5rem, 28vw, 214px);
     width: clamp(90px, 28vw, 195px);
     height: clamp(90px, 28vw, 196px);
-    background-image: url('../images/SOD-NATURAL.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
     z-index: 1;
+}
+
+/* Direct image inside the container (no background) */
+.cantacuzino-product-image-sod .cantacuzino-card-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.cantacuzino-product-image-sod img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 /* Mobile scaling for product image sod - imagini vizibile și bine poziționate */
@@ -2904,11 +3212,49 @@ header .cantacuzino-promo-products-bar {
     top: clamp(1.5rem, 28vw, 214px);
     width: clamp(75px, 22vw, 156px);
     height: clamp(100px, 30vw, 213px);
-    background-image: url('../images/image 16.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
     z-index: 1;
+}
+
+/* Direct image inside the container (no background) */
+.cantacuzino-product-image-orostim .cantacuzino-card-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.cantacuzino-product-image-orostim img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Focus visibility for image link for accessibility */
+.cantacuzino-product-image-sod .cantacuzino-card-link:focus-visible,
+.cantacuzino-product-image-orostim .cantacuzino-card-link:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* ========================================
+   Image positioning via IDs (desktop / >1023px)
+   Use unique IDs that start with:
+   - "cantacuzino-product-image-right" → position on the right
+   - "cantacuzino-product-image-left"  → position on the left
+   The size/top come from the product-specific class; IDs only flip the side.
+   ======================================== */
+@media (min-width: 1024px) {
+    /* Left side mirror for SOD */
+    .cantacuzino-product-image-sod[id^="cantacuzino-product-image-left"] {
+        left: clamp(0.5rem, 7vw, 49px);
+        right: auto;
+    }
+
+    /* Left side mirror for OROSTIM */
+    .cantacuzino-product-image-orostim[id^="cantacuzino-product-image-left"] {
+        left: clamp(0.5rem, 12vw, 85px);
+        right: auto;
+    }
 }
 
 /* Mobile scaling for product image orostim - imagini vizibile și bine poziționate */
