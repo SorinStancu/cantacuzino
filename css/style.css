@@ -1694,16 +1694,39 @@ body {
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-    }
+  }
 
-    .cantacuzino-hero-image {
-        order: -1 !important;
-    }
+  .cantacuzino-hero-image {
+    order: -1 !important;
+  }
 
-    .cantacuzino-hero-stats {
+  .cantacuzino-hero-stats {
         margin-top: -320px;
         order: 2;
-    }
+  }
+}
+
+/* Fix overlap between ~550px and 768px: soften negative offsets and pull stats below the info card */
+@media (min-width: 550px) and (max-width: 768px) {
+  /* Bring product image a bit lower to avoid colliding with the info card */
+  .cantacuzino-hero-image-wrap {
+    top: -260px; /* was -354px in the wider band */
+    z-index: 2;
+  }
+
+  /* Keep the info card readable and above background */
+  .cantacuzino-hero-info {
+    margin-top: -220px; /* align with <=768px tuning above */
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Place stats under the info card, no negative margin to prevent overlap */
+  .cantacuzino-hero-stats {
+    margin-top: 0; /* cancel -320px from the 550–1024 band */
+    position: relative;
+    z-index: 3; /* above image/arrows */
+  }
 }
 
 
