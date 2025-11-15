@@ -70,21 +70,7 @@ body {
 }
 
 /* Header background */
-/*.cantacuzino-bg-header {
-    background-image: url('../images/fundal 1.png');
-    background-position: top center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    min-height: clamp(700px, 100vh, 950px);
-    padding-bottom: clamp(220px, 6vw + 160px, 360px);
-}
 
-@media (max-width: 768px) {
-    .cantacuzino-bg-header {
-       !* min-height: 1520px;*!
-    min-height: clamp(900px, 130vh, 1300px);
-    }
-}*/
 .cantacuzino-bg-header {
     background-image: url('../images/fundal 1.png');
     background-position: top center;
@@ -94,73 +80,141 @@ body {
     padding-bottom: clamp(140px, 6vw + 120px, calc(6vw + 160px));
 }
 
-/* Desktop large */
-@media (min-width: 1600px) {
+/* Bază – ecrane foarte mari (peste 2560px) */
+.cantacuzino-bg-header {
+    min-height: 850px;
+}
+
+/* ≤ 2560px */
+@media (max-width: 2560px) {
     .cantacuzino-bg-header {
-        min-height: 850px;
+        min-height: 900px;
     }
 }
 
-/* Desktop medium */
-@media (max-width: 1599px) {
+/* ≤ 2304px */
+@media (max-width: 2304px) {
     .cantacuzino-bg-header {
-        min-height: clamp(800px, 92vh, 950px);
+        min-height: 990px;
     }
 }
 
-/* Desktop small */
+/* ≤ 2048px */
+@media (max-width: 2048px) {
+    .cantacuzino-bg-header {
+        min-height: 1000px;
+    }
+}
+
+/* ≤ 1920px */
+@media (max-width: 1920px) {
+    .cantacuzino-bg-header {
+        min-height: 1050px;
+    }
+}
+
+/* ≤ 1600px */
+@media (max-width: 1600px) {
+    .cantacuzino-bg-header {
+        min-height: 1100px;
+    }
+}
+
+/* ≤ 1440px */
+@media (max-width: 1440px) {
+    .cantacuzino-bg-header {
+        min-height: 1200px;
+    }
+}
+
+/* ≤ 1366px */
 @media (max-width: 1366px) {
     .cantacuzino-bg-header {
-        min-height: clamp(850px, 95vh, 1000px);
+        min-height: 1300px;
     }
 }
 
-/* Tablet large */
+/* ≤ 1280px */
+@media (max-width: 1280px) {
+    .cantacuzino-bg-header {
+        min-height: 1400px;
+    }
+}
+
+/* ≤ 1024px – tablet landscape */
 @media (max-width: 1024px) {
     .cantacuzino-bg-header {
-        min-height: clamp(1100px, 110vh, 1200px);
+        min-height: 1500px;
     }
 }
 
-/* Tablet */
+/* ≤ 900px – tablet portrait / phablet */
+@media (max-width: 900px) {
+    .cantacuzino-bg-header {
+        min-height: 1600px;
+    }
+}
+
+/* ≤ 768px – mobile large */
 @media (max-width: 768px) {
     .cantacuzino-bg-header {
-        min-height: clamp(1300px, 125vh, 1450px);
+        min-height: 1700px;
     }
 }
 
-/* Mobile large */
+/* ≤ 640px */
 @media (max-width: 640px) {
     .cantacuzino-bg-header {
-        min-height: clamp(1400px, 130vh, 1500px);
+        min-height: 1800px;
     }
 }
 
-/* Mobile medium */
+/* ≤ 540px */
+@media (max-width: 540px) {
+    .cantacuzino-bg-header {
+        min-height: 1900px;
+    }
+}
+
+/* ≤ 480px */
 @media (max-width: 480px) {
     .cantacuzino-bg-header {
-        min-height: clamp(1500px, 135vh, 1650px);
+        min-height: 2000px;
     }
 }
 
-/* Mobile small */
+/* ≤ 414px */
 @media (max-width: 414px) {
     .cantacuzino-bg-header {
-        min-height: clamp(1550px, 140vh, 1700px);
+        min-height: 2100px;
     }
 }
 
-/* Mobile very small */
+/* ≤ 390px */
+@media (max-width: 390px) {
+    .cantacuzino-bg-header {
+        min-height: 2200px;
+    }
+}
+
+/* ≤ 375px */
 @media (max-width: 375px) {
     .cantacuzino-bg-header {
-        min-height: clamp(1600px, 145vh, 1750px);
+        min-height: 2300px;
     }
 }
 
-/* Mobile extra small */
+/* ≤ 360px */
+@media (max-width: 360px) {
+    .cantacuzino-bg-header {
+        min-height: 2400px;
+    }
+}
+
+/* ≤ 320px */
 @media (max-width: 320px) {
     .cantacuzino-bg-header {
-        min-height: clamp(1650px, 150vh, 1800px);
+        min-height: 2500px;
     }
 }
 
