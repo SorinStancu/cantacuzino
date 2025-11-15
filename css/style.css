@@ -231,14 +231,109 @@ body {
 
 /* Mobile scaling for container */
 @media (max-width: 1023px) {
-    /* Override: menținem relative pentru price & description, conform cerinței */
-    .cantacuzino-price-position,
-    .cantacuzino-product-description {
-        position: relative !important;
+    /* =============================================================
+       Grid unificat pe mobil/tabletă cu arii explicite
+       Scop: să așezăm corect imaginea și zona de preț+specificații
+       fără a afecta regulile existente pentru h3/h4 (alinieri left/right)
+       ============================================================= */
+    .cantacuzino-card-product .cantacuzino-content {
+        /* două coloane: text + media (dreapta) */
+        grid-template-columns: 1fr minmax(120px, 40vw) !important;
+        grid-template-rows: repeat(5, min-content);
+        grid-template-areas:
+            "badge badge"
+            "title title"
+            "subtitle subtitle"
+            "price media"
+            "desc media"; /* preț și descriere în col. text, imagine în col. media */
     }
-    .cantacuzino-section-top-sales .cantacuzino-container-xl {
-        padding-right: clamp(1.5rem, 4vw, 3rem);
-        overflow: visible;
+
+    /* Varianta secondary: imaginea în stânga, textul în dreapta */
+    .cantacuzino-card-product--secondary .cantacuzino-content {
+        grid-template-columns: minmax(120px, 40vw) 1fr !important;
+        grid-template-areas:
+            "badge badge"
+            "title title"
+            "subtitle subtitle"
+            "media price"
+            "media desc";
+    }
+
+    /* Maparea elementelor la arii; păstrăm h3/h4 pe toată lățimea cardului */
+    .cantacuzino-card-product .cantacuzino-badge-top-right,
+    .cantacuzino-card-product .cantacuzino-badge-top-left { grid-area: badge; }
+
+    .cantacuzino-card-product .cantacuzino-product-title-position,
+    .cantacuzino-card-product .cantacuzino-product-title-position-right,
+    .cantacuzino-card-product .cantacuzino-product-title-position-left { grid-area: title; }
+
+    .cantacuzino-card-product .cantacuzino-product-subtitle,
+    .cantacuzino-card-product .cantacuzino-product-subtitle-right,
+    .cantacuzino-card-product .cantacuzino-product-subtitle-left { grid-area: subtitle; }
+
+    .cantacuzino-card-product .cantacuzino-price-position { grid-area: price; }
+    .cantacuzino-card-product .cantacuzino-product-description { grid-area: desc; }
+    .cantacuzino-card-product .cantacuzino-product-image-sod,
+    .cantacuzino-card-product .cantacuzino-product-image-orostim { grid-area: media; }
+
+    /* Anulăm forțarea veche de grid-column pentru a lăsa ariile să funcționeze */
+    .cantacuzino-card-product .cantacuzino-price-position,
+    .cantacuzino-card-product .cantacuzino-product-description,
+    .cantacuzino-card-product .cantacuzino-product-image-sod,
+    .cantacuzino-card-product .cantacuzino-product-image-orostim {
+        grid-column: auto !important;
+    }
+
+    /* Alinierea badge-urilor în funcție de variantă */
+    .cantacuzino-card-product .cantacuzino-badge-top-right { justify-self: end; margin-bottom: 0.25rem; }
+    .cantacuzino-card-product .cantacuzino-badge-top-left { justify-self: start; margin-bottom: 0.25rem; }
+
+    /* Imagine – fără poziționări absolute; dimensiuni fluide + contain */
+    .cantacuzino-card-product .cantacuzino-product-image-sod,
+    .cantacuzino-card-product .cantacuzino-product-image-orostim {
+        position: static !important;
+        width: clamp(120px, 40vw, 200px) !important;
+        height: auto !important;
+        align-self: center;
+    }
+    .cantacuzino-card-product--primary .cantacuzino-product-image-sod,
+    .cantacuzino-card-product--primary .cantacuzino-product-image-orostim { justify-self: end; }
+    .cantacuzino-card-product--secondary .cantacuzino-product-image-sod,
+    .cantacuzino-card-product--secondary .cantacuzino-product-image-orostim { justify-self: start; }
+
+    /* Preț + specificații (amount/currency) – în flux, fără text-align impus de container */
+    .cantacuzino-card-product .cantacuzino-price-position {
+        position: static !important;
+        margin-top: 0.25rem !important;
+        text-align: inherit !important; /* lăsăm .cantacuzino-price-left/right să alinieze conținutul */
+    }
+
+    /* Descriere sub preț, lățime limitată ca să nu atingă rama */
+    .cantacuzino-card-product .cantacuzino-product-description {
+        position: static !important;
+        margin-top: 0.375rem !important;
+        max-width: min(34ch, 88%) !important;
+        text-align: left;
+    }
+}
+
+/* Ecrane foarte mici: imaginea sub text, centrată (păstrăm ariile, dar forțăm o singură coloană) */
+@media (max-width: 375px) {
+    .cantacuzino-card-product .cantacuzino-content {
+        grid-template-columns: 1fr !important;
+        grid-template-areas:
+            "badge"
+            "title"
+            "subtitle"
+            "price"
+            "desc"
+            "media";
+    }
+    .cantacuzino-card-product .cantacuzino-product-image-sod,
+    .cantacuzino-card-product .cantacuzino-product-image-orostim {
+        justify-self: center !important;
+        width: min(60vw, 200px) !important;
+        margin-top: 0.5rem !important;
     }
 }
 
@@ -674,16 +769,18 @@ body {
         z-index: 1;
     }
 
-    /* Titlu + tipografie rezonabilă pe tabletă/mobil
-       Notă: alinierea stânga/dreapta se face per clasă dedicată mai jos */
+    /* Titlu + tipografie pe tabletă/mobil
+       Important: lăsăm h3/h4 să iasă din coloana de text și să ocupe lățimea cardului,
+       pentru ca text-align right/left să funcționeze corect (fără constrângerea grid-ului). */
     .cantacuzino-product-title-position,
     .cantacuzino-product-title-position-right,
     .cantacuzino-product-title-position-left,
     .cantacuzino-product-subtitle,
     .cantacuzino-product-subtitle-right,
     .cantacuzino-product-subtitle-left {
-        grid-column: 1 / 2;
+        grid-column: 1 / -1; /* span pe toată lățimea cardului */
         max-width: 100%;
+        width: 100%;
         margin: 0;
     }
     /* Aliniere pe mobil/tabletă după variantă */
@@ -723,13 +820,17 @@ body {
     .cantacuzino-product-subtitle,
     .cantacuzino-product-subtitle-right,
     .cantacuzino-product-subtitle-left {
-        grid-column: 1 / 2;
-        margin-top: 0.15rem;
+        grid-column: 1 / -1; /* menținem pe toată lățimea */
+        margin-top: 0.25rem;
         font-size: clamp(12px, 2.1vw, 15px);
         line-height: 1.3;
         color: rgba(0, 0, 0, 0.75);
-        text-align: left;
+        /* atenție: alinierile se controlează prin clasele -right/-left mai jos */
     }
+
+    /* RE-affirm alinierea după variantă (evită suprascrierea generică pe mobil) */
+    .cantacuzino-product-subtitle-right { text-align: right !important; }
+    .cantacuzino-product-subtitle-left { text-align: left !important; }
 
     /* Imagini pe mobil/tabletă prin grid
        - Cardurile primary: imaginea în coloana din dreapta
@@ -2984,7 +3085,7 @@ header .cantacuzino-promo-products-bar {
         inset: auto !important;
         grid-column: 1 / 2;
         margin-top: 0.25rem;
-        text-align: inherit; /* alinierea vine din .cantacuzino-price-left/.cantacuzino-price-right */
+        text-align: inherit;
     }
 
     .cantacuzino-card-product--secondary .cantacuzino-price-position {
@@ -3005,7 +3106,7 @@ header .cantacuzino-promo-products-bar {
     max-width: clamp(100px, 15vw, 228px);
     margin-top: 25px;
 }
-/* Descriere: alinieri după ID (oglindire stânga/dreapta) */
+
 .cantacuzino-product-description[id^="cantacuzino-description-left"] {
     text-align: left;
     margin-left: 0;
@@ -5038,6 +5139,7 @@ header .cantacuzino-promo-products-bar {
             align-items: center;
             gap: 1rem;
         }
+
     }
 
     /* ==============================
@@ -5077,13 +5179,16 @@ header .cantacuzino-promo-products-bar {
         /* Titlul pe toată lățimea, centrat */
         .cantacuzino-product-title-position {
             position: static !important;
-            grid-column: 1 / -1;
-            text-align: center;
+            grid-column: 1 / 2;
             max-width: 100%;
             margin: 0 0 0.25rem 0;
         }
 
-        /* Tipografie pe mobil (scalare confortabilă, fără valori fixe 1:1) */
+
+        .cantacuzino-product-title-position-right { text-align: right !important; justify-self: end; }
+        .cantacuzino-product-title-position-left { text-align: left !important; justify-self: start; }
+
+
         .cantacuzino-product-title {
             font-size: clamp(15px, 4.2vw, 20px);
             line-height: 1.35;
@@ -5186,6 +5291,257 @@ header .cantacuzino-promo-products-bar {
     .cantacuzino-footer-bottom .cantacuzino-flex {
         justify-content: flex-start;
         width: auto;
+    }
+}
+
+/* =============================================================
+   Autoritate finală pentru layout pe mobil/tabletă (≤1023px)
+   Scop: să anulăm orice reguli anterioare conflictuale și să
+   asigurăm alinierea corectă left/right și poziționarea în grid
+   pentru titlu (h3), subtitlu (h4), preț, descriere și imagine.
+   ============================================================= */
+@media (max-width: 1023px) {
+    /* Grid de bază pentru card */
+    .cantacuzino-card-product .cantacuzino-content {
+        display: grid !important;
+        grid-template-columns: 1fr minmax(120px, 40vw) !important;
+        grid-auto-rows: min-content;
+        align-items: start;
+        gap: 0.5rem 0.75rem;
+    }
+
+    /* Inversăm coloanele pentru varianta secondary */
+    .cantacuzino-card-product--secondary .cantacuzino-content {
+        grid-template-columns: minmax(120px, 40vw) 1fr !important;
+    }
+
+    /* Reset complet de poziționare pentru elementele cheie */
+    .cantacuzino-card-product .cantacuzino-content > .cantacuzino-product-title-position,
+    .cantacuzino-card-product .cantacuzino-content > .cantacuzino-product-title-position-right,
+    .cantacuzino-card-product .cantacuzino-content > .cantacuzino-product-title-position-left,
+    .cantacuzino-card-product .cantacuzino-content > .cantacuzino-product-subtitle,
+    .cantacuzino-card-product .cantacuzino-content > .cantacuzino-product-subtitle-right,
+    .cantacuzino-card-product .cantacuzino-content > .cantacuzino-product-subtitle-left,
+    .cantacuzino-card-product .cantacuzino-content > .cantacuzino-price-position,
+    .cantacuzino-card-product .cantacuzino-content > .cantacuzino-product-description,
+    .cantacuzino-card-product .cantacuzino-content > .cantacuzino-product-image-sod,
+    .cantacuzino-card-product .cantacuzino-content > .cantacuzino-product-image-orostim {
+        position: static !important;
+        inset: auto !important;
+        top: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+    }
+
+    /* Coloana de text (preț, descriere); titlu și subtitlu ies din coloană ca să nu fie constrânse de grid */
+    .cantacuzino-product-title-position,
+    .cantacuzino-product-title-position-right,
+    .cantacuzino-product-title-position-left,
+    .cantacuzino-product-subtitle,
+    .cantacuzino-product-subtitle-right,
+    .cantacuzino-product-subtitle-left,
+    .cantacuzino-price-position,
+    .cantacuzino-product-description {
+        grid-column: 1 / -1 !important; /* h3/h4 pe toată lățimea; preț/descriere vor fi restrânse mai jos */
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+    }
+
+    /* Anulează alinierea implicită din .cantacuzino-product-title (care e right by default)
+       și lasă variantele -right/-left să decidă pe mobil/tabletă. */
+    .cantacuzino-product-title { text-align: inherit !important; }
+    .cantacuzino-product-subtitle { text-align: inherit !important; }
+    .cantacuzino-product-title-position { text-align: inherit !important; }
+
+    /* Pentru secondary, restrângem DOAR elementele de conținut (nu și h3/h4) în coloana 2 */
+    .cantacuzino-card-product--secondary .cantacuzino-product-title-position-left,
+    .cantacuzino-card-product--secondary .cantacuzino-product-subtitle-left,
+    .cantacuzino-card-product--secondary .cantacuzino-price-position,
+    .cantacuzino-card-product--secondary .cantacuzino-product-description {
+        grid-column: 2 / 3 !important;
+    }
+
+    /* Aliniere pe variante */
+    /* Permitem elementelor să ocupe toată lățimea și să se alinieze prin text-align,
+       nu prin justify-self, ca să evităm blocarea în coloana grid. */
+    .cantacuzino-product-title-position-right { text-align: right !important; justify-self: stretch !important; }
+    .cantacuzino-product-title-position-left { text-align: left  !important; justify-self: stretch !important; }
+    .cantacuzino-product-subtitle-right { text-align: right !important; justify-self: stretch !important; width: 100%; }
+    .cantacuzino-product-subtitle-left { text-align: left  !important; justify-self: stretch !important; width: 100%; }
+
+    /* Preț în flux; alinierea rămâne din .cantacuzino-price-left/right */
+    .cantacuzino-price-position { margin-top: 0.25rem !important; }
+
+    /* Descriere sub preț, lățime redusă pentru a nu atinge rama */
+    .cantacuzino-product-description {
+        margin-top: 0.375rem !important;
+        text-align: left;
+        max-width: min(32ch, 85%) !important;
+        font-size: clamp(12px, 3.2vw, 14px);
+        line-height: clamp(17px, 4.6vw, 19px);
+    }
+
+    /* Imaginile în coloana de media (dreapta pentru primary, stânga pentru secondary) */
+    .cantacuzino-card-product--primary .cantacuzino-product-image-sod,
+    .cantacuzino-card-product--primary .cantacuzino-product-image-orostim {
+        grid-column: 2 / 3 !important;
+        justify-self: end;
+        align-self: center;
+        width: min(40vw, 180px) !important;
+        aspect-ratio: 1 / 1;
+        height: auto !important;
+        z-index: 1;
+    }
+
+    .cantacuzino-card-product--secondary .cantacuzino-product-image-sod,
+    .cantacuzino-card-product--secondary .cantacuzino-product-image-orostim {
+        grid-column: 1 / 2 !important;
+        justify-self: start;
+        align-self: center;
+        width: min(40vw, 180px) !important;
+        aspect-ratio: 1 / 1;
+        height: auto !important;
+        z-index: 1;
+    }
+
+    /* Cerință: coboară cu ~20% blocul inferior (coloanele price/desc și media) pe mobil/tabletă */
+    .cantacuzino-card-product .cantacuzino-price-position,
+    .cantacuzino-card-product .cantacuzino-product-description,
+    .cantacuzino-card-product .cantacuzino-product-image-sod,
+    .cantacuzino-card-product .cantacuzino-product-image-orostim {
+        margin-top: calc(20% + 0.25rem) !important; /* 20% din lățimea containerului + mic spațiu */
+    }
+
+    /* Asigurăm spațiu jos în container ca să nu apară tăieri de conținut după coborâre */
+    .cantacuzino-card-product .cantacuzino-content {
+        padding-bottom: clamp(1rem, 8vw, 3rem);
+    }
+}
+
+/* Stack pe ecrane foarte mici: imaginea sub text, centrată */
+@media (max-width: 375px) {
+    .cantacuzino-card-product .cantacuzino-content {
+        grid-template-columns: 1fr !important;
+    }
+    .cantacuzino-product-image-sod,
+    .cantacuzino-product-image-orostim {
+        grid-column: 1 / -1 !important;
+        justify-self: center !important;
+        margin-top: 0.5rem !important;
+        width: min(60vw, 160px) !important;
+        aspect-ratio: 1 / 1;
+    }
+
+    /* Pe ecrane foarte mici, coborârea cu 20% poate fi prea mult – reducem la ~10% */
+    .cantacuzino-card-product .cantacuzino-price-position,
+    .cantacuzino-card-product .cantacuzino-product-description,
+    .cantacuzino-card-product .cantacuzino-product-image-sod,
+    .cantacuzino-card-product .cantacuzino-product-image-orostim {
+        margin-top: calc(10% + 0.25rem) !important;
+    }
+}
+
+/* =============================================================
+   Guard-rails finale pentru alinierea titlurilor/subtitlurilor
+   Scop: să ne asigurăm că variantele "left" rămân aliniate la stânga
+   indiferent de alte reguli generice sau de ordinea în grid.
+   Plasate la finalul fișierului pentru a câștiga cascada.
+   ============================================================= */
+/* Desktop: forțează alinierea la stânga pentru variantele *-left */
+@media (min-width: 1024px) {
+    .cantacuzino-product-title.cantacuzino-product-title-position-left {
+        text-align: left !important;
+    }
+    .cantacuzino-product-subtitle.cantacuzino-product-subtitle-left {
+        text-align: left !important;
+    }
+}
+
+/* Tabletă/Mobil: reconfirmăm alinierea la stânga pentru *-left */
+@media (max-width: 1023px) {
+    .cantacuzino-product-title.cantacuzino-product-title-position-left,
+    .cantacuzino-product-subtitle.cantacuzino-product-subtitle-left {
+        text-align: left !important;
+        width: 100% !important;
+    }
+
+    /* Evită influența self-alignment din grid; lăsăm text-align să dicteze */
+    .cantacuzino-product-title-position-left,
+    .cantacuzino-product-subtitle-left {
+        justify-self: stretch !important;
+    }
+}
+
+/* =============================================================
+   FIX suplimentar mobil/tabletă: scoatem h3/h4 din constrângerile grid
+   și forțăm alinierea prin clasele *-right/*-left, plus reset de position.
+   ============================================================= */
+@media (max-width: 1023px) {
+    .cantacuzino-card-product .cantacuzino-product-title-position-right,
+    .cantacuzino-card-product .cantacuzino-product-subtitle-right,
+    .cantacuzino-card-product .cantacuzino-product-title-position-left,
+    .cantacuzino-card-product .cantacuzino-product-subtitle-left {
+        position: static !important;
+        inset: auto !important;
+        grid-column: 1 / -1 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .cantacuzino-card-product .cantacuzino-product-title-position-right,
+    .cantacuzino-card-product .cantacuzino-product-subtitle-right {
+        text-align: right !important;
+    }
+
+    .cantacuzino-card-product .cantacuzino-product-title-position-left,
+    .cantacuzino-card-product .cantacuzino-product-subtitle-left {
+        text-align: left !important;
+    }
+}
+
+/* =============================================================
+   Scalare badge-uri în cardurile de produs: +20%
+   ============================================================= */
+.cantacuzino-card-product .cantacuzino-badge-top-right > span,
+.cantacuzino-card-product .cantacuzino-badge-top-left > span {
+    display: inline-block;
+}
+.cantacuzino-card-product .cantacuzino-badge-top-right {
+    transform: scale(1.2);
+    transform-origin: top right;
+}
+.cantacuzino-card-product .cantacuzino-badge-top-left {
+    transform: scale(1.2);
+    transform-origin: top left;
+}
+
+/* =============================================================
+   Scalare h3/h4 în cardurile de produs: +10%
+   Folosim transform pentru a nu invalida setările cu clamp existente.
+   ============================================================= */
+.cantacuzino-card-product h3.cantacuzino-product-title,
+.cantacuzino-card-product h4.cantacuzino-product-subtitle {
+    transform: scale(1.1);
+}
+/* Puncte de ancorare pentru transform în funcție de aliniere */
+.cantacuzino-card-product h3.cantacuzino-product-title.cantacuzino-product-title-position-right,
+.cantacuzino-card-product h4.cantacuzino-product-subtitle.cantacuzino-product-subtitle-right {
+    transform-origin: top right;
+}
+.cantacuzino-card-product h3.cantacuzino-product-title.cantacuzino-product-title-position-left,
+.cantacuzino-card-product h4.cantacuzino-product-subtitle.cantacuzino-product-subtitle-left {
+    transform-origin: top left;
+}
+
+/* =============================================================
+   Desktop: creștem spațiul rezervat pentru titlu/subtitlu (h3/h4) cu ~10%
+   pentru a preveni orice suprapuneri cu prețul după scalare.
+   ============================================================= */
+@media (min-width: 1024px) {
+    .cantacuzino-card-product .cantacuzino-content {
+        padding-top: clamp(7.7rem, 11vw, 9.9rem);
     }
 }
 
