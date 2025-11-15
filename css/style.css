@@ -134,87 +134,10 @@ body {
     }
 }
 
-/* ≤ 1280px */
+/* ≤ 1280px și tot ce este mai mic */
 @media (max-width: 1280px) {
     .cantacuzino-bg-header {
-        min-height: 1400px;
-    }
-}
-
-/* ≤ 1024px – tablet landscape */
-@media (max-width: 1024px) {
-    .cantacuzino-bg-header {
-        min-height: 1500px;
-    }
-}
-
-/* ≤ 900px – tablet portrait / phablet */
-@media (max-width: 900px) {
-    .cantacuzino-bg-header {
-        min-height: 1600px;
-    }
-}
-
-/* ≤ 768px – mobile large */
-@media (max-width: 768px) {
-    .cantacuzino-bg-header {
-        min-height: 1700px;
-    }
-}
-
-/* ≤ 640px */
-@media (max-width: 640px) {
-    .cantacuzino-bg-header {
-        min-height: 1800px;
-    }
-}
-
-/* ≤ 540px */
-@media (max-width: 540px) {
-    .cantacuzino-bg-header {
-        min-height: 1900px;
-    }
-}
-
-/* ≤ 480px */
-@media (max-width: 480px) {
-    .cantacuzino-bg-header {
-        min-height: 2000px;
-    }
-}
-
-/* ≤ 414px */
-@media (max-width: 414px) {
-    .cantacuzino-bg-header {
-        min-height: 2100px;
-    }
-}
-
-/* ≤ 390px */
-@media (max-width: 390px) {
-    .cantacuzino-bg-header {
-        min-height: 2200px;
-    }
-}
-
-/* ≤ 375px */
-@media (max-width: 375px) {
-    .cantacuzino-bg-header {
-        min-height: 2300px;
-    }
-}
-
-/* ≤ 360px */
-@media (max-width: 360px) {
-    .cantacuzino-bg-header {
-        min-height: 2400px;
-    }
-}
-
-/* ≤ 320px */
-@media (max-width: 320px) {
-    .cantacuzino-bg-header {
-        min-height: 2500px;
+        min-height: 1450px;
     }
 }
 
@@ -1614,6 +1537,10 @@ body {
 
     .cantacuzino-hero-stats {
         order: 1 !important;
+        /* Fix: prevent carry-over of large negative margin from wider breakpoints */
+        margin-top: 0; /* was -320px at wider breakpoints */
+        position: relative;
+        z-index: 3; /* above arrows (z:2) and info bg */
     }
 
 
@@ -1661,6 +1588,12 @@ body {
         margin-top: -220px;
         z-index: 1;
     }
+    /* Ensure the stats block is visible on ≤768px */
+    .cantacuzino-hero-stats {
+        margin-top: 0; /* reset any negative margins */
+        position: relative;
+        z-index: 3;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1687,6 +1620,10 @@ body {
         position: relative;
         margin-top: -240px;
         z-index: 1;
+    }
+    .cantacuzino-hero-stats {
+        margin-top: 0;
+        z-index: 3;
     }
 }
 
@@ -1776,6 +1713,121 @@ body {
 /* ========================================
    UTILITIES
    ======================================== */
+.cantacuzino-hero-stats {
+    /* Consolidated styles for the right hero column (stats + actions) */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--color-white);
+    font-family: 'Manrope', sans-serif;
+    width: 463px;
+    height: 453px;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+/* Inner rows */
+.cantacuzino-hero-stats__figures {
+    display: flex;
+    align-items: flex-end;
+    gap: 1.5rem; /* 24px */
+    margin-bottom: 2rem; /* 32px */
+}
+
+/* Space between the two stat groups (second block) */
+.cantacuzino-hero-stats__figures > div + div {
+    margin-left: 40px;
+}
+
+.cantacuzino-hero-stats__actions {
+    display: flex;
+    align-items: center;
+    gap: 19px;
+}
+
+/* Responsive adjustments for the hero stats block */
+@media (max-width: 1024px) {
+    .cantacuzino-hero-stats {
+        width: 100%;
+        max-width: 540px;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .cantacuzino-hero-stats {
+        width: 100%;
+        max-width: 420px;
+        gap: 12px;
+    }
+    .cantacuzino-hero-stats__figures {
+        justify-content: space-between;
+        margin-bottom: 16px;
+    }
+    .cantacuzino-hero-stats__figures > div + div {
+        margin-left: 20px;
+    }
+    .cantacuzino-hero-stats__actions {
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .cantacuzino-hero-stats {
+        max-width: 360px;
+        align-items: stretch;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+    .cantacuzino-hero-stats__figures {
+        gap: 12px;
+    }
+    .cantacuzino-hero-stats__figures > div + div {
+        margin-left: 12px;
+    }
+    .cantacuzino-hero-stats__actions a {
+        flex: 1 1 auto;
+        min-width: 150px;
+    }
+}
+
+@media (max-width: 360px) {
+    .cantacuzino-hero-stats {
+        max-width: 320px;
+    }
+}
+
+/* Tablet-specific tuning (portrait & landscape tablets) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .cantacuzino-hero-stats {
+        /* Override general ≤1024px to better fit tablet width */
+        max-width: 560px;
+        gap: 16px;
+    }
+
+    .cantacuzino-hero-stats__figures {
+        align-items: flex-end;
+        gap: 24px;           /* a bit more breathable than phone */
+        margin-bottom: 24px;  /* keep rhythm consistent on tablet */
+    }
+
+    .cantacuzino-hero-stats__figures > div + div {
+        margin-left: 32px;    /* between 40px (desktop) and 20px (mobile) */
+    }
+
+    .cantacuzino-hero-stats__actions {
+        gap: 16px;
+        flex-wrap: nowrap;    /* on tablet we keep buttons on one line if space allows */
+    }
+
+    .cantacuzino-hero-stats__actions a {
+        flex: 0 0 auto;       /* prevent stretching like on mobile */
+    }
+}
+
 .bg-img {
     background-position: center;
     background-repeat: no-repeat;
